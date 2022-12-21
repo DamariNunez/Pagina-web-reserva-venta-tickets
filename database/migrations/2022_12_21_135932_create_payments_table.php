@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('username')->nullable(false);;
-            $table->string('lastname')->nullable(false);;
-            $table->string('email')->unique()->nullable(false);;
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable(false);;
-            $table->string('phone')->nullable(false);;
-            $table->rememberToken();
+            $table->float('totalCost')->nullable(false);
+            $table->unsignedBigInteger('idTicket')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('idTicket')->references('id')->on('tickets')->onDelete('restrict');
         });
     }
 
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('payments');
     }
 };
