@@ -70,5 +70,8 @@
     "Delete": "Delete",
     "Category": "Category",
     "Categories": "Categories",
-    "NameCategory": "NameCategory"
+    "NameCategory": "NameCategory",
+    "City": "City",
+    "Cities": "Cities",
+    "NameCity": "NameCity"
 }
