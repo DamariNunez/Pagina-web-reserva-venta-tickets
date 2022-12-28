@@ -39,19 +39,37 @@ class UserComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'username' => 'text', 
+            'lastname' => 'text', 
+            'email' => 'email',  
+            'password' => 'password', 
+            'phone' => 'text'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'username' => 'required', 
+            'lastname' => 'required', 
+            'email' => 'required',  
+            'password' => 'required', 
+            'phone' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'username' => 'text', 
+            'lastname' => 'text', 
+            'email' => 'email',  
+            'password' => 'password', 
+            'phone' => 'text'
+        ];
     }
 }

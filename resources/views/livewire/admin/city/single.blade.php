@@ -1,5 +1,5 @@
 <tr x-data="{ modalIsOpen : false }">
-    <td class="">{{ $city->city }}</td>
+    <td class="">{{ $city->name }}</td>
     
     @if(getCrudConfig('City')->delete or getCrudConfig('City')->update)
         <td>

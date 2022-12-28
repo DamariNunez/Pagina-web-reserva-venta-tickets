@@ -12,15 +12,14 @@ class Update extends Component
 
     public $city;
 
-    public $name;
     
     protected $rules = [
-        'city' => 'required',        
+        
     ];
 
     public function mount(City $City){
         $this->city = $City;
-        $this->city = $this->city->city;        
+        
     }
 
     public function updated($input)
@@ -36,7 +35,6 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('City') ]) ]);
         
         $this->city->update([
-            'city' => $this->city,
             'user_id' => auth()->id(),
         ]);
     }

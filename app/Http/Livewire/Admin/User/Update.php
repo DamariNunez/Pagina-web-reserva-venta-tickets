@@ -12,14 +12,27 @@ class Update extends Component
 
     public $user;
 
+    public $username;
+    public $lastname;
+    public $email;
+    public $password;
+    public $phone;
     
     protected $rules = [
-        
+        'username' => 'required',
+        'lastname' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+        'phone' => 'required',        
     ];
 
     public function mount(User $User){
         $this->user = $User;
-        
+        $this->username = $this->user->username;
+        $this->lastname = $this->user->lastname;
+        $this->email = $this->user->email;
+        $this->password = $this->user->password;
+        $this->phone = $this->user->phone;        
     }
 
     public function updated($input)
@@ -35,6 +48,11 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('User') ]) ]);
         
         $this->user->update([
+            'username' => $this->username,
+            'lastname' => $this->lastname,
+            'email' => $this->email,
+            'password' => $this->password,
+            'phone' => $this->phone,
             'user_id' => auth()->id(),
         ]);
     }

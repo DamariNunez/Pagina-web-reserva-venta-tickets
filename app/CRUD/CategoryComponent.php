@@ -39,25 +39,19 @@ class CategoryComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [
-            'name' => 'text'
-        ];
+        return [];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [
-            'name' => 'required'
-        ];
+        return [];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [
-            'name' => 'text'
-        ];
+        return [];
     }
 }

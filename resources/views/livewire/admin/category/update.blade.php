@@ -14,13 +14,7 @@
 
         <div class="card-body">
 
-                        <!-- Name Input -->
-            <div class='form-group'>
-                <label for='input-name' class='col-sm-2 control-label '> {{ __('Name') }}</label>
-                <input type='text' id='input-name' wire:model.lazy='name' class="form-control  @error('name') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('name') <div class='invalid-feedback'>{{ $message }}</div> @enderror
-            </div>
-
+            
 
         </div>
 
