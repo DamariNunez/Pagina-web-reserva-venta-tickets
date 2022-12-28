@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('namePlace')->nullable(false);
+            $table->string('name')->nullable(false);
             $table->integer('capacity')->nullable(false);
             $table->string('address')->nullable(false);
             $table->unsignedBigInteger('idCity')->nullable(false);

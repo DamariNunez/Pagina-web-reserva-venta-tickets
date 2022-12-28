@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
+            $table->string('name')->nullable(false);
             $table->integer('duration')->nullable(false);
             $table->float('value')->nullable(false);
             $table->string('description')->nullable(false);

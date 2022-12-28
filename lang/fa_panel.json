@@ -79,5 +79,19 @@
     "NameCategory": "NameCategory",
     "City": "City",
     "Cities": "Cities",
-    "NameCity": "NameCity"
+    "NameCity": "NameCity",
+    "Timetable": "Timetable",
+    "Timetables": "Timetables",
+    "Time": "Time",
+    "Date": "Date",
+    "Event": "Event",
+    "Events": "Events",
+    "Username": "Username",
+    "Lastname": "Lastname",
+    "Email": "Email",
+    "Password": "Password",
+    "Phone": "Phone",
+    "User": "User",
+    "Users": "Users",
+    "Name": "Name"
 }

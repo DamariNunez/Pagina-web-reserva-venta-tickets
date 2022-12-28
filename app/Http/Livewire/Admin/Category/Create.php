@@ -10,10 +10,10 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $nameCategory;
+    public $name;
     
     protected $rules = [
-        'nameCategory' => 'required',        
+        'name' => 'required',        
     ];
 
     public function updated($input)
@@ -29,7 +29,7 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Category') ])]);
         
         Category::create([
-            'nameCategory' => $this->nameCategory,
+            'name' => $this->name,
             'user_id' => auth()->id(),
         ]);
 

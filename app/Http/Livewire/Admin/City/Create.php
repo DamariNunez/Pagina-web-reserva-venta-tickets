@@ -10,10 +10,10 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $nameCity;
+    public $city;
     
     protected $rules = [
-        'nameCity' => 'required',        
+        'city' => 'required',        
     ];
 
     public function updated($input)
@@ -29,7 +29,7 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('City') ])]);
         
         City::create([
-            'nameCity' => $this->nameCity,
+            'city' => $this->city,
             'user_id' => auth()->id(),
         ]);
 

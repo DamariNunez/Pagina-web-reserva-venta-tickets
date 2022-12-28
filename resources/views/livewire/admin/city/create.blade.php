@@ -13,11 +13,11 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-                        <!-- NameCity Input -->
+                        <!-- City Input -->
             <div class='form-group'>
-                <label for='input-nameCity' class='col-sm-2 control-label '> {{ __('NameCity') }}</label>
-                <input type='text' id='input-nameCity' wire:model.lazy='nameCity' class="form-control  @error('nameCity') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('nameCity') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <label for='input-city' class='col-sm-2 control-label '> {{ __('City') }}</label>
+                <input type='text' id='input-city' wire:model.lazy='city' class="form-control  @error('city') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('city') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
 
         </div>

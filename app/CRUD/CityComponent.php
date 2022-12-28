@@ -25,13 +25,13 @@ class CityComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['nameCity'];
+        return ['name'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['nameCity'];
+        return ['name'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -40,7 +40,7 @@ class CityComponent implements CRUDComponent
     public function inputs()
     {
         return [
-            'nameCity' => 'text'
+            'name' => 'text'
         ];
     }
 
@@ -49,7 +49,7 @@ class CityComponent implements CRUDComponent
     public function validationRules()
     {
         return [
-            'nameCity' => 'required'
+            'name' => 'required'
         ];
     }
 
@@ -57,7 +57,7 @@ class CityComponent implements CRUDComponent
     public function storePaths()
     {
         return [
-            'nameCity' => 'text'
+            'name' => 'text'
         ];
     }
 }

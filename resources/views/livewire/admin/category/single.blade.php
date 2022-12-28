@@ -1,5 +1,5 @@
 <tr x-data="{ modalIsOpen : false }">
-    <td class="">{{ $category->nameCategory }}</td>
+    <td class="">{{ $category->name }}</td>
     
     @if(getCrudConfig('Category')->delete or getCrudConfig('Category')->update)
         <td>

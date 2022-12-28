@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('nameLanguage')->unique()->nullable(false);
+            $table->string('name')->unique()->nullable(false);
             $table->string('ISO_code')->unique()->nullable(false);
             $table->softDeletes();
             $table->timestamps();

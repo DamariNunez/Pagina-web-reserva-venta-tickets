@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('nameCity')->unique()->nullable(false);
+            $table->string('name')->unique()->nullable(false);
             $table->softDeletes();
             $table->timestamps();
         });

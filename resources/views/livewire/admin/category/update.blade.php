@@ -14,11 +14,11 @@
 
         <div class="card-body">
 
-                        <!-- NameCategory Input -->
+                        <!-- Name Input -->
             <div class='form-group'>
-                <label for='input-nameCategory' class='col-sm-2 control-label '> {{ __('NameCategory') }}</label>
-                <input type='text' id='input-nameCategory' wire:model.lazy='nameCategory' class="form-control  @error('nameCategory') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('nameCategory') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <label for='input-name' class='col-sm-2 control-label '> {{ __('Name') }}</label>
+                <input type='text' id='input-name' wire:model.lazy='name' class="form-control  @error('name') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('name') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
 
 
