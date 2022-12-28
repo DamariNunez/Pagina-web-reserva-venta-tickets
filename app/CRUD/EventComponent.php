@@ -25,13 +25,13 @@ class EventComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['name', 'duration', 'value', 'description', 'idAudience'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['name', 'duration', 'value', 'description', 'idAudience'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,37 @@ class EventComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'name' => 'text',
+            'duration' => 'text',
+            'value' => 'number',
+            'description' => 'text',
+            'idAudience' => 'number'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'name' => 'required',
+            'duration' => 'required',
+            'value' => 'required',
+            'description' => 'required',
+            'idAudience' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'name' => 'text',
+            'duration' => 'text',
+            'value' => 'number',
+            'description' => 'text',
+            'idAudience' => 'number'
+        ];
     }
 }

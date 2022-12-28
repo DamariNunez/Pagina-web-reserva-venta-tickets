@@ -39,19 +39,28 @@ class TimetableComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'time' => 'time', 
+            'date' => 'date'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'time' => 'required', 
+            'date' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'time' => 'time', 
+            'date' => 'date'
+        ];
     }
 }

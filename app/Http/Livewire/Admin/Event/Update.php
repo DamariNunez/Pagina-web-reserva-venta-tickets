@@ -12,14 +12,27 @@ class Update extends Component
 
     public $event;
 
+    public $name;
+    public $duration;
+    public $value;
+    public $description;
+    public $idAudience;
     
     protected $rules = [
-        
+        'name' => 'required',
+        'duration' => 'required',
+        'value' => 'required',
+        'description' => 'required',
+        'idAudience' => 'required',        
     ];
 
     public function mount(Event $Event){
         $this->event = $Event;
-        
+        $this->name = $this->event->name;
+        $this->duration = $this->event->duration;
+        $this->value = $this->event->value;
+        $this->description = $this->event->description;
+        $this->idAudience = $this->event->idAudience;        
     }
 
     public function updated($input)
@@ -35,6 +48,11 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Event') ]) ]);
         
         $this->event->update([
+            'name' => $this->name,
+            'duration' => $this->duration,
+            'value' => $this->value,
+            'description' => $this->description,
+            'idAudience' => $this->idAudience,
             'user_id' => auth()->id(),
         ]);
     }

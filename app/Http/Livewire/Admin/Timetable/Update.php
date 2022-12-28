@@ -12,14 +12,18 @@ class Update extends Component
 
     public $timetable;
 
+    public $time;
+    public $date;
     
     protected $rules = [
-        
+        'time' => 'required',
+        'date' => 'required',        
     ];
 
     public function mount(Timetable $Timetable){
         $this->timetable = $Timetable;
-        
+        $this->time = $this->timetable->time;
+        $this->date = $this->timetable->date;        
     }
 
     public function updated($input)
@@ -35,6 +39,8 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Timetable') ]) ]);
         
         $this->timetable->update([
+            'time' => $this->time,
+            'date' => $this->date,
             'user_id' => auth()->id(),
         ]);
     }

@@ -38,6 +38,9 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('type')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'type') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'type') fa-sort-amount-up ml-2 @endif'></i> {{ __('Type') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('age')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'age') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'age') fa-sort-amount-up ml-2 @endif'></i> {{ __('Age') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('description')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'description') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'description') fa-sort-amount-up ml-2 @endif'></i> {{ __('Description') }} </th>
                             
                             @if(getCrudConfig('Audience')->delete or getCrudConfig('Audience')->update)
                                 <th scope="col">{{ __('Action') }}</th>

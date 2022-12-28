@@ -25,13 +25,13 @@ class AudienceComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['type', 'age', 'description'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['type', 'age', 'description'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,31 @@ class AudienceComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'type' => 'text', 
+            'age' => 'number', 
+            'description' => 'text'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'type' => 'required', 
+            'age' => 'required', 
+            'description' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'type' => 'text', 
+            'age' => 'number', 
+            'description' => 'text'
+        ];
     }
 }

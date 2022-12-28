@@ -10,9 +10,12 @@ class Create extends Component
 {
     use WithFileUploads;
 
+    public $time;
+    public $date;
     
     protected $rules = [
-        
+        'time' => 'required',
+        'date' => 'required',        
     ];
 
     public function updated($input)
@@ -28,6 +31,8 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Timetable') ])]);
         
         Timetable::create([
+            'time' => $this->time,
+            'date' => $this->date,
             'user_id' => auth()->id(),
         ]);
 

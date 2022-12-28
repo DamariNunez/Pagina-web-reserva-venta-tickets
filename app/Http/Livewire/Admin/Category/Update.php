@@ -12,14 +12,15 @@ class Update extends Component
 
     public $category;
 
+    public $name;
     
     protected $rules = [
-        
+        'name' => 'required',        
     ];
 
     public function mount(Category $Category){
         $this->category = $Category;
-        
+        $this->name = $this->category->name;        
     }
 
     public function updated($input)
@@ -35,6 +36,7 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Category') ]) ]);
         
         $this->category->update([
+            'name' => $this->name,
             'user_id' => auth()->id(),
         ]);
     }

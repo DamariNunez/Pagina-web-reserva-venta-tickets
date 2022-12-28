@@ -107,5 +107,11 @@
     "Payment": "Payment",
     "Payments": "Payments",
     "Bill": "Bill",
-    "Bills": "Bills"
+    "Bills": "Bills",
+    "Type": "Type",
+    "Age": "Age",
+    "Description": "Description",
+    "Duration": "Duration",
+    "Value": "Value",
+    "IdAudience": "IdAudience"
 }

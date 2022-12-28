@@ -1,4 +1,7 @@
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $audience->type }}</td>
+    <td class="">{{ $audience->age }}</td>
+    <td class="">{{ $audience->description }}</td>
     
     @if(getCrudConfig('Audience')->delete or getCrudConfig('Audience')->update)
         <td>
