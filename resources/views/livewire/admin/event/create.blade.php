@@ -41,16 +41,15 @@
                 <input type='text' id='input-description' wire:model.lazy='description' class="form-control  @error('description') is-invalid @enderror" placeholder='' autocomplete='on'>
                 @error('description') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
-        
             <!-- IdAudience Input -->
             <div class='form-group'>
                 <label for='input-idAudience' class='col-sm-2 control-label '> {{ __('IdAudience') }}</label>
-                <select id="input-idAudience" name="input-idAudience" class="form-control" required>
+                <select id="input-idAudience" id='input-idAudience' wire:model.lazy='idAudience' class="form-control  @error('idAudience') is-invalid @enderror" placeholder='' autocomplete='on' required>
                     <?php
                     $audiences = Audience::all();
                     ?>
                     @foreach ($audiences as $audience)
-                        <option selected>{{ $audience->type }} - {{ $audience->description }}</option>
+                        <option selected>{{ $audience->type }} - {{ $audience->description  }}</option>
                     @endforeach    
                 </select>   
             </div>

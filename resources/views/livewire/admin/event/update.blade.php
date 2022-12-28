@@ -44,30 +44,32 @@
                 @error('description') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
             <!-- IdAudience Input -->
-            <div class='form-group'>
-                <label for='input-idAudience' class='col-sm-2 control-label '> {{ __('IdAudience') }}</label>
-                <input type='number' id='input-idAudience' wire:model.lazy='idAudience' class="form-control  @error('idAudience') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('idAudience') <div class='invalid-feedback'>{{ $message }}</div> @enderror
-            </div>
-           <!-- IdAudience Input -->
            <div class='form-group'>
                 <label for='input-idAudience' class='col-sm-2 control-label '> {{ __('IdAudience') }}</label>
-                <select id="input-idAudience" name="input-idAudience" wire:model.lazy='idAudience' class="form-control  @error('idAudience') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                <select id="input-idAudience" name="input-idAudience" class="form-control  @error('idAudience') is-invalid @enderror" placeholder='' autocomplete='on' required>
                     <?php
+                    $i = 0;
                     $audiences = Audience::all();
                     ?>
                     @foreach ($audiences as $audience)
                         <?php
+                        $i = 0;
                         if ($audience->id == $event->idAudience) {
                             ?>
                             <option selected>{{ $audience->type }}-{{ $audience->description }}</option>
                             <?php
+                            $i = 1;
                         }
+                        if($i == 0 ){
+                            ?>
+                            <option>{{ $audience->type }}-{{ $audience->description }}</option>
+                            <?php
+                        }    
                         ?>
-                        <option>{{ $audience->type }}-{{ $audience->description }}</option>
                     @endforeach    
                 </select>   
             </div>
+
 
 
         </div>

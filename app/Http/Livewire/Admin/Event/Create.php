@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Event;
 use App\Models\Event;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Audience;
 
 class Create extends Component
 {
@@ -36,6 +37,11 @@ class Create extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Event') ])]);
         
+        $arrayEvent = explode('-', $this->idAudience);
+        $idAud =  Audience::where('type', $arrayEvent[0])->pluck('id');
+        if (!empty($idAud)){
+            $this->idAudience = $idAud[0];
+        }
         Event::create([
             'name' => $this->name,
             'duration' => $this->duration,
