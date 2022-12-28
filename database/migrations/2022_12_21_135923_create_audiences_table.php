@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('audiences', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('name')->nullable(false);
-            $table->string('duration')->nullable(false);
-            $table->float('value')->nullable(false);
+            $table->string('type')->nullable(false);
+            $table->integer('age')->nullable(false);
             $table->string('description')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('audiences');
     }
 };

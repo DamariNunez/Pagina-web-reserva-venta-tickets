@@ -13,16 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('audiences', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('type')->unique()->nullable(false);
-            $table->integer('age')->nullable(false);
+            $table->string('name')->nullable(false);
+            $table->string('duration')->nullable(false);
+            $table->float('value')->nullable(false);
             $table->string('description')->nullable(false);
-            $table->unsignedBigInteger('idEvent')->nullable(false);
+            $table->unsignedBigInteger('idAudience')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('idEvent')->references('id')->on('events')->onDelete('restrict');
+            $table->foreign('idAudience')->references('id')->on('audiences')->onDelete('restrict');
         });
     }
 
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('audiences');
+        Schema::dropIfExists('events');
     }
 };
