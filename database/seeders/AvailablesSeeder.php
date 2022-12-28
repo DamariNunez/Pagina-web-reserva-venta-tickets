@@ -25,7 +25,7 @@ class AvailablesSeeder extends Seeder
             ['idEvent' => '7', 'idLanguage' => '3'],
             ['idEvent' => '8', 'idLanguage' => '3'],
             ['idEvent' => '9', 'idLanguage' => '3'],
-            ['idEvent' => '10', 'idLanguage' => '3']
+            ['idEvent' => '10', 'idLanguage' => '3'],
             ['idEvent' => '1', 'idLanguage' => '4'],
             ['idEvent' => '2', 'idLanguage' => '4'],
             ['idEvent' => '3', 'idLanguage' => '4'],

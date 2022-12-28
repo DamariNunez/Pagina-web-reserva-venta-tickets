@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('description')->nullable(false);
+            $table->integer('quantity')->nullable(false);
             $table->unsignedBigInteger('idUser')->nullable(false);
             $table->unsignedBigInteger('idEvent')->nullable(false);
+            $table->string('status')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 

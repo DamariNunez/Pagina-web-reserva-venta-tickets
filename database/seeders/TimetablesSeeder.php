@@ -16,7 +16,7 @@ class TimetablesSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['1', 'time' => '13:00', 'date' => '2023-04-03'],
+            ['time' => '13:00', 'date' => '2023-04-03'],
             ['time' => '14:00', 'date' => '2023-04-03'],
             ['time' => '15:00', 'date' => '2023-04-03'],
             ['time' => '16:00', 'date' => '2023-04-03'],

@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('happens', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->unsignedBigInteger('idTimetables')->nullable(false);
+            $table->unsignedBigInteger('idTimetable')->nullable(false);
             $table->unsignedBigInteger('idEvent')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('idEvent')->references('id')->on('events')->onDelete('restrict');
-            $table->foreign('idTimetables')->references('id')->on('timetables')->onDelete('restrict');
+            $table->foreign('idTimetable')->references('id')->on('timetables')->onDelete('restrict');
         });
     }
 
