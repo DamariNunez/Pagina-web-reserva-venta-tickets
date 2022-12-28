@@ -15,6 +15,21 @@ class PaymentsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => ''],
+            ['totalCost' => '', 'idTicket' => '']
+        ];
+        DB::table('payments')->insert($data);
     }
 }

@@ -15,6 +15,15 @@ class BillsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+            ['date' => '', 'totalValue' => '', 'idPayment' => ''],
+            ['date' => '', 'totalValue' => '', 'idPayment' => ''],
+            ['date' => '', 'totalValue' => '', 'idPayment' => ''],
+            ['date' => '', 'totalValue' => '', 'idPayment' => ''],
+            ['date' => '', 'totalValue' => '', 'idPayment' => ''],
+            ['date' => '', 'totalValue' => '', 'idPayment' => ''],
+            ['date' => '', 'totalValue' => '', 'idPayment' => '']
+        ];
+        DB::table('bills')->insert($data);
     }
 }

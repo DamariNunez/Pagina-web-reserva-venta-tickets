@@ -16,44 +16,44 @@ class HappensSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['idTimetables' => '1', 'idEvent' => '1'],
-            ['idTimetables' => '5', 'idEvent' => '1'],
-            ['idTimetables' => '9', 'idEvent' => '1'],
-            ['idTimetables' => '13', 'idEvent' => '1'],
+            ['idTimetable' => '1', 'idEvent' => '1'],
+            ['idTimetable' => '5', 'idEvent' => '1'],
+            ['idTimetable' => '9', 'idEvent' => '1'],
+            ['idTimetable' => '13', 'idEvent' => '1'],
 
-            ['idTimetables' => '2', 'idEvent' => '2'],
-            ['idTimetables' => '6', 'idEvent' => '2'],
-            ['idTimetables' => '10', 'idEvent' => '2'],
-            ['idTimetables' => '14', 'idEvent' => '2'],
+            ['idTimetable' => '2', 'idEvent' => '2'],
+            ['idTimetable' => '6', 'idEvent' => '2'],
+            ['idTimetable' => '10', 'idEvent' => '2'],
+            ['idTimetable' => '14', 'idEvent' => '2'],
 
-            ['idTimetables' => '3', 'idEvent' => '3'],
-            ['idTimetables' => '7', 'idEvent' => '3'],
-            ['idTimetables' => '11', 'idEvent' => '3'],
-            ['idTimetables' => '15', 'idEvent' => '3'],
+            ['idTimetable' => '3', 'idEvent' => '3'],
+            ['idTimetable' => '7', 'idEvent' => '3'],
+            ['idTimetable' => '11', 'idEvent' => '3'],
+            ['idTimetable' => '15', 'idEvent' => '3'],
 
-            ['idTimetables' => '4', 'idEvent' => '4'],
-            ['idTimetables' => '8', 'idEvent' => '4'],
-            ['idTimetables' => '12', 'idEvent' => '4'],
+            ['idTimetable' => '4', 'idEvent' => '4'],
+            ['idTimetable' => '8', 'idEvent' => '4'],
+            ['idTimetable' => '12', 'idEvent' => '4'],
 
-            ['idTimetables' => '16', 'idEvent' => '5'],
+            ['idTimetable' => '16', 'idEvent' => '5'],
 
-            ['idTimetables' => '17', 'idEvent' => '6'],
-            ['idTimetables' => '21', 'idEvent' => '6'],
-            ['idTimetables' => '25', 'idEvent' => '6'],
+            ['idTimetable' => '17', 'idEvent' => '6'],
+            ['idTimetable' => '21', 'idEvent' => '6'],
+            ['idTimetable' => '25', 'idEvent' => '6'],
 
-            ['idTimetables' => '18', 'idEvent' => '7'],
-            ['idTimetables' => '22', 'idEvent' => '7'],
-            ['idTimetables' => '26', 'idEvent' => '7'],
+            ['idTimetable' => '18', 'idEvent' => '7'],
+            ['idTimetable' => '22', 'idEvent' => '7'],
+            ['idTimetable' => '26', 'idEvent' => '7'],
 
-            ['idTimetables' => '19', 'idEvent' => '8'],
-            ['idTimetables' => '23', 'idEvent' => '8'],
-            ['idTimetables' => '27', 'idEvent' => '8'],
+            ['idTimetable' => '19', 'idEvent' => '8'],
+            ['idTimetable' => '23', 'idEvent' => '8'],
+            ['idTimetable' => '27', 'idEvent' => '8'],
 
-            ['idTimetables' => '1', 'idEvent' => '9'],
-            ['idTimetables' => '9', 'idEvent' => '9'],
+            ['idTimetable' => '1', 'idEvent' => '9'],
+            ['idTimetable' => '9', 'idEvent' => '9'],
 
-            ['idTimetables' => '3', 'idEvent' => '10'],
-            ['idTimetables' => '7', 'idEvent' => '10'],
+            ['idTimetable' => '3', 'idEvent' => '10'],
+            ['idTimetable' => '7', 'idEvent' => '10'],
         ];
         DB::table('happens')->insert($data);
     }

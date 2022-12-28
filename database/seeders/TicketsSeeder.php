@@ -15,6 +15,19 @@ class TicketsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => ''],
+            ['type' => '', 'age' => '', 'description' => '', 'idEvent' => '']
+        ];
+        DB::table('tickets')->insert($data);
     }
 }
