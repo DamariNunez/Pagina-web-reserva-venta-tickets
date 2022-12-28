@@ -1,4 +1,6 @@
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $happen->idTimetable }}</td>
+    <td class="">{{ $happen->idEvent }}</td>
     
     @if(getCrudConfig('Happen')->delete or getCrudConfig('Happen')->update)
         <td>

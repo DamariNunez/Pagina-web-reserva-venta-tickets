@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Happen extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'idTimetable',
+        'idEvent'
+    ];
 }

@@ -38,6 +38,8 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('idTimetable')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idTimetable') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idTimetable') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdTimetable') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('idEvent')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idEvent') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idEvent') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdEvent') }} </th>
                             
                             @if(getCrudConfig('Happen')->delete or getCrudConfig('Happen')->update)
                                 <th scope="col">{{ __('Action') }}</th>

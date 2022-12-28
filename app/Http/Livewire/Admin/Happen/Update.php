@@ -12,14 +12,18 @@ class Update extends Component
 
     public $happen;
 
+    public $idTimetable;
+    public $idEvent;
     
     protected $rules = [
-        
+        'idTimetable' => 'required',
+        'idEvent' => 'required',        
     ];
 
     public function mount(Happen $Happen){
         $this->happen = $Happen;
-        
+        $this->idTimetable = $this->happen->idTimetable;
+        $this->idEvent = $this->happen->idEvent;        
     }
 
     public function updated($input)
@@ -35,6 +39,8 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Happen') ]) ]);
         
         $this->happen->update([
+            'idTimetable' => $this->idTimetable,
+            'idEvent' => $this->idEvent,
             'user_id' => auth()->id(),
         ]);
     }

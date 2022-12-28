@@ -10,9 +10,12 @@ class Create extends Component
 {
     use WithFileUploads;
 
+    public $idTimetable;
+    public $idEvent;
     
     protected $rules = [
-        
+        'idTimetable' => 'required',
+        'idEvent' => 'required',        
     ];
 
     public function updated($input)
@@ -28,6 +31,8 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Happen') ])]);
         
         Happen::create([
+            'idTimetable' => $this->idTimetable,
+            'idEvent' => $this->idEvent,
             'user_id' => auth()->id(),
         ]);
 

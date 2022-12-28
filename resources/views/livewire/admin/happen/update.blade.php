@@ -14,7 +14,19 @@
 
         <div class="card-body">
 
-            
+                        <!-- IdTimetable Input -->
+            <div class='form-group'>
+                <label for='input-idTimetable' class='col-sm-2 control-label '> {{ __('IdTimetable') }}</label>
+                <input type='number' id='input-idTimetable' wire:model.lazy='idTimetable' class="form-control  @error('idTimetable') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('idTimetable') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+            <!-- IdEvent Input -->
+            <div class='form-group'>
+                <label for='input-idEvent' class='col-sm-2 control-label '> {{ __('IdEvent') }}</label>
+                <input type='number' id='input-idEvent' wire:model.lazy='idEvent' class="form-control  @error('idEvent') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('idEvent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+
 
         </div>
 

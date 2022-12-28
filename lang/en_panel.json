@@ -113,5 +113,7 @@
     "Description": "Description",
     "Duration": "Duration",
     "Value": "Value",
-    "IdAudience": "IdAudience"
+    "IdAudience": "IdAudience",
+    "IdTimetable": "IdTimetable",
+    "IdEvent": "IdEvent"
 }

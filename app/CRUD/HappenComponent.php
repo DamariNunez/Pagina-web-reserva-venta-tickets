@@ -25,13 +25,13 @@ class HappenComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['idTimetable', 'idEvent'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['idTimetable', 'idEvent'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,28 @@ class HappenComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'idTimetable' => 'number',
+            'idEvent' => 'number'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'idTimetable' => 'required',
+            'idEvent' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'idTimetable' => 'number',
+            'idEvent' => 'number'
+        ];
     }
 }
