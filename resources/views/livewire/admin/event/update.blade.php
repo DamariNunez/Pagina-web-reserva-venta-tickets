@@ -1,6 +1,8 @@
 <?php
     use App\Models\Audience;
     use App\Models\Event;
+    use App\Models\Language;
+    use App\Models\Available;
 ?>
 
 <div class="card">
@@ -19,7 +21,7 @@
 
         <div class="card-body">
 
-                        <!-- Name Input -->
+            <!-- Name Input -->
             <div class='form-group'>
                 <label for='input-name' class='col-sm-2 control-label '> {{ __('Name') }}</label>
                 <input type='text' id='input-name' wire:model.lazy='name' class="form-control  @error('name') is-invalid @enderror" placeholder='' autocomplete='on'>
@@ -69,9 +71,40 @@
                     @endforeach    
                 </select>   
             </div>
-
-
-
+            <!-- IdLanguage Input -->
+           <div class='form-group'>
+                <label for='input-idLanguage' class='col-sm-2 control-label '> {{ __('IdLanguage') }}</label>
+                <select id="input-idLanguage" name="input-idLanguage" wire:model.lazy='idLanguage' class="form-control  @error('idLanguage') is-invalid @enderror" placeholder='' autocomplete='on' required multiple>
+                    <?php
+                    $i = 0;
+                    $languages = Language::all();
+                    $availables = Available::all();
+                    $arrayLanguages[] = null;
+                    foreach ($availables as $available){
+                        if ($available->idEvent == $event->id) {
+                            array_push($arrayLanguages, $available->idLanguage);
+                        }
+                    } 
+                    foreach ($languages as $language){
+                        $i = 0;
+                        foreach ($arrayLanguages as $alanguage){
+                            if ($language->id == $alanguage){
+                                ?>
+                                <option selected>{{ $language->name }}</option>
+                                <?php
+                                $i = 1;
+                            }
+                        }
+                        if($i == 0)
+                        {
+                            ?>
+                            <option>{{ $language->name }}</option>
+                            <?php
+                        }
+                    }
+                    ?>   
+                </select>
+            </div>
         </div>
 
         <div class="card-footer">

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Available extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'idEvent',
+        'idLanguage'
+    ];
 }

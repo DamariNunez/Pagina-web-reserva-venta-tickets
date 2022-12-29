@@ -6,6 +6,8 @@ use App\Models\Event;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Audience;
+use App\Models\Language;
+use App\Models\Available;
 
 class Update extends Component
 {
@@ -18,13 +20,14 @@ class Update extends Component
     public $value;
     public $description;
     public $idAudience;
+    public $idLanguage;
     
     protected $rules = [
         'name' => 'required',
         'duration' => 'required',
         'value' => 'required',
         'description' => 'required',
-        'idAudience' => 'required',        
+        'idAudience' => 'required',       
     ];
 
     public function mount(Event $Event){
@@ -33,7 +36,8 @@ class Update extends Component
         $this->duration = $this->event->duration;
         $this->value = $this->event->value;
         $this->description = $this->event->description;
-        $this->idAudience = $this->event->idAudience;        
+        $this->idAudience = $this->event->idAudience;  
+        $this->idLanguage = $this->event->idLanguage;        
     }
 
     public function updated($input)
@@ -48,11 +52,14 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Event') ]) ]);
        
+        //Obtener el id de la audiencia seleccionada
         $arrayEvent = explode('-', $this->idAudience);
         $idAud =  Audience::where('type',  $arrayEvent[0])->pluck('id');
         if (!empty($idAud)){
             $this->idAudience = $idAud[0];
         }
+
+        //Modificar evento
         $this->event->update([
             'name' => $this->name,
             'duration' => $this->duration,
@@ -60,7 +67,34 @@ class Update extends Component
             'description' => $this->description,
             'idAudience' => $this->idAudience,
             'user_id' => auth()->id(),
-        ]);
+        ]);        
+        
+        $languagesList = Available::where('idEvent', $this->event->id)->pluck('idLanguage');
+        $arrayLanguages = $this->idLanguage;
+        //Agregar idiomas
+        foreach ($arrayLanguages as $language){
+            $idLan = Language::where('name', $language)->pluck('id');
+            $this->idLanguage = $idLan[0];
+            if (!Available::where('idEvent', $this->event->id)->where('idLanguage', $this->idLanguage)->exists()){
+                Available::create([
+                    'idEvent' => $this->event->id,
+                    'idLanguage' => $this->idLanguage,
+                    'user_id' => auth()->id(),
+                ]);
+            }                 
+        }
+        //Eliminar idiomas
+        $idLanguageArray[] = null;
+        foreach ($arrayLanguages as $language){
+            $idLan =  Language::where('name', $language)->pluck('id');
+            array_push($idLanguageArray, $idLan[0]);                        
+        }
+        foreach ($languagesList as $lan){
+            if (!in_array($lan, $idLanguageArray)){
+                $languageAvailable = Available::where('idEvent', $this->event->id)
+                                ->where('idLanguage', $lan)->delete();
+            }
+        }                
     }
 
     public function render()

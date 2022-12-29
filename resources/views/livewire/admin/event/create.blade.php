@@ -1,5 +1,9 @@
 <?php
     use App\Models\Audience;
+    use App\Models\Timetable;
+    use App\Models\Place;
+    use App\Models\City;
+    use App\Models\Language;
 ?>
 
 <div class="card">
@@ -17,7 +21,7 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-                        <!-- Name Input -->
+            <!-- Name Input -->
             <div class='form-group'>
                 <label for='input-name' class='col-sm-2 control-label '> {{ __('Name') }}</label>
                 <input type='text' id='input-name' wire:model.lazy='name' class="form-control  @error('name') is-invalid @enderror" placeholder='' autocomplete='on'>
@@ -50,6 +54,18 @@
                     ?>
                     @foreach ($audiences as $audience)
                         <option selected>{{ $audience->type }} - {{ $audience->description  }}</option>
+                    @endforeach    
+                </select>   
+            </div>
+            <!-- IdLanguage Input -->
+            <div class='form-group'>
+                <label for='input-idLanguage' class='col-sm-2 control-label '> {{ __('IdLanguage') }}</label>
+                <select id="input-idLanguage" id='input-idLanguage' wire:model.lazy='idLanguage' class="form-control  @error('idLanguage') is-invalid @enderror" placeholder='' autocomplete='on' required multiple>
+                    <?php
+                    $languages = Language::all();
+                    ?>
+                    @foreach ($languages as $language)
+                        <option selected>{{ $language->name }}</option>
                     @endforeach    
                 </select>   
             </div>
