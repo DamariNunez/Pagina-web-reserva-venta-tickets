@@ -26,26 +26,6 @@
     ?>
     <td class="">
         <?php
-        $timetables = Timetable::all();
-        foreach ($timetables as $timetable){
-            $eve = Happen::where('idEvent', $event->id)
-                        ->where('idTimetable', $timetable->id)->pluck('id');
-            if (!empty($eve)){
-                foreach ($eve as $ev){
-                    $indice = Happen::where('id', $ev)->pluck('idTimetable');
-                    $date = Timetable::where('id', $indice)->pluck('date');
-                    $time = Timetable::where('id', $indice)->pluck('time');
-                    ?>
-                    |{{ $date[0] }} {{ $time[0] }}
-                    <?php
-                }
-                
-            }
-        }
-        ?>
-    </td>
-    <td class="">
-        <?php
         $places = Place::all();
         foreach ($places as $place){
             $pla = Held::where('idEvent', $event->id)
@@ -53,11 +33,13 @@
             if (!empty($pla)){
                 foreach ($pla as $pl){
                     $indice = Held::where('id', $pl)->pluck('idPlace');
+                    $date = Held::where('id', $pl)->pluck('date');
+                    $time = Held::where('id', $pl)->pluck('time');
                     $site = Place::where('id', $indice)->pluck('name');
                     $idCity = Place::where('id', $indice)->pluck('idCity');
                     $city = City::where('id', $idCity)->pluck('name');
                     ?>
-                    |{{ $site[0] }} - {{ $city[0] }}
+                    | {{ $site[0] }} - {{ $city[0] }} {{ $date[0] }} {{ $time[0] }}
                     <?php
                 }
                 
