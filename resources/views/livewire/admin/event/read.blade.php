@@ -43,7 +43,10 @@
                             <th scope="col" style='cursor: pointer' wire:click="sort('value')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'value') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'value') fa-sort-amount-up ml-2 @endif'></i> {{ __('Value') }} </th>
                             <th scope="col" style='cursor: pointer' wire:click="sort('description')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'description') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'description') fa-sort-amount-up ml-2 @endif'></i> {{ __('Description') }} </th>
                             <th scope="col" style='cursor: pointer' wire:click="sort('idAudience')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idAudience') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idAudience') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdAudience') }} </th>
-                            
+                            <th scope="col" style='cursor: pointer' wire:click="sort('timetable')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idTimetable') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idTimetable') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdTimetable') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('place')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idPlace') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idPlace') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdPlace') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('language')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idLanguage') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idLanguage') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdLanguage') }} </th>
+
                             @if(getCrudConfig('Event')->delete or getCrudConfig('Event')->update)
                                 <th scope="col">{{ __('Action') }}</th>
                             @endif

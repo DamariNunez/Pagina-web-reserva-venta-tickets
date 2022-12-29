@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Admin\Happen;
 use App\Models\Happen;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Timetable;
+use App\Models\Event;
 
 class Create extends Component
 {
@@ -29,6 +31,18 @@ class Create extends Component
             $this->validate();
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Happen') ])]);
+        
+        $arrayTimetable = explode(' ', $this->idTimetable);
+        $idTime = Timetable::where('time', $arrayTimetable[1])->pluck('id');
+        $idDate = Timetable::where('date', $arrayTimetable[0])->pluck('id');
+        if (!empty($idTime) and !empty($idDate) and $idTime[0] == $idDate[0]){
+            $this->idTimetable = $idTime[0];
+        }
+
+        $idEv = Event::where('name',$this->idEvent)->pluck('id');
+        if (!empty($idEv)){
+            $this->idEvent = $idEv[0];
+        }
         
         Happen::create([
             'idTimetable' => $this->idTimetable,

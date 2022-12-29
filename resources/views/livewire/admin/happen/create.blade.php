@@ -1,3 +1,8 @@
+<?php
+    use App\Models\Timetable;
+    use App\Models\Event;
+?>
+
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('CreateTitle', ['name' => __('Happen') ]) }}</h3>
@@ -13,17 +18,29 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-                        <!-- IdTimetable Input -->
+            <!-- IdTimetable Input -->
             <div class='form-group'>
                 <label for='input-idTimetable' class='col-sm-2 control-label '> {{ __('IdTimetable') }}</label>
-                <input type='number' id='input-idTimetable' wire:model.lazy='idTimetable' class="form-control  @error('idTimetable') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('idTimetable') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <select id='input-idTimetable' wire:model.lazy='idTimetable' class="form-control  @error('idTimetable') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $timetables = Timetable::all();
+                    ?>
+                    @foreach ($timetables as $timetable)
+                        <option selected>{{ $timetable->date.' '.$timetable->time }}</option>
+                    @endforeach    
+                </select>   
             </div>
             <!-- IdEvent Input -->
             <div class='form-group'>
                 <label for='input-idEvent' class='col-sm-2 control-label '> {{ __('IdEvent') }}</label>
-                <input type='number' id='input-idEvent' wire:model.lazy='idEvent' class="form-control  @error('idEvent') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('idEvent') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <select id='input-idEvent' wire:model.lazy='idEvent' class="form-control  @error('idEvent') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $events = Event::all();
+                    ?>
+                    @foreach ($events as $event)
+                        <option selected>{{ $event->name }}</option>
+                    @endforeach    
+                </select> 
             </div>
 
         </div>

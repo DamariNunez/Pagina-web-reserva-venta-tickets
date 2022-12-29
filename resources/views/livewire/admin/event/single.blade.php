@@ -1,5 +1,12 @@
 <?php
     use App\Models\Audience;
+    use App\Models\Timetable;
+    use App\Models\Happen;
+    use App\Models\Place;
+    use App\Models\Held;
+    use App\Models\City;
+    use App\Models\Language;
+    use App\Models\Available;
 ?>
 
 <tr x-data="{ modalIsOpen : false }">
@@ -17,6 +24,66 @@
         }
     }
     ?>
+    <td class="">
+        <?php
+        $timetables = Timetable::all();
+        foreach ($timetables as $timetable){
+            $eve = Happen::where('idEvent', $event->id)
+                        ->where('idTimetable', $timetable->id)->pluck('id');
+            if (!empty($eve)){
+                foreach ($eve as $ev){
+                    $indice = Happen::where('id', $ev)->pluck('idTimetable');
+                    $date = Timetable::where('id', $indice)->pluck('date');
+                    $time = Timetable::where('id', $indice)->pluck('time');
+                    ?>
+                    |{{ $date[0] }} {{ $time[0] }}
+                    <?php
+                }
+                
+            }
+        }
+        ?>
+    </td>
+    <td class="">
+        <?php
+        $places = Place::all();
+        foreach ($places as $place){
+            $pla = Held::where('idEvent', $event->id)
+                        ->where('idPlace', $place->id)->pluck('id');
+            if (!empty($pla)){
+                foreach ($pla as $pl){
+                    $indice = Held::where('id', $pl)->pluck('idPlace');
+                    $site = Place::where('id', $indice)->pluck('name');
+                    $idCity = Place::where('id', $indice)->pluck('idCity');
+                    $city = City::where('id', $idCity)->pluck('name');
+                    ?>
+                    |{{ $site[0] }} - {{ $city[0] }}
+                    <?php
+                }
+                
+            }
+        }
+        ?>
+    </td>
+    <td class="">
+        <?php
+        $languages = Language::all();
+        foreach ($languages as $language){
+            $lan = Available::where('idEvent', $event->id)
+                        ->where('idLanguage', $language->id)->pluck('id');
+            if (!empty($lan)){
+                foreach ($lan as $la){
+                    $indice = Available::where('id', $la)->pluck('idLanguage');
+                    $language = Language::where('id', $indice)->pluck('name');
+                    ?>
+                    |{{ $language[0] }}
+                    <?php
+                }
+                
+            }
+        }
+        ?>
+    </td>
     
     
     @if(getCrudConfig('Event')->delete or getCrudConfig('Event')->update)
