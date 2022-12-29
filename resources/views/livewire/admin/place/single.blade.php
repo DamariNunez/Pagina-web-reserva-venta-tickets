@@ -1,4 +1,21 @@
+<?php
+    use App\Models\City;
+?>
+
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $place->name }}</td>
+    <td class="">{{ $place->capacity }}</td>
+    <td class="">{{ $place->address }}</td>
+    <?php
+    $cities = City::all();
+    foreach ($cities as $city){
+        if ($city->id == $place->idCity){
+            ?>
+            <td class="">{{ $city->name }}</td>
+            <?php
+        }
+    }
+    ?>
     
     @if(getCrudConfig('Place')->delete or getCrudConfig('Place')->update)
         <td>

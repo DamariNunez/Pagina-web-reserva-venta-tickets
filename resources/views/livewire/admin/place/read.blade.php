@@ -38,6 +38,10 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('name')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'name') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'name') fa-sort-amount-up ml-2 @endif'></i> {{ __('Name') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('capacity')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'capacity') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'capacity') fa-sort-amount-up ml-2 @endif'></i> {{ __('Capacity') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('address')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'address') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'address') fa-sort-amount-up ml-2 @endif'></i> {{ __('Address') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('idCity')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idCity') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idCity') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdCity') }} </th>
                             
                             @if(getCrudConfig('Place')->delete or getCrudConfig('Place')->update)
                                 <th scope="col">{{ __('Action') }}</th>

@@ -1,3 +1,7 @@
+<?php
+    use App\Models\City;
+?>
+
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('CreateTitle', ['name' => __('Place') ]) }}</h3>
@@ -13,7 +17,37 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-            
+                        <!-- Name Input -->
+            <div class='form-group'>
+                <label for='input-name' class='col-sm-2 control-label '> {{ __('Name') }}</label>
+                <input type='text' id='input-name' wire:model.lazy='name' class="form-control  @error('name') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('name') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+            <!-- Capacity Input -->
+            <div class='form-group'>
+                <label for='input-capacity' class='col-sm-2 control-label '> {{ __('Capacity') }}</label>
+                <input type='number' id='input-capacity' wire:model.lazy='capacity' class="form-control  @error('capacity') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('capacity') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+            <!-- Address Input -->
+            <div class='form-group'>
+                <label for='input-address' class='col-sm-2 control-label '> {{ __('Address') }}</label>
+                <input type='text' id='input-address' wire:model.lazy='address' class="form-control  @error('address') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('address') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+            <!-- IdCity Input -->
+            <div class='form-group'>
+                <label for='input-idCity' class='col-sm-2 control-label '> {{ __('IdCity') }}</label>
+                <select id='input-idCity' wire:model.lazy='idCity' class="form-control  @error('idCity') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $cities = City::all();
+                    ?>
+                    @foreach ($cities as $city)
+                        <option selected>{{ $city->name }}</option>
+                    @endforeach    
+                </select>   
+            </div>
+
         </div>
 
         <div class="card-footer">
