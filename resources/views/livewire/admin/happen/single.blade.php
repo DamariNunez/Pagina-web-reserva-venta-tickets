@@ -1,6 +1,30 @@
+<?php
+    use App\Models\Timetable;
+    use App\Models\Event;
+?>
+
 <tr x-data="{ modalIsOpen : false }">
-    <td class="">{{ $happen->idTimetable }}</td>
-    <td class="">{{ $happen->idEvent }}</td>
+    <?php
+    $timetables = Timetable::all();
+    foreach ($timetables as $timetable){
+        if ($timetable->id == $happen->idTimetable){
+            ?>
+            <td class="">{{ $timetable->date }} {{ $timetable->time }}</td>
+            <?php
+        }
+    }
+    ?>
+
+    <?php
+    $events = Event::all();
+    foreach ($events as $event){
+        if ($event->id == $happen->idEvent){
+            ?>
+            <td class="">{{ $event->name }}</td>
+            <?php
+        }
+    }
+    ?>
     
     @if(getCrudConfig('Happen')->delete or getCrudConfig('Happen')->update)
         <td>
