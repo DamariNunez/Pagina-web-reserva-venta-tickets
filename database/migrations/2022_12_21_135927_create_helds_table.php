@@ -17,6 +17,8 @@ return new class extends Migration
             $table->bigIncrements('id')->nullable(false);
             $table->unsignedBigInteger('idEvent')->nullable(false);
             $table->unsignedBigInteger('idPlace')->nullable(false);
+            $table->date('date')->nullable(false);
+            $table->time('time')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 
