@@ -13,7 +13,19 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-            
+                        <!-- Name Input -->
+            <div class='form-group'>
+                <label for='input-name' class='col-sm-2 control-label '> {{ __('Name') }}</label>
+                <input type='text' id='input-name' wire:model.lazy='name' class="form-control  @error('name') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('name') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+            <!-- ISO_code Input -->
+            <div class='form-group'>
+                <label for='input-ISO_code' class='col-sm-2 control-label '> {{ __('ISO_code') }}</label>
+                <input type='text' id='input-ISO_code' wire:model.lazy='ISO_code' class="form-control  @error('ISO_code') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('ISO_code') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+            </div>
+
         </div>
 
         <div class="card-footer">

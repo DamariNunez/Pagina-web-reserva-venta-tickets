@@ -12,14 +12,18 @@ class Update extends Component
 
     public $language;
 
+    public $name;
+    public $ISO_code;
     
     protected $rules = [
-        
+        'name' => 'required',
+        'ISO_code' => 'required',        
     ];
 
     public function mount(Language $Language){
         $this->language = $Language;
-        
+        $this->name = $this->language->name;
+        $this->ISO_code = $this->language->ISO_code;        
     }
 
     public function updated($input)
@@ -35,6 +39,8 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Language') ]) ]);
         
         $this->language->update([
+            'name' => $this->name,
+            'ISO_code' => $this->ISO_code,
             'user_id' => auth()->id(),
         ]);
     }

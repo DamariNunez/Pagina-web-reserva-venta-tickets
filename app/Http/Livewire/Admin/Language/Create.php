@@ -10,9 +10,12 @@ class Create extends Component
 {
     use WithFileUploads;
 
+    public $name;
+    public $ISO_code;
     
     protected $rules = [
-        
+        'name' => 'required',
+        'ISO_code' => 'required',        
     ];
 
     public function updated($input)
@@ -28,6 +31,8 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Language') ])]);
         
         Language::create([
+            'name' => $this->name,
+            'ISO_code' => $this->ISO_code,
             'user_id' => auth()->id(),
         ]);
 

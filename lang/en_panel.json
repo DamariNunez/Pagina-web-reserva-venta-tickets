@@ -118,5 +118,6 @@
     "IdEvent": "IdEvent",
     "Capacity": "Capacity",
     "Address": "Address",
-    "IdCity": "IdCity"
+    "IdCity": "IdCity",
+    "ISO_code": "ISO_code"
 }

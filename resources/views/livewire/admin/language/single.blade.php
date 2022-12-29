@@ -1,4 +1,6 @@
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $language->name }}</td>
+    <td class="">{{ $language->ISO_code }}</td>
     
     @if(getCrudConfig('Language')->delete or getCrudConfig('Language')->update)
         <td>
