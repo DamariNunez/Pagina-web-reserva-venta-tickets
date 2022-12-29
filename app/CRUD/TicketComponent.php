@@ -25,13 +25,13 @@ class TicketComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['quantity', 'idUser', 'idEvent', 'status'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['quantity', 'idUser', 'idEvent', 'status'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,34 @@ class TicketComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'quantity' => 'number',
+            'idUser' => 'number',
+            'idEvent' => 'number',
+            'status' => 'text'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'quantity' => 'required',
+            'idUser' => 'required',
+            'idEvent' => 'required',
+            'status' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'quantity' => 'number',
+            'idUser' => 'number',
+            'idEvent' => 'number',
+            'status' => 'text'
+        ];
     }
 }

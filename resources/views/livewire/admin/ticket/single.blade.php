@@ -1,4 +1,31 @@
+<?php
+    use App\Models\User;
+    use App\Models\Event;
+?>
+
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $ticket->quantity }}</td>
+    <?php
+    $users = User::all();
+    foreach ($users as $user){
+        if ($user->id == $ticket->idUser){
+            ?>
+            <td class="">{{ $user->username.' '.$user->lastname }}</td>
+            <?php
+        }
+    }
+    ?>
+    <?php
+    $events = Event::all();
+    foreach ($events as $event){
+        if ($event->id == $ticket->idEvent){
+            ?>
+            <td class="">{{ $event->name }}</td>
+            <?php
+        }
+    }
+    ?>
+    <td class="">{{ $ticket->status }}</td>
     
     @if(getCrudConfig('Ticket')->delete or getCrudConfig('Ticket')->update)
         <td>

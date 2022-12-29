@@ -125,5 +125,7 @@
     "Capacity": "Capacity",
     "Address": "Address",
     "IdCity": "IdCity",
-    "ISO_code": "ISO_code"
+    "ISO_code": "ISO_code",
+    "Quantity": "Quantity",
+    "IdUser": "IdUser"
 }
