@@ -48,7 +48,6 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Event') ]) ]);
        
-        echo($this->idAudience);
         $arrayEvent = explode('-', $this->idAudience);
         $idAud =  Audience::where('type',  $arrayEvent[0])->pluck('id');
         if (!empty($idAud)){

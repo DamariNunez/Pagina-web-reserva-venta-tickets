@@ -121,5 +121,8 @@
     "Value": "Value",
     "IdAudience": "IdAudience",
     "IdTimetable": "IdTimetable",
-    "IdEvent": "IdEvent"
+    "IdEvent": "IdEvent",
+    "Capacity": "Capacity",
+    "Address": "Address",
+    "IdCity": "IdCity"
 }
