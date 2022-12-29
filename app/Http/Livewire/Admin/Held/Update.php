@@ -12,14 +12,24 @@ class Update extends Component
 
     public $held;
 
+    public $idEvent;
+    public $idPlace;
+    public $date;
+    public $time;
     
     protected $rules = [
-        
+        'idEvent' => 'required',
+        'idPlace' => 'required',
+        'date' => 'required',
+        'time' => 'required',        
     ];
 
     public function mount(Held $Held){
         $this->held = $Held;
-        
+        $this->idEvent = $this->held->idEvent;
+        $this->idPlace = $this->held->idPlace;
+        $this->date = $this->held->date;
+        $this->time = $this->held->time;        
     }
 
     public function updated($input)
@@ -35,6 +45,10 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Held') ]) ]);
         
         $this->held->update([
+            'idEvent' => $this->idEvent,
+            'idPlace' => $this->idPlace,
+            'date' => $this->date,
+            'time' => $this->time,
             'user_id' => auth()->id(),
         ]);
     }

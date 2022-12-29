@@ -121,5 +121,6 @@
     "IdCity": "IdCity",
     "ISO_code": "ISO_code",
     "Quantity": "Quantity",
-    "IdUser": "IdUser"
+    "IdUser": "IdUser",
+    "IdPlace": "IdPlace"
 }

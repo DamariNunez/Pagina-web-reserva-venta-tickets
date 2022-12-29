@@ -1,4 +1,40 @@
+<?php
+    use App\Models\Place;
+    use App\Models\Event;
+    use App\Models\City;
+?>
+
 <tr x-data="{ modalIsOpen : false }">
+
+    <?php
+    $events = Event::all();
+    foreach ($events as $event){
+        if ($event->id == $held->idEvent){
+            ?>
+            <td class="">{{ $event->name }}</td>
+            <?php
+        }
+    }
+    ?>
+
+    <?php
+    $places = Place::all();
+    $cities = City::all();
+    foreach ($places as $place){
+        if ($place->id == $held->idPlace){
+            foreach ($cities as $city){
+                if ($place->idCity == $city->id){
+                    ?>
+                    <td class="">{{ $place->name }}-{{ $city->name }}</td>
+                    <?php
+                }
+            }
+        }
+    }
+    ?>
+
+    <td class="">{{ $held->date }}</td>
+    <td class="">{{ $held->time }}</td>
     
     @if(getCrudConfig('Held')->delete or getCrudConfig('Held')->update)
         <td>

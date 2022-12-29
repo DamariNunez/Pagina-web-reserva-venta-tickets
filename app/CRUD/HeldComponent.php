@@ -25,13 +25,13 @@ class HeldComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['idEvent', 'idPlace', 'date', 'time'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['idEvent', 'idPlace', 'date', 'time'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,34 @@ class HeldComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'idEvent' => 'number',
+            'idPlace' => 'number',
+            'date' => 'date',
+            'time' => 'time',     
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'idEvent' => 'required',
+            'idPlace' => 'required',
+            'date' => 'required',
+            'time' => 'required',  
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'idEvent' => 'number',
+            'idPlace' => 'number',
+            'date' => 'date',
+            'time' => 'time',  
+        ];
     }
 }
