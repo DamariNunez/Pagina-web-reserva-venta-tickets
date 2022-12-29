@@ -1,9 +1,23 @@
+<?php
+    use App\Models\Audience;
+?>
+
 <tr x-data="{ modalIsOpen : false }">
     <td class="">{{ $event->name }}</td>
     <td class="">{{ $event->duration }}</td>
     <td class="">{{ $event->value }}</td>
     <td class="">{{ $event->description }}</td>
-    <td class="">{{ $event->idAudience }}</td>
+    <?php
+    $audiences = Audience::all();
+    foreach ($audiences as $audience){
+        if ($audience->id == $event->idAudience){
+            ?>
+            <td class="">{{ $audience->type }} - {{ $audience->description }}</td>
+            <?php
+        }
+    }
+    ?>
+    
     
     @if(getCrudConfig('Event')->delete or getCrudConfig('Event')->update)
         <td>
