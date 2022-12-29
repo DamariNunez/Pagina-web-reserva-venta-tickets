@@ -46,7 +46,7 @@
             <!-- IdAudience Input -->
            <div class='form-group'>
                 <label for='input-idAudience' class='col-sm-2 control-label '> {{ __('IdAudience') }}</label>
-                <select id="input-idAudience" name="input-idAudience" class="form-control  @error('idAudience') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                <select id="input-idAudience" name="input-idAudience" wire:model.lazy='idAudience' class="form-control  @error('idAudience') is-invalid @enderror" placeholder='' autocomplete='on' required>
                     <?php
                     $i = 0;
                     $audiences = Audience::all();
@@ -62,7 +62,7 @@
                         }
                         if($i == 0 ){
                             ?>
-                            <option>{{ $audience->type }}-{{ $audience->description }}</option>
+                            <option>{{ $audience->type }}-{{ $audience->description  }}</option>
                             <?php
                         }    
                         ?>

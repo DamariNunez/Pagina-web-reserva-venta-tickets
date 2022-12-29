@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Admin\Event;
 
 use App\Models\Event;
-use App\Models\Audience;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Audience;
 
 class Update extends Component
 {
@@ -47,9 +47,10 @@ class Update extends Component
             $this->validate();
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Event') ]) ]);
-        
+       
+        echo($this->idAudience);
         $arrayEvent = explode('-', $this->idAudience);
-        $idAud =  Audience::where('type', $arrayEvent[0])->pluck('id');
+        $idAud =  Audience::where('type',  $arrayEvent[0])->pluck('id');
         if (!empty($idAud)){
             $this->idAudience = $idAud[0];
         }
