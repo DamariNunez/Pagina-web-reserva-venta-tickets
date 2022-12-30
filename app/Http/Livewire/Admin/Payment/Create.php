@@ -10,9 +10,12 @@ class Create extends Component
 {
     use WithFileUploads;
 
+    public $totalCost;
+    public $idTicket;
     
     protected $rules = [
-        
+        'totalCost' => 'required',
+        'idTicket' => 'required',        
     ];
 
     public function updated($input)
@@ -28,6 +31,8 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Payment') ])]);
         
         Payment::create([
+            'totalCost' => $this->totalCost,
+            'idTicket' => $this->idTicket,
             'user_id' => auth()->id(),
         ]);
 

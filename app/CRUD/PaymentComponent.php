@@ -25,13 +25,13 @@ class PaymentComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['totalCost', 'idTicket'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['totalCost', 'idTicket'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,28 @@ class PaymentComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'totalCost' => 'number',
+            'idTicket' => 'number'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'totalCost' => 'required',
+            'idTicket' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'totalCost' => 'number',
+            'idTicket' => 'number'
+        ];
     }
 }

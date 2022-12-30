@@ -128,5 +128,7 @@
     "ISO_code": "ISO_code",
     "Quantity": "Quantity",
     "IdUser": "IdUser",
-    "IdPlace": "IdPlace"
+    "IdPlace": "IdPlace",
+    "TotalCost": "TotalCost",
+    "IdTicket": "IdTicket"
 }

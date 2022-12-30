@@ -1,4 +1,10 @@
+<?php
+    use App\Models\Ticket;
+?>
+
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $payment->idTicket }}</td>
+    <td class="">{{ $payment->totalCost }}</td>
     
     @if(getCrudConfig('Payment')->delete or getCrudConfig('Payment')->update)
         <td>
