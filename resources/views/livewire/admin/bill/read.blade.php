@@ -38,6 +38,9 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('date')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'date') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'date') fa-sort-amount-up ml-2 @endif'></i> {{ __('Date') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('totalValue')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'totalValue') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'totalValue') fa-sort-amount-up ml-2 @endif'></i> {{ __('TotalValue') }} </th>
+                            <th scope="col" style='cursor: pointer' wire:click="sort('idPayment')"> <i class='fa @if($sortType == 'desc' and $sortColumn == 'idPayment') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'idPayment') fa-sort-amount-up ml-2 @endif'></i> {{ __('IdPayment') }} </th>
                             
                             @if(getCrudConfig('Bill')->delete or getCrudConfig('Bill')->update)
                                 <th scope="col">{{ __('Action') }}</th>

@@ -124,5 +124,7 @@
     "IdUser": "IdUser",
     "IdPlace": "IdPlace",
     "TotalCost": "TotalCost",
-    "IdTicket": "IdTicket"
+    "IdTicket": "IdTicket",
+    "TotalValue": "TotalValue",
+    "IdPayment": "IdPayment"
 }

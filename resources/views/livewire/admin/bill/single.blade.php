@@ -1,4 +1,7 @@
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $bill->date }}</td>
+    <td class="">{{ $bill->totalValue }}</td>
+    <td class="">{{ $bill->idPayment }}</td>
     
     @if(getCrudConfig('Bill')->delete or getCrudConfig('Bill')->update)
         <td>

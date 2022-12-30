@@ -10,9 +10,14 @@ class Create extends Component
 {
     use WithFileUploads;
 
+    public $date;
+    public $totalValue;
+    public $idPayment;
     
     protected $rules = [
-        
+        'date' => 'required',
+        'totalValue' => 'required',
+        'idPayment' => 'required',        
     ];
 
     public function updated($input)
@@ -28,6 +33,9 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Bill') ])]);
         
         Bill::create([
+            'date' => $this->date,
+            'totalValue' => $this->totalValue,
+            'idPayment' => $this->idPayment,
             'user_id' => auth()->id(),
         ]);
 

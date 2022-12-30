@@ -12,14 +12,21 @@ class Update extends Component
 
     public $bill;
 
+    public $date;
+    public $totalValue;
+    public $idPayment;
     
     protected $rules = [
-        
+        'date' => 'required',
+        'totalValue' => 'required',
+        'idPayment' => 'required',        
     ];
 
     public function mount(Bill $Bill){
         $this->bill = $Bill;
-        
+        $this->date = $this->bill->date;
+        $this->totalValue = $this->bill->totalValue;
+        $this->idPayment = $this->bill->idPayment;        
     }
 
     public function updated($input)
@@ -35,6 +42,9 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Bill') ]) ]);
         
         $this->bill->update([
+            'date' => $this->date,
+            'totalValue' => $this->totalValue,
+            'idPayment' => $this->idPayment,
             'user_id' => auth()->id(),
         ]);
     }

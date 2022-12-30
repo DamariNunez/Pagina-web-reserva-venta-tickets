@@ -25,13 +25,13 @@ class BillComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['date', 'totalValue', 'idPayment'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['date', 'totalValue', 'idPayment'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,31 @@ class BillComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'date' => 'date',
+            'totalValue' => 'number',
+            'idPayment' => 'number'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'date' => 'required',
+            'totalValue' => 'required',
+            'idPayment' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'date' => 'date',
+            'totalValue' => 'number',
+            'idPayment' => 'number'
+        ];
     }
 }
