@@ -28,7 +28,7 @@
             <!-- IdUser Input -->
             <div class='form-group'>
                 <label for='input-idUser' class='col-sm-2 control-label '> {{ __('IdUser') }}</label>
-                <select id='input-idUser' class="form-control  @error('idUser') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                <select id='input-idUser' wire:model.lazy='idUser' class="form-control  @error('idUser') is-invalid @enderror" placeholder='' autocomplete='on' required>
                     <?php
                     $i = 0;
                     $users = User::where('username', '<>', 'admin')->get();
@@ -54,7 +54,7 @@
             <!-- IdEvent Input -->
             <div class='form-group'>
                 <label for='input-idEvent' class='col-sm-2 control-label '> {{ __('IdEvent') }}</label>
-                <select id='input-idEvent' class="form-control  @error('idEvent') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                <select id='input-idEvent' wire:model.lazy='idEvent' class="form-control  @error('idEvent') is-invalid @enderror" placeholder='' autocomplete='on' required>
                     <?php
                     $i = 0;
                     $events = Event::all();
