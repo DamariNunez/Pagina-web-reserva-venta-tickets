@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Admin\Held;
 use App\Models\Held;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Event;
+use App\Models\Place;
 
 class Update extends Component
 {
@@ -44,6 +46,20 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Held') ]) ]);
         
+        //Obtener el id del evento seleccionado
+        $idEve =  Event::where('name', $this->idEvent)->pluck('id');
+        if (!empty($idEve)){
+           $this->idEvent = $idEve[0];
+        }
+
+        //Obtener el id del lugar seleccionado
+        $arrayPlace = explode('-', $this->idPlace);
+        $idPla =  Place::where('name', $arrayPlace[0])->pluck('id');
+        if (!empty($idPla)){
+           $this->idPlace = $idPla[0];
+        }
+ 
+         //Modificar lugar, fecha y hora del evento
         $this->held->update([
             'idEvent' => $this->idEvent,
             'idPlace' => $this->idPlace,

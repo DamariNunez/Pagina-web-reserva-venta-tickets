@@ -52,21 +52,25 @@
                     $places = Place::all();
                     $cities = City::all();
                     foreach ($places as $place){
+                        $i = 0;
                         if ($place->id == $held->idPlace) {
                             foreach ($cities as $city){
-                                $i = 0;
-                                if ($place->idCity == $city->id){
-                                    ?>
+                                if ($city->id == $place->idCity){
+                                     ?>
                                     <option selected>{{ $place->name }}-{{ $city->name }}</option>
                                     <?php
                                     $i = 1;
                                 }
-                                if($i == 0 ){
-                                    ?>
-                                    <option>{{ $place->name }}</option>
-                                    <?php
-                                } 
                             }
+                        }    
+                        if($i == 0 ){
+                            foreach ($cities as $city){
+                                if ($city->id == $place->idCity){
+                                    ?>
+                                    <option>{{ $place->name }}-{{ $city->name }}</option>
+                                    <?php
+                                }
+                            }    
                         }
                     }   
                     ?>   
