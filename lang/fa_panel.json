@@ -132,5 +132,7 @@
     "TotalCost": "TotalCost",
     "IdTicket": "IdTicket",
     "TotalValue": "TotalValue",
-    "IdPayment": "IdPayment"
+    "IdPayment": "IdPayment",
+    "Row": "Row",
+    "Chair": "Chair"
 }

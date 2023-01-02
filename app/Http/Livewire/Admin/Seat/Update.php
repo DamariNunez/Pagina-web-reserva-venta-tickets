@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Admin\Seat;
 use App\Models\Seat;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Place;
+use App\Models\City;
 
 class Update extends Component
 {
@@ -12,14 +14,21 @@ class Update extends Component
 
     public $seat;
 
+    public $row;
+    public $chair;
+    public $idPlace;
     
     protected $rules = [
-        
+        'row' => 'required',
+        'chair' => 'required',
+        'idPlace' => 'required',        
     ];
 
     public function mount(Seat $Seat){
         $this->seat = $Seat;
-        
+        $this->row = $this->seat->row;
+        $this->chair = $this->seat->chair;
+        $this->idPlace = $this->seat->idPlace;        
     }
 
     public function updated($input)
@@ -34,7 +43,18 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Seat') ]) ]);
         
+        //Obtener el id del lugar seleccionado
+        $arrayPlace = explode('-', $this->idPlace);
+        $idPla =  Place::where('name', $arrayPlace[0])->pluck('id');
+        if (!empty($idPla)){
+            $this->idPlace = $idPla[0];
+        }
+
+        //Modificar asiento
         $this->seat->update([
+            'row' => $this->row,
+            'chair' => $this->chair,
+            'idPlace' => $this->idPlace,
             'user_id' => auth()->id(),
         ]);
     }

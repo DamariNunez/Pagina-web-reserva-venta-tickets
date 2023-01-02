@@ -25,13 +25,13 @@ class SeatComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return [];
+        return ['row', 'chair', 'idPlace'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return [];
+        return ['row', 'chair', 'idPlace'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,19 +39,31 @@ class SeatComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [];
+        return [
+            'row' => 'text',
+            'chair' => 'number',
+            'idPlace' => 'number'
+        ];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [];
+        return [
+            'row' => 'required',
+            'chair' => 'required',
+            'idPlace' => 'required'
+        ];
     }
 
     // Where files will store for inputs
     public function storePaths()
     {
-        return [];
+        return [
+            'row' => 'text',
+            'chair' => 'number',
+            'idPlace' => 'number'
+        ];
     }
 }

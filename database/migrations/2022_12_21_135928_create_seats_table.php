@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('seats', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
             $table->string('row')->nullable(false);
-            $table->integer('seat')->nullable(false);
+            $table->integer('chair')->nullable(false);
             $table->unsignedBigInteger('idPlace')->nullable(false);
             $table->softDeletes();
             $table->timestamps();

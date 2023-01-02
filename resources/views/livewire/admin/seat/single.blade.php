@@ -1,4 +1,26 @@
+<?php
+    use App\Models\Place;
+    use App\Models\City;
+?>
+
 <tr x-data="{ modalIsOpen : false }">
+    <td class="">{{ $seat->row }}</td>
+    <td class="">{{ $seat->chair }}</td>
+    <?php
+    $places = Place::all();
+    $cities = City::all();
+    foreach ($places as $place){
+        if ($place->id == $seat->idPlace){
+            foreach($cities as $city){
+                if ($place->idCity == $city->id){
+                    ?>
+                    <td class="">{{ $place->name }}-{{ $city->name }}</td>
+                    <?php
+                }
+            }
+        }
+    }
+    ?>
     
     @if(getCrudConfig('Seat')->delete or getCrudConfig('Seat')->update)
         <td>
