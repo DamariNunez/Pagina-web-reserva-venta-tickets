@@ -1,19 +1,19 @@
 @component('admin::layouts.app')
-    <p>You can edit & customize this page in <code>resources/views/vendor/admin/home.blade.php</code></p>
+    <p>Puede editar y personalizar esta página en <code>resources/views/vendor/admin/home.blade.php</code></p>
 
-    <h3>Features :</h3>
+    <h3>Características:</h3>
     <ul>
-        <li>Create CRUD in config file.</li>
-        <li>Manage route prefix and addresses</li>
-        <li>Beautiful UI/UX with AdminMart template</li>
-        <li>Add/remove an admin with command line</li>
-        <li>Manage pagination count</li>
-        <li>Real time validation with <a href="https://github.com/livewire/livewire">Livewire</a></li>
-        <li>Customize every actions in your project</li>
-        <li>A small and beautiful TODO (You disable it in your config)</li>
-        <li>Create a nice and responsive view based on your data in config file for every CRUDs</li>
-        <li>Custom validation based on config file</li>
+        <li>Crear CRUD en el archivo de configuración.</li>
+        <li>Gestionar el prefijo de ruta y las direcciones</li>
+        <li>Hermosas UI/UX con la plantilla AdminMart</li>
+        <li>Añadir/eliminar un administrador con la línea de comandos</li>
+        <li>Gestionar el recuento de paginación</li>
+        <li>Validación en tiempo real con <a href="https://github.com/livewire/livewire">Livewire</a></li>
+        <li>Personaliza todas las acciones de tu proyecto</li>
+        <li>Un pequeño y bonito TODO (Se desactiva en la configuración)</li>
+        <li>Crear una vista agradable y sensible basado en sus datos en el archivo de configuración para cada CRUDs</li>
+        <li>Validación personalizada basada en el archivo de configuración</li>
     </ul>
 
-    <p>Check document out : <a href="https://github.com/rezaamini-ir/laravel-easypanel">Github repo</a></p>
+    <p>Consultar documento: <a href="https://github.com/rezaamini-ir/laravel-easypanel">Github repo</a></p>
 @endcomponent
