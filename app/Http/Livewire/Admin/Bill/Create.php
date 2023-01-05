@@ -15,9 +15,9 @@ class Create extends Component
     public $idPayment;
     
     protected $rules = [
-        'date' => 'required',
-        'totalValue' => 'required',
-        'idPayment' => 'required',        
+        'date' => 'required|date',
+        'totalValue' => 'required|numeric',
+        'idPayment' => 'required|numeric',        
     ];
 
     public function updated($input)

@@ -17,9 +17,9 @@ class Update extends Component
     public $description;
     
     protected $rules = [
-        'type' => 'required',
-        'age' => 'required',
-        'description' => 'required',        
+        'type' => 'required|string|max:50',
+        'age' => 'required|numeric',
+        'description' => 'required|max:255',     
     ];
 
     public function mount(Audience $Audience){
@@ -38,15 +38,33 @@ class Update extends Component
     {
         if($this->getRules())
             $this->validate();
-
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Audience') ]) ]);
         
-        $this->audience->update([
-            'type' => $this->type,
-            'age' => $this->age,
-            'description' => $this->description,
-            'user_id' => auth()->id(),
-        ]);
+        //Verifica si se modifica el type
+        $idAnterior = Audience::where('type', '=', $this->audience->type)->pluck('id')->first();
+        $idNuevo = Audience::where('type', '=', $this->type)->pluck('id')->first();
+        if ($idAnterior == $idNuevo){
+            $this->audience->update([
+                'type' => $this->type,
+                'age' => $this->age,
+                'description' => $this->description,
+                'user_id' => auth()->id(),
+            ]);
+            $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Audience') ]) ]);
+        }else{
+            //Verificar si se duplica
+            $exist = Audience::where('type', '=', $this->type)
+                             ->where('id', '!=', $idNuevo)
+                             ->first();
+            if ($exist){
+                $this->audience->update([
+                    'type' => $this->type,
+                    'age' => $this->age,
+                    'description' => $this->description,
+                    'user_id' => auth()->id(),
+                ]);
+            }
+           // $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Audience') ]) ]);
+        }    
     }
 
     public function render()

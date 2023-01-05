@@ -21,10 +21,10 @@ class Create extends Component
     public $idLanguage;
     
     protected $rules = [
-        'name' => 'required',
-        'duration' => 'required',
-        'value' => 'required',
-        'description' => 'required',
+        'name' => 'required|string|max:255',
+        'duration' => 'required|string|max:255',
+        'value' => 'required|numeric|min:1',
+        'description' => 'required|string|max:255',
         'idAudience' => 'required',  
         'idLanguage' => 'required',      
     ];
@@ -42,10 +42,14 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Event') ])]);
         
         //Obtener el id de la audiencia seleccionada
-        $arrayEvent = explode('-', $this->idAudience);
-        $idAud =  Audience::where('type', $arrayEvent[0])->pluck('id');
-        if (!empty($idAud)){
-            $this->idAudience = $idAud[0];
+        if (!empty($this->idAudience)){
+            $arrayEvent = explode('-', $this->idAudience);
+            if (!empty($arrayEvent[0])){
+                $idAud =  Audience::where('type', $arrayEvent[0])->pluck('id');
+                if (!empty($idAud) or $idAud != 0){
+                    $this->idAudience = $idAud[0];
+                }
+            }
         }
 
         //Almacenar evento

@@ -15,7 +15,7 @@ class Update extends Component
     public $name;
     
     protected $rules = [
-        'name' => 'required',        
+        'name' => 'required|string|max:150',        
     ];
 
     public function mount(Category $Category){

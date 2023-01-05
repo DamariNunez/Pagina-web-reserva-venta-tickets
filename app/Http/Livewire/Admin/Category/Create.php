@@ -13,7 +13,7 @@ class Create extends Component
     public $name;
     
     protected $rules = [
-        'name' => 'required',        
+        'name' => 'required|string|max:150|unique:categories',        
     ];
 
     public function updated($input)

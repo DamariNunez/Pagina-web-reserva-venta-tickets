@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('audiences', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
-            $table->string('type')->nullable(false);
+            $table->string('type')->unique()->nullable(false);
             $table->integer('age')->nullable(false);
             $table->string('description')->nullable(false);
             $table->softDeletes();

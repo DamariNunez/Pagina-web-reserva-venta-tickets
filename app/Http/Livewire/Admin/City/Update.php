@@ -15,7 +15,7 @@ class Update extends Component
     public $name;
     
     protected $rules = [
-        'name' => 'required',        
+        'name' => 'required|string|max:100|unique:cities',        
     ];
 
     public function mount(City $City){
