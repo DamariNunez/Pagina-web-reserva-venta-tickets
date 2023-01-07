@@ -16,8 +16,8 @@ class Update extends Component
     public $ISO_code;
     
     protected $rules = [
-        'name' => 'required',
-        'ISO_code' => 'required',        
+        'name' => 'required|string|max:50',
+        'ISO_code' => 'required|string|max:2|min:1',       
     ];
 
     public function mount(Language $Language){
@@ -38,11 +38,23 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Language') ]) ]);
         
-        $this->language->update([
-            'name' => $this->name,
-            'ISO_code' => $this->ISO_code,
-            'user_id' => auth()->id(),
-        ]);
+        //Verifica si se modifica el idioma y el ISO_code
+        $idAnterior = Language::where('name', $this->language->name)->where('ISO_code', $this->language->ISO_code)->first();
+        $idNuevo = Language::where('name', $this->name)->where('ISO_code', $this->ISO_code)->first();
+        if ($idAnterior != $idNuevo){
+            //verificar si se duplica
+            $exist = Language::where('name', $this->name)->where('ISO_code', $this->ISO_code)->first();
+            //Modificar lugar, fecha y hora del evento
+            if(empty($exist)){
+                $this->language->update([
+                    'name' => $this->name,
+                    'ISO_code' => $this->ISO_code,
+                    'user_id' => auth()->id(),
+                ]);
+            }else{
+                $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Held') ])]);
+            }
+        }
     }
 
     public function render()

@@ -42,7 +42,7 @@ class Create extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Event') ])]);
         
         //Obtener el id de la audiencia seleccionada
-        if (!empty($this->idAudience)){
+        if (!empty($this->idAudience) and $this->idAudience != 'Seleccionar...'){
             $arrayEvent = explode('-', $this->idAudience);
             if (!empty($arrayEvent[0])){
                 $idAud =  Audience::where('type', $arrayEvent[0])->pluck('id');

@@ -1,3 +1,6 @@
+<?php
+    use App\Models\Payment;
+?>
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('UpdateTitle', ['name' => __('Bill') ]) }}</h3>
@@ -13,8 +16,7 @@
     <form class="form-horizontal" wire:submit.prevent="update" enctype="multipart/form-data">
 
         <div class="card-body">
-
-                        <!-- Date Input -->
+            <!-- Date Input -->
             <div class='form-group'>
                 <label for='input-date' class='col-sm-2 control-label '> {{ __('Date') }}</label>
                 <input type='date' id='input-date' wire:model.lazy='date' class="form-control  @error('date') is-invalid @enderror" autocomplete='on'>
@@ -23,14 +25,32 @@
             <!-- TotalValue Input -->
             <div class='form-group'>
                 <label for='input-totalValue' class='col-sm-2 control-label '> {{ __('TotalValue') }}</label>
-                <input type='number' id='input-totalValue' wire:model.lazy='totalValue' class="form-control  @error('totalValue') is-invalid @enderror" placeholder='' autocomplete='on'>
+                <input type='double' id='input-totalValue' wire:model.lazy='totalValue' class="form-control  @error('totalValue') is-invalid @enderror" placeholder='' autocomplete='on'>
                 @error('totalValue') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
             <!-- IdPayment Input -->
             <div class='form-group'>
                 <label for='input-idPayment' class='col-sm-2 control-label '> {{ __('IdPayment') }}</label>
-                <input type='number' id='input-idPayment' wire:model.lazy='idPayment' class="form-control  @error('idPayment') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('idPayment') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <select id='input-idPayment' wire:model.lazy='idPayment' class="form-control  @error('idPayment') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $i = 0;
+                    $payments = Payment::all();
+                    foreach ($payments as $payment){
+                        $i = 0;
+                        if ($payment->id == $bill->idPayment) {
+                            ?>
+                            <option selected>{{ $payment->id }}</option>
+                            <?php
+                            $i = 1;
+                        }
+                        if($i == 0 ){
+                            ?>
+                            <option>{{ $payment->id }}</option>
+                            <?php
+                        }    
+                    }
+                    ?>   
+                </select>
             </div>
 
 

@@ -22,7 +22,7 @@ class Update extends Component
     protected $rules = [
         'idEvent' => 'required',
         'idPlace' => 'required',
-        'date' => 'required',
+        'date' => 'required|date',
         'time' => 'required',        
     ];
 
@@ -58,15 +58,29 @@ class Update extends Component
         if (!empty($idPla)){
            $this->idPlace = $idPla[0];
         }
- 
-         //Modificar lugar, fecha y hora del evento
-        $this->held->update([
-            'idEvent' => $this->idEvent,
-            'idPlace' => $this->idPlace,
-            'date' => $this->date,
-            'time' => $this->time,
-            'user_id' => auth()->id(),
-        ]);
+
+        //Verifica si se modifica el evento
+        $idAnterior = Held::where('idEvent', '=', $this->held->idEvent)->where('idPlace', $this->held->idPlace)
+                          ->where('date', $this->held->date)->where('time', $this->held->time)->pluck('id')->first();
+        $idNuevo = Held::where('idEvent', '=', $this->idEvent)->where('idPlace', $this->idPlace)
+                       ->where('date', $this->date)->where('time', $this->time)->pluck('id')->first();
+        if ($idAnterior != $idNuevo){
+            //verificar si se duplica
+            $exist = Held::where('idEvent', $this->idEvent)->where('idPlace', $this->idPlace)
+                        ->where('date', $this->date)->where('time', $this->time)->first();
+            //Modificar lugar, fecha y hora del evento
+            if(empty($exist)){
+                $this->held->update([
+                    'idEvent' => $this->idEvent,
+                    'idPlace' => $this->idPlace,
+                    'date' => $this->date,
+                    'time' => $this->time,
+                    'user_id' => auth()->id(),
+                ]);
+            }else{
+                $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Held') ])]);
+            }
+        }
     }
 
     public function render()

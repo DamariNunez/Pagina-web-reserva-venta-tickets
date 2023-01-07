@@ -18,10 +18,10 @@ class Create extends Component
     public $status;
     
     protected $rules = [
-        'quantity' => 'required',
+        'quantity' => 'required|numeric',
         'idUser' => 'required',
         'idEvent' => 'required',
-        'status' => 'required',        
+        'status' => 'required|string',        
     ];
 
     public function updated($input)

@@ -14,8 +14,8 @@ class Create extends Component
     public $ISO_code;
     
     protected $rules = [
-        'name' => 'required',
-        'ISO_code' => 'required',        
+        'name' => 'required|string|max:50|unique:languages',
+        'ISO_code' => 'required|string|max:2|min:1|unique:languages',        
     ];
 
     public function updated($input)

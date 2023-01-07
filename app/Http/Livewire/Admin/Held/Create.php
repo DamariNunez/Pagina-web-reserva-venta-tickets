@@ -20,7 +20,7 @@ class Create extends Component
     protected $rules = [
         'idEvent' => 'required',
         'idPlace' => 'required',
-        'date' => 'required',
+        'date' => 'required|date',
         'time' => 'required',        
     ];
 
@@ -49,16 +49,23 @@ class Create extends Component
             $this->idPlace = $idPla[0];
         }
 
-        //Almacenar lugar y fecha para el evento seleccionado
-        Held::create([
-            'idEvent' => $this->idEvent,
-            'idPlace' => $this->idPlace,
-            'date' => $this->date,
-            'time' => $this->time,
-            'user_id' => auth()->id(),
-        ]);
+        //verificar si se duplica
+        $exist = Held::where('idEvent', $this->idEvent)->where('idPlace', $this->idPlace)
+                     ->where('date', $this->date)->where('time', $this->time)->first();
 
-        $this->reset();
+        //Almacenar lugar y fecha para el evento seleccionado
+        if(empty($exist)){
+            Held::create([
+                'idEvent' => $this->idEvent,
+                'idPlace' => $this->idPlace,
+                'date' => $this->date,
+                'time' => $this->time,
+                'user_id' => auth()->id(),
+            ]);
+            $this->reset();
+        }else{
+            $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Held') ])]);
+        }
     }
 
     public function render()

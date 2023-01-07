@@ -52,8 +52,9 @@
                     <?php
                     $audiences = Audience::all();
                     ?>
+                    <option selected>Seleccionar...</option>
                     @foreach ($audiences as $audience)
-                        <option selected>{{ $audience->type }} - {{ $audience->description  }}</option>
+                        <option>{{ $audience->type }} - {{ $audience->description  }}</option>
                     @endforeach    
                 </select>   
             </div>

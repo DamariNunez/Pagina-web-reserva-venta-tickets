@@ -63,7 +63,7 @@ class Update extends Component
                     'user_id' => auth()->id(),
                 ]);
             }
-           // $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Audience') ]) ]);
+           $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Audience') ]) ]);
         }    
     }
 

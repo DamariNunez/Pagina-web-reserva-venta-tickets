@@ -26,8 +26,9 @@
                     <?php
                     $events = Event::all();
                     ?>
+                    <option></option>
                     @foreach ($events as $event)
-                        <option selected>{{ $event->name }}</option>
+                        <option>{{ $event->name }}</option>
                     @endforeach    
                 </select>   
             </div>
@@ -39,10 +40,11 @@
                     $places = Place::all();
                     $cities = City::all();
                     ?>
+                    <option></option>
                     @foreach ($places as $place)
                         @foreach ($cities as $city){
                             @if ($place->idCity == $city->id){
-                                <option selected>{{ $place->name }}-{{ $city->name }}</option>
+                                <option>{{ $place->name }}-{{ $city->name }}</option>
                             @endif
                         @endforeach
                     @endforeach    

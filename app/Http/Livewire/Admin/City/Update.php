@@ -15,7 +15,7 @@ class Update extends Component
     public $name;
     
     protected $rules = [
-        'name' => 'required|string|max:100|unique:cities',        
+        'name' => 'required|string|max:100',        
     ];
 
     public function mount(City $City){
@@ -32,13 +32,30 @@ class Update extends Component
     {
         if($this->getRules())
             $this->validate();
-
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('City') ]) ]);
         
-        $this->city->update([
-            'name' => $this->name,
-            'user_id' => auth()->id(),
-        ]);
+        //Verifica si se modifica la ciudad
+        $idAnterior = City::where('name', '=', $this->city->name)->pluck('id')->first();
+        $idNuevo = City::where('name', '=', $this->name)->pluck('id')->first();
+        if ($idAnterior == $idNuevo){
+            $this->city->update([
+                'name' => $this->name,
+                'user_id' => auth()->id(),
+            ]);
+            $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Audience') ]) ]);
+        }else{
+            //Verificar si se duplica
+            $exist = City::where('name', '=', $this->name)
+                             ->where('id', '!=', $idAnterior)
+                             ->first();
+            if (empty($exist)){
+                $this->city->update([
+                    'name' => $this->name,
+                    'user_id' => auth()->id(),
+                ]);
+            }else{
+                $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Audience') ]) ]);
+            }
+        }    
     }
 
     public function render()

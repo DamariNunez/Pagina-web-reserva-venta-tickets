@@ -3,7 +3,6 @@
     use App\Models\Event;
     use App\Models\City;
 ?>
-
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('UpdateTitle', ['name' => __('Held') ]) }}</h3>

@@ -35,10 +35,29 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Category') ]) ]);
         
-        $this->category->update([
-            'name' => $this->name,
-            'user_id' => auth()->id(),
-        ]);
+        //Verifica si se modifica la categoría
+        $idAnterior = Category::where('name', '=', $this->category->name)->pluck('id')->first();
+        $idNuevo = Category::where('name', '=', $this->name)->pluck('id')->first();
+        if ($idAnterior == $idNuevo){
+            $this->category->update([
+                'name' => $this->name,
+                'user_id' => auth()->id(),
+            ]);
+            $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Category') ]) ]);
+        }else{
+            //Verificar si se duplica
+            $exist = Category::where('name', '=', $this->name)
+                             ->where('id', '!=', $idAnterior)
+                             ->first();
+            if (empty($exist)){
+                $this->category->update([
+                    'name' => $this->name,
+                    'user_id' => auth()->id(),
+                ]);
+            }else{
+                $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Category') ]) ]);
+            }
+        }
     }
 
     public function render()

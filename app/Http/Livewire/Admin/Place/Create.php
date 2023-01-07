@@ -17,9 +17,9 @@ class Create extends Component
     public $idCity;
     
     protected $rules = [
-        'name' => 'required',
-        'capacity' => 'required',
-        'address' => 'required',
+        'name' => 'required|string|max:255',
+        'capacity' => 'required|numeric',
+        'address' => 'required|string|max:255',
         'idCity' => 'required',        
     ];
 
@@ -32,23 +32,27 @@ class Create extends Component
     {
         if($this->getRules())
             $this->validate();
-
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Place') ])]);
         
         $idCit =  City::where('name', $this->idCity)->pluck('id');
         if (!empty($idCit)){
             $this->idCity = $idCit[0];
         }
 
-        Place::create([
-            'name' => $this->name,
-            'capacity' => $this->capacity,
-            'address' => $this->address,
-            'idCity' => $this->idCity,
-            'user_id' => auth()->id(),
-        ]);
-
-        $this->reset();
+        //Verificar que no se duplique el lugar y la ciudad juntas
+        $place = Place::where('name',  $this->name)
+                      ->where('idCity', $this->idCity)
+                      ->first();
+        if (empty($place)){
+            Place::create([
+                'name' => $this->name,
+                'capacity' => $this->capacity,
+                'address' => $this->address,
+                'idCity' => $this->idCity,
+                'user_id' => auth()->id(),
+            ]);
+            $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('Place') ])]);
+            $this->reset();
+        }
     }
 
     public function render()

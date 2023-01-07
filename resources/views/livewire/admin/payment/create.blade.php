@@ -1,3 +1,6 @@
+<?php
+    use App\Models\Ticket;
+?>
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('CreateTitle', ['name' => __('Payment') ]) }}</h3>
@@ -16,13 +19,20 @@
             <!-- IdTicket Input -->
             <div class='form-group'>
                 <label for='input-idTicket' class='col-sm-2 control-label '> {{ __('IdTicket') }}</label>
-                <input type='number' id='input-idTicket' wire:model.lazy='idTicket' class="form-control  @error('idTicket') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('idTicket') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <select id='input-idTicket' wire:model.lazy='idTicket' class="form-control  @error('idTicket') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $tickets = Ticket::all();
+                    ?>
+                    <option></option>
+                    @foreach ($tickets as $ticket)
+                        <option>{{ $ticket->id }}</option>
+                    @endforeach    
+                </select>   
             </div>
             <!-- TotalCost Input -->
             <div class='form-group'>
                 <label for='input-totalCost' class='col-sm-2 control-label '> {{ __('TotalCost') }}</label>
-                <input type='number' id='input-totalCost' wire:model.lazy='totalCost' class="form-control  @error('totalCost') is-invalid @enderror" placeholder='' autocomplete='on'>
+                <input type='double' id='input-totalCost' wire:model.lazy='totalCost' class="form-control  @error('totalCost') is-invalid @enderror" placeholder='' autocomplete='on'>
                 @error('totalCost') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
 

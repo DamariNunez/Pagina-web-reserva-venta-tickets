@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\User;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Hash;
 
 class Create extends Component
 {
@@ -17,11 +18,11 @@ class Create extends Component
     public $phone;
     
     protected $rules = [
-        'username' => 'required',
-        'lastname' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-        'phone' => 'required',        
+        'username' => 'required|string|max:50|min:2',
+        'lastname' => 'required|string|max:50|min:2',
+        'email' => 'required|string|email|unique:users',
+        'password' => 'required|string',
+        'phone' => 'required|min:9|max:10',        
     ];
 
     public function updated($input)
@@ -35,12 +36,12 @@ class Create extends Component
             $this->validate();
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('CreatedMessage', ['name' => __('User') ])]);
-        
+
         User::create([
             'username' => $this->username,
             'lastname' => $this->lastname,
             'email' => $this->email,
-            'password' => $this->password,
+            'password' => Hash::make($this->password),
             'phone' => $this->phone,
             'user_id' => auth()->id(),
         ]);

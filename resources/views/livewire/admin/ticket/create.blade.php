@@ -18,7 +18,7 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-                        <!-- Quantity Input -->
+            <!-- Quantity Input -->
             <div class='form-group'>
                 <label for='input-quantity' class='col-sm-2 control-label '> {{ __('Quantity') }}</label>
                 <input type='number' id='input-quantity' wire:model.lazy='quantity' class="form-control  @error('quantity') is-invalid @enderror" placeholder='' autocomplete='on'>
@@ -31,8 +31,9 @@
                     <?php
                     $users = User::where('username', '<>', 'admin')->get();
                     ?>
+                    <option></option>
                     @foreach ($users as $user)
-                        <option selected>{{ $user->username.' '.$user->lastmane }}</option>
+                        <option>{{ $user->username.' '.$user->lastmane }}</option>
                     @endforeach    
                 </select>  
             </div>
@@ -43,8 +44,9 @@
                     <?php
                     $events = Event::all();
                     ?>
+                    <option></option>
                     @foreach ($events as $event)
-                        <option selected>{{ $event->name }}</option>
+                        <option>{{ $event->name }}</option>
                     @endforeach    
                 </select>  
             </div>
@@ -52,7 +54,8 @@
             <div class='form-group'>
                 <label for='input-status' class='col-sm-2 control-label '> {{ __('Status') }}</label>
                 <select id='input-status' wire:model.lazy='status' class="form-control  @error('status') is-invalid @enderror" placeholder='' autocomplete='on' required>
-                    <option selected>approved</option>
+                    <option></option>    
+                    <option>approved</option>
                     <option>pending</option>
                     <option>denied</option>
                 </select>  

@@ -54,7 +54,6 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Event') ]) ]);
        
         //Obtener el id de la audiencia seleccionada
-        echo "damaris ".$this->idAudience;
         if (!empty($this->idAudience) and !is_numeric($this->idAudience)){
             $arrayEvent = explode('-', $this->idAudience);
             if (!empty($arrayEvent[0])){
