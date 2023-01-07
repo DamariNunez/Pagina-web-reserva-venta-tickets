@@ -3,14 +3,14 @@
         @csrf
 
         <!-- Name -->
-        <div>
+        <div class="mt-4">
             <x-input-label for="username" :value="__('Username')" />
             <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
             <x-input-error :messages="$errors->get('username')" class="mt-2" />
         </div>
 
         <!-- Lastname -->
-        <div>
+        <div class="mt-4">
             <x-input-label for="lastname" :value="__('Lastname')" />
             <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus />
             <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
@@ -47,8 +47,8 @@
         </div>
 
         <!-- Phone -->
-        <div>
-            <x-input-label for="phone" :value="__('phone')" />
+        <div class="mt-4">
+            <x-input-label for="phone" :value="__('Phone')" />
             <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus />
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>

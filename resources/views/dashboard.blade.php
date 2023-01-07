@@ -7,7 +7,7 @@
         $id = Auth::id();
         if ($id == 1){
         ?>
-            <a href="{{ url('/admin') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Panel de administración</a>
+            <a href="{{ url('/admin') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ __('Management panel') }}</a>
         <?php
         }
         ?>

@@ -9,7 +9,7 @@ return [
     'rtl_mode' => false,
 
     // Package Language
-    'lang' => 'en',
+    'lang' => 'es',
 
     // Your user Model
     'user_model' => file_exists(app_path('User.php')) ? App\User::class : App\Models\User::class,

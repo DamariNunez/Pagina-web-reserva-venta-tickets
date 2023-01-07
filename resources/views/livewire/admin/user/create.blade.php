@@ -33,7 +33,7 @@
             </div>
             <!-- Password Input -->
             <div class='form-group'>
-                <label for='inputpassword' class='col-sm-2 control-label '> {{ __('Password') }}</label>
+                <label for='inputpassword' class='col-sm-2 control-label '> {{ __('Clave') }}</label>
                 <input type='password' id='input-password' wire:model.lazy='password' class="form-control  @error('password') is-invalid @enderror" placeholder=''>
                 @error('password') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>

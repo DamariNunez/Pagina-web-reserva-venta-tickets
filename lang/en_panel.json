@@ -25,6 +25,8 @@
     "Action": "Action",
     "Update": "Update",
     "Dashboard": "Dashboard",
+    "Log in": "Log in",
+    "Register": "Register",
     "List": "List",
     "BuildTitle": "Build a CRUD",
     "BuildMessage": "Do You really want to build this CRUD ? (Components will be replaced)",
