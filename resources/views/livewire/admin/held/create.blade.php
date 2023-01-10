@@ -3,7 +3,6 @@
     use App\Models\Place;
     use App\Models\City;
 ?>
-
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('CreateTitle', ['name' => __('Held') ]) }}</h3>

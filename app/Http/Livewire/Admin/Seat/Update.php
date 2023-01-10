@@ -19,9 +19,9 @@ class Update extends Component
     public $idPlace;
     
     protected $rules = [
-        'row' => 'required',
-        'chair' => 'required',
-        'idPlace' => 'required',        
+        'row' => 'required|string',
+        'chair' => 'required|numeric',
+        'idPlace' => 'required',         
     ];
 
     public function mount(Seat $Seat){
@@ -50,13 +50,23 @@ class Update extends Component
             $this->idPlace = $idPla[0];
         }
 
-        //Modificar asiento
-        $this->seat->update([
-            'row' => $this->row,
-            'chair' => $this->chair,
-            'idPlace' => $this->idPlace,
-            'user_id' => auth()->id(),
-        ]);
+        $idAnterior = Seat::where('row', $this->seat->row)->where('chair', $this->seat->chair)->where('idPlace', $this->seat->idPlace)->pluck('id')->first();
+        $idNuevo = Seat::where('row', $this->row)->where('chair', $this->chair)->where('idPlace', $this->idPlace)->pluck('id')->first();
+        if ($idAnterior != $idNuevo){
+            //verificar si se duplica
+            $exist = Seat::where('row', $this->row)->where('chair', $this->chair)->where('idPlace', $this->idPlace)->first();
+            //Modificar asiento
+            if(empty($exist)){
+                $this->seat->update([
+                    'row' => $this->row,
+                    'chair' => $this->chair,
+                    'idPlace' => $this->idPlace,
+                    'user_id' => auth()->id(),
+                ]);
+            }else{
+                $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Held') ])]);
+            }
+        }
     }
 
     public function render()

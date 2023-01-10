@@ -17,8 +17,8 @@ class Create extends Component
     public $idPlace;
     
     protected $rules = [
-        'row' => 'required',
-        'chair' => 'required',
+        'row' => 'required|string',
+        'chair' => 'required|numeric',
         'idPlace' => 'required',        
     ];
 
@@ -41,15 +41,20 @@ class Create extends Component
             $this->idPlace = $idPla[0];
         }
 
-        //Almacenar asiento
-        Seat::create([
-            'row' => $this->row,
-            'chair' => $this->chair,
-            'idPlace' => $this->idPlace,
-            'user_id' => auth()->id(),
-        ]);
+        $exist = Seat::where('row', $this->row)->where('chair', $this->chair)->where('idPlace', $this->idPlace)->first();
 
-        $this->reset();
+        //Almacenar asiento
+        if(empty($exist)){
+            Seat::create([
+                'row' => $this->row,
+                'chair' => $this->chair,
+                'idPlace' => $this->idPlace,
+                'user_id' => auth()->id(),
+            ]);
+            $this->reset();
+        }else{
+            $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('ErrorTypeUpdatedMessage', ['name' => __('Held') ])]);
+        }
     }
 
     public function render()

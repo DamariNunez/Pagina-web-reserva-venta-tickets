@@ -23,6 +23,9 @@
                 <select id='input-row' wire:model.lazy='row' class="form-control  @error('row') is-invalid @enderror" placeholder='' autocomplete='on' required>
                     <?php
                     $abecedary = ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+                    ?>
+                    <option></option>
+                    <?php
                     foreach ($abecedary as $abc){
                         ?>
                         <option selected>{{ $abc }}</option>
@@ -44,11 +47,14 @@
                     <?php
                     $places = Place::all();
                     $cities = City::all(); 
+                    ?>
+                    <option></option>
+                    <?php
                     foreach ($places as $place){
                         foreach($cities as $city){
                             if ($place->idCity == $city->id){
                                 ?>
-                                <option selected>{{ $place->name }}-{{ $city->name }}</option>
+                                <option>{{ $place->name }}-{{ $city->name }}</option>
                                 <?php
                             }
                         }
