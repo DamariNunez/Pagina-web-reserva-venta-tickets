@@ -2,6 +2,7 @@
     use App\Models\Category;
     use App\Models\Held;
     use App\Models\City;
+    use App\Models\Place;
 ?>
 <!DOCTYPE html>
 <html lang="en-US" >
@@ -969,174 +970,725 @@ background-color: transparent;
     <div class="ovatheme_container_wide event_header_version2 bg_white">
     	
         <!-- Heading Version 2 -->
-<header class="ova_header ovatheme_header_v2 bg_heading fixed has_logo_scroll has_logo_mobile ">
-
-	<div class="scroll_fixed">
-		<div class="container">
-
-			<div class="row">
-
-				<div class="ova-menu">
-					<nav class="navbar">
-					  <div class="container-fluid">
-					    <!-- Brand and toggle get grouped for better mobile display -->
-					    <div class="ova-logo navbar-header">
-
-					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ovatheme_header_v2" aria-expanded="false">
-					        <span class="sr-only">Toggle navigation</span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					      </button>
-
-						
-						<a href="https://ovatheme.com/em4u/" class="navbar-brand logo">
-																<img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_white.png" alt="EM4U &#8211; Event Management Multipurpose WordPress Theme" style=" " >
-													</a>
-
-						<a href="https://ovatheme.com/em4u/" class="navbar-brand logo_scroll">
-															<img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_white.png" alt="EM4U &#8211; Event Management Multipurpose WordPress Theme" style=" ">
-													</a>
-
-						<a href="https://ovatheme.com/em4u/" class="navbar-brand logo_mobile">
-															<img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_dark.png" alt="EM4U &#8211; Event Management Multipurpose WordPress Theme" style=" ">
-													</a>
-					    
-
-					    </div>
-
-					    <!-- Collect the nav links, forms, and other content for toggling -->
-					    <div class="collapse navbar-collapse" id="ovatheme_header_v2">
-					      
-					      <ul id="menu-primary-menu" class="nav navbar-nav navbar-right"><li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: "><a title="Home" href="#" >Home <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-<ul class="dropdown-menu submenu" role="menu">
-	<li id="menu-item-5432" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5275 current_page_item menu-item-5432 dropdown active" style="height: "><a title="Home Default" href="https://ovatheme.com/em4u/" >Home Default</a></li>	<li id="menu-item-1988" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1988 dropdown" style="height: "><a title="Home Event Countdown" href="https://ovatheme.com/em4u/home-5/" >Home Event Countdown</a></li>	<li id="menu-item-1979" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1979 dropdown" style="height: "><a title="Home Event Register" href="https://ovatheme.com/em4u/home-6/" >Home Event Register</a></li>	<li id="menu-item-913" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-913 dropdown" style="height: "><a title="Home Search" href="https://ovatheme.com/em4u/home-3/" >Home Search</a></li>	<li id="menu-item-5018" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5018 dropdown" style="height: "><a title="Home Map" href="https://ovatheme.com/em4u/home-map/" >Home Map</a></li>	<li id="menu-item-2041" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2041 dropdown" style="height: "><a title="Home Company" href="https://ovatheme.com/em4u/home-8-company/" >Home Company</a></li>	<li id="menu-item-1978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1978 dropdown" style="height: "><a title="Home Event Basic" href="https://ovatheme.com/em4u/home-7/" >Home Event Basic</a></li>	<li id="menu-item-1989" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1989 dropdown" style="height: "><a title="Home Manual Basic" href="https://ovatheme.com/em4u/home-1/" >Home Manual Basic</a></li>	<li id="menu-item-1416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1416 dropdown" style="height: "><a title="Home Countdown 2" href="https://ovatheme.com/em4u/home-2/" >Home Countdown 2</a></li>	<li id="menu-item-914" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-914 dropdown" style="height: "><a title="Home Classic" href="https://ovatheme.com/em4u/home-4/" >Home Classic</a></li>	<li id="menu-item-2098" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2098 dropdown" style="height: "><a title="Single Event 3" href="https://ovatheme.com/em4u/landing-page-3/" >Single Event 3</a></li>	<li id="menu-item-2099" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099 dropdown" style="height: "><a title="Single Event 2" href="https://ovatheme.com/em4u/landing-page-2/" >Single Event 2</a></li>	<li id="menu-item-1044" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1044 dropdown" style="height: "><a title="Single Event 1" href="https://ovatheme.com/em4u/landing-page-1/" >Single Event 1</a></li></ul></li><li id="menu-item-16" class="col_shortcode_style menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-16 dropdown ova-megamenu" style="height: "><a title="Event" href="#" class="col_shortcode_style" >Event <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-<ul class="ova-mega-menu three-columns  dropdown-menu"  role="menu">
-	<li  id="menu-item-651" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-651 dropdown" style="height: 620px"><div><h5 class="title">Upcomming Event</h5><div class="ovaem_slider_events_two "><div class="item"><div class="event_content"><a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/"><div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3.jpg);"></div><h2 class="title"><a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Adobe wants to let you draw data</a></h2><div class="wrap_date_venue"><div class="time"><i class="icon_calendar"></i>Feb 1, 2024</div><div class="venue"><i class="icon_pin_alt"></i>Pace University</div></div><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ultrices massa . . .</div></a></div><div class="countdown"><div class="ova_countdown_menu"><div class="ova_countdown_event" data-day="01" data-month="02" data-year="2024" data-hour="12" data-minute="09" data-timezone="0"></div></div></div><a class="ova-btn" href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Get Ticket</a></div><div class="item"><div class="event_content"><a href="https://ovatheme.com/em4u/event/happy-wedding/"><div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1.jpg);"></div><h2 class="title"><a href="https://ovatheme.com/em4u/event/happy-wedding/">Happy wedding</a></h2><div class="wrap_date_venue"><div class="time"><i class="icon_calendar"></i>Feb 15, 2024</div><div class="venue"><i class="icon_pin_alt"></i>Seamore's, Broome Street, New York</div></div><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ultrices massa . . .</div></a></div><div class="countdown"><div class="ova_countdown_menu"><div class="ova_countdown_event" data-day="15" data-month="02" data-year="2024" data-hour="12" data-minute="13" data-timezone="0"></div></div></div><a class="ova-btn" href="https://ovatheme.com/em4u/event/happy-wedding/">Get Ticket</a></div><div class="item"><div class="event_content"><a href="https://ovatheme.com/em4u/event/conference-about-bitcoin-2017/"><div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_2-2.jpg);"></div><h2 class="title"><a href="https://ovatheme.com/em4u/event/conference-about-bitcoin-2017/">Conference about Bitcoin 2020</a></h2><div class="wrap_date_venue"><div class="time"><i class="icon_calendar"></i>Feb 22, 2024</div><div class="venue"><i class="icon_pin_alt"></i>Pace University</div></div><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ultrices massa . . .</div></a></div><div class="countdown"><div class="ova_countdown_menu"><div class="ova_countdown_event" data-day="22" data-month="02" data-year="2024" data-hour="12" data-minute="11" data-timezone="0"></div></div></div><a class="ova-btn" href="https://ovatheme.com/em4u/event/conference-about-bitcoin-2017/">Get Ticket</a></div><div class="item"><div class="event_content"><a href="https://ovatheme.com/em4u/event/concert-linda-coline/"><div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_concert_2-min.jpg);"></div><h2 class="title"><a href="https://ovatheme.com/em4u/event/concert-linda-coline/">Concert Linda coline</a></h2><div class="wrap_date_venue"><div class="time"><i class="icon_calendar"></i>Feb 29, 2024</div><div class="venue"><i class="icon_pin_alt"></i>732 Macdougal Street</div></div><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ultrices massa . . .</div></a></div><div class="countdown"><div class="ova_countdown_menu"><div class="ova_countdown_event" data-day="29" data-month="02" data-year="2024" data-hour="19" data-minute="01" data-timezone="0"></div></div></div><a class="ova-btn" href="https://ovatheme.com/em4u/event/concert-linda-coline/">Get Ticket</a></div><div class="item"><div class="event_content"><a href="https://ovatheme.com/em4u/event/rugby-semi-finals/"><div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_sport_2-2.jpg);"></div><h2 class="title"><a href="https://ovatheme.com/em4u/event/rugby-semi-finals/">Rugby semi finals</a></h2><div class="wrap_date_venue"><div class="time"><i class="icon_calendar"></i>May 7, 2024</div><div class="venue"><i class="icon_pin_alt"></i>Pace University</div></div><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et ultrices massa . . .</div></a></div><div class="countdown"><div class="ova_countdown_menu"><div class="ova_countdown_event" data-day="07" data-month="05" data-year="2024" data-hour="19" data-minute="00" data-timezone="0"></div></div></div><a class="ova-btn" href="https://ovatheme.com/em4u/event/rugby-semi-finals/">Get Ticket</a></div></div></div></li>	<li  id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24 dropdown" style="height: 620px"><div><h5 class="title">Event Archive</h5><a title="Grid Version 1" href="https://ovatheme.com/em4u/event/" class="" >Grid Version 1</a><a title="Grid Version 2" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style2" class="" >Grid Version 2</a><a title="Grid Version 3" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style3" class="" >Grid Version 3</a><a title="Grid Version 4" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style4" class="" >Grid Version 4</a><a title="List without Sidebar" href="https://ovatheme.com/em4u/event/?type=list" class="" >List without Sidebar</a><a title="List with Sidebar" href="https://ovatheme.com/em4u/event/?type=list_sidebar" class="" >List with Sidebar</a><a title="Grid Sidebar V1" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style1" class="" >Grid Sidebar V1</a><a title="Grid Sidebar V2" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style2" class="" >Grid Sidebar V2</a><a title="Grid Sidebar V3" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style3" class="" >Grid Sidebar V3</a><a title="Grid Sidebar V4" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style4" class="" >Grid Sidebar V4</a></div></li>	<li  id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27 dropdown" style="height: 620px"><div><h5 class="title">Event Pages</h5><a title="Event Tag" href="https://ovatheme.com/em4u/event_tags/conference/" class="" >Event Tag</a><a title="Upcoming Events" href="https://ovatheme.com/em4u/upcoming-event/" class="" >Upcoming Events</a><a title="Past Events" href="https://ovatheme.com/em4u/past-event/" class="" >Past Events</a><a title="Featured Events" href="https://ovatheme.com/em4u/featured-event/" class="" >Featured Events</a><a title="Virtual Event - Zoom" href="https://ovatheme.com/em4u/event/online-yoga-class/" class="" >Virtual Event &#8211; Zoom</a><a title="Detail Classic" href="https://ovatheme.com/em4u/event/phanxipang-tourist/" class="" >Detail Classic</a><a title="Detail Modern" href="https://ovatheme.com/em4u/event/concert-linda-coline/?detail_template=modern" class="" >Detail Modern</a><a title="Event Free Ticket" href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/" class="" >Event Free Ticket</a><a title="Event Woo Ticket" href="https://ovatheme.com/em4u/event/toronto-concert-for-you-woo/" class="" >Event Woo Ticket</a><a title="Event External Ticket" href="https://ovatheme.com/em4u/event/summer-tour-with-you-external/" class="" >Event External Ticket</a></div></li></ul></li><li id="menu-item-5333" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5333 dropdown" style="height: "><a title="Categories" href="#" >Categories <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-<ul class="dropdown-menu submenu" role="menu">
-	<li id="menu-item-5334" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: "><a title="Conference" href="https://ovatheme.com/em4u/categories/conference/" >Conference</a></li>	<li id="menu-item-5335" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5335 dropdown" style="height: "><a title="Business" href="https://ovatheme.com/em4u/categories/business/" >Business</a></li>	<li id="menu-item-5336" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5336 dropdown" style="height: "><a title="Concert" href="https://ovatheme.com/em4u/categories/concert/" >Concert</a></li>	<li id="menu-item-5337" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5337 dropdown" style="height: "><a title="Festival" href="https://ovatheme.com/em4u/categories/festival/" >Festival</a></li>	<li id="menu-item-5338" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5338 dropdown" style="height: "><a title="Sport" href="https://ovatheme.com/em4u/categories/sport/" >Sport</a></li>	<li id="menu-item-5339" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5339 dropdown" style="height: "><a title="Travel" href="https://ovatheme.com/em4u/categories/travel/" >Travel</a></li></ul></li><li id="menu-item-5332" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5332 dropdown" style="height: "><a title="Locations" href="#" >Locations <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-<ul class="dropdown-menu submenu" role="menu">
-	<li id="menu-item-5340" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-has-children menu-item-5340 dropdown" style="height: "><a title="Texas" href="https://ovatheme.com/em4u/location/texas/" >Texas <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-5341" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5341 dropdown" style="height: "><a title="Austin" href="https://ovatheme.com/em4u/location/austin/" >Austin</a></li>		<li id="menu-item-5342" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5342 dropdown" style="height: "><a title="Houston" href="https://ovatheme.com/em4u/location/houston/" >Houston</a></li>		<li id="menu-item-5343" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5343 dropdown" style="height: "><a title="Dallas" href="https://ovatheme.com/em4u/location/dallas/" >Dallas</a></li></ul></li>	<li id="menu-item-5344" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-has-children menu-item-5344 dropdown" style="height: "><a title="California" href="https://ovatheme.com/em4u/location/california/" >California <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-5345" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5345 dropdown" style="height: "><a title="Los Angeles" href="https://ovatheme.com/em4u/location/los-angeles/" >Los Angeles</a></li>		<li id="menu-item-5346" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5346 dropdown" style="height: "><a title="Sacramento" href="https://ovatheme.com/em4u/location/sacramento/" >Sacramento</a></li></ul></li>	<li id="menu-item-5347" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-has-children menu-item-5347 dropdown" style="height: "><a title="Washington" href="https://ovatheme.com/em4u/location/washington/" >Washington <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-5348" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5348 dropdown" style="height: "><a title="Seattle" href="https://ovatheme.com/em4u/location/seattle/" >Seattle</a></li>		<li id="menu-item-5349" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5349 dropdown" style="height: "><a title="Olympia" href="https://ovatheme.com/em4u/location/olympia/" >Olympia</a></li></ul></li></ul></li><li id="menu-item-921" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-921 dropdown" style="height: "><a title="Pages" href="#" >Pages <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-<ul class="dropdown-menu submenu" role="menu">
-	<li id="menu-item-3010" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3010 dropdown" style="height: "><a title="Calendar" href="https://ovatheme.com/em4u/calendar/" >Calendar</a></li>	<li id="menu-item-606" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-606 dropdown" style="height: "><a title="Speaker" href="#" >Speaker <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-609" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-609 dropdown" style="height: "><a title="Archive V1" href="https://ovatheme.com/em4u/speaker/" >Archive V1</a></li>		<li id="menu-item-610" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-610 dropdown" style="height: "><a title="Archive V2" href="https://ovatheme.com/em4u/speaker/?type=style2" >Archive V2</a></li>		<li id="menu-item-611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-611 dropdown" style="height: "><a title="Archive V3" href="https://ovatheme.com/em4u/speaker/?type=style3" >Archive V3</a></li>		<li id="menu-item-612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-612 dropdown" style="height: "><a title="Archive V4" href="https://ovatheme.com/em4u/speaker/?type=style4" >Archive V4</a></li>		<li id="menu-item-605" class="menu-item menu-item-type-post_type menu-item-object-speaker menu-item-605 dropdown" style="height: "><a title="Detail Speaker" href="https://ovatheme.com/em4u/speaker/anna-young/" >Detail Speaker</a></li></ul></li>	<li id="menu-item-917" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-917 dropdown" style="height: "><a title="Venue" href="#" >Venue <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-919" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-919 dropdown" style="height: "><a title="Archive Grid" href="https://ovatheme.com/em4u/venue/" >Archive Grid</a></li>		<li id="menu-item-920" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-920 dropdown" style="height: "><a title="Archive Sidebar" href="https://ovatheme.com/em4u/venue/?type=style2" >Archive Sidebar</a></li>		<li id="menu-item-918" class="menu-item menu-item-type-post_type menu-item-object-venue menu-item-918 dropdown" style="height: "><a title="Detail" href="https://ovatheme.com/em4u/venue/park-row-new-york/" >Detail</a></li></ul></li>	<li id="menu-item-942" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-942 dropdown" style="height: "><a title="About Us" href="https://ovatheme.com/em4u/about-us/" >About Us</a></li>	<li id="menu-item-5350" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5350 dropdown" style="height: "><a title="Contact Us" href="#" >Contact Us <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-1281" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1281 dropdown" style="height: "><a title="Contact V1" href="https://ovatheme.com/em4u/contact-v1/" >Contact V1</a></li>		<li id="menu-item-1330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1330 dropdown" style="height: "><a title="Contact V2" href="https://ovatheme.com/em4u/contact-v2/" >Contact V2</a></li>		<li id="menu-item-1333" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1333 dropdown" style="height: "><a title="Contact V3" href="https://ovatheme.com/em4u/contact-v3/" >Contact V3</a></li></ul></li>	<li id="menu-item-1475" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1475 dropdown" style="height: "><a title="Headers" href="#" >Headers <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-1477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1477 dropdown" style="height: "><a title="Header 1" href="https://ovatheme.com/em4u/home-1/" >Header 1</a></li>		<li id="menu-item-1478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1478 dropdown" style="height: "><a title="Header 2" href="https://ovatheme.com/em4u/home-2/" >Header 2</a></li>		<li id="menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479 dropdown" style="height: "><a title="Header 3" href="https://ovatheme.com/em4u/home-3/" >Header 3</a></li>		<li id="menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1480 dropdown" style="height: "><a title="Header 4" href="https://ovatheme.com/em4u/home-4/" >Header 4</a></li></ul></li>	<li id="menu-item-1476" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1476 dropdown" style="height: "><a title="Footers" href="#" >Footers <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-	<ul class="dropdown-menu submenu" role="menu">
-		<li id="menu-item-1874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1874 dropdown" style="height: "><a title="Footer 1" href="https://ovatheme.com/em4u/home-1/" >Footer 1</a></li>		<li id="menu-item-1875" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1875 dropdown" style="height: "><a title="Footer 2" href="https://ovatheme.com/em4u/home-2/" >Footer 2</a></li>		<li id="menu-item-1876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1876 dropdown" style="height: "><a title="Footer 3" href="https://ovatheme.com/em4u/home-3/" >Footer 3</a></li>		<li id="menu-item-1877" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1877 dropdown" style="height: "><a title="Footer 4" href="https://ovatheme.com/em4u/home-4/" >Footer 4</a></li>		<li id="menu-item-1878" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1878 dropdown" style="height: "><a title="Footer 5" href="https://ovatheme.com/em4u/landing-page-1/" >Footer 5</a></li></ul></li>	<li id="menu-item-2444" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2444 dropdown" style="height: "><a title="Checkout Event" href="https://ovatheme.com/em4u/checkout-event/" >Checkout Event</a></li>	<li id="menu-item-2445" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2445 dropdown" style="height: "><a title="Cart Event" href="https://ovatheme.com/em4u/cart-event/" >Cart Event</a></li></ul></li><li id="menu-item-642" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-642 dropdown" style="height: "><a title="Blog" href="#" >Blog <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-<ul class="dropdown-menu submenu" role="menu">
-	<li id="menu-item-643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-643 dropdown" style="height: "><a title="Blog List V1" href="https://ovatheme.com/em4u/blog/" >Blog List V1</a></li>	<li id="menu-item-646" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-646 dropdown" style="height: "><a title="Blog List V2" href="https://ovatheme.com/em4u/blog/?type=list_two" >Blog List V2</a></li>	<li id="menu-item-647" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-647 dropdown" style="height: "><a title="Blog Grid V1" href="https://ovatheme.com/em4u/blog/?type=grid" >Blog Grid V1</a></li>	<li id="menu-item-648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-648 dropdown" style="height: "><a title="Blog Grid V2" href="https://ovatheme.com/em4u/blog/?type=grid_sidebar" >Blog Grid V2</a></li>	<li id="menu-item-1740" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1740 dropdown" style="height: "><a title="Detail Blog" href="https://ovatheme.com/em4u/how-to-make-website/" >Detail Blog</a></li></ul></li><li id="menu-item-1254" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1254 dropdown" style="height: "><a title="Shop" href="#" >Shop <span class="fa fa-caret-down show_dropmenu"></span></a><button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-<ul class="dropdown-menu submenu" role="menu">
-	<li id="menu-item-1256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1256 dropdown" style="height: "><a title="Right Sidebar" href="https://ovatheme.com/em4u/shop/" >Right Sidebar</a></li>	<li id="menu-item-1257" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1257 dropdown" style="height: "><a title="Left Sidebar" href="https://ovatheme.com/em4u/shop/?woo_layout=left_sidebar" >Left Sidebar</a></li>	<li id="menu-item-1258" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1258 dropdown" style="height: "><a title="No Sidebar" href="https://ovatheme.com/em4u/shop/?woo_layout=no_sidebar" >No Sidebar</a></li>	<li id="menu-item-1272" class="menu-item menu-item-type-post_type menu-item-object-product menu-item-1272 dropdown" style="height: "><a title="Product Detail" href="https://ovatheme.com/em4u/product/product-one/" >Product Detail</a></li>	<li id="menu-item-2051" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2051 dropdown" style="height: "><a title="My account" href="https://ovatheme.com/em4u/my-account/" >My account</a></li></ul></li><li class="li_account"><div class="ova-account"><a href="https://ovatheme.com/em4u/member-login/" class="ova_icon_open"><i class=" icon_lock-open_alt"></i></a>
-                      <a href="https://ovatheme.com/em4u/member-register/" class="ova_icon_key"><i class="icon_key_alt"></i></a></div></li></ul>					      
-					    </div><!-- /.navbar-collapse -->
-
-					    							<div class="ova-account">
-								
-									<a href="https://ovatheme.com/em4u/member-login/" class="ova_icon_open"><i class=" icon_lock-open_alt"></i></a>
-						            <a href="https://ovatheme.com/em4u/member-register/" class="ova_icon_key"><i class="icon_key_alt"></i></a>
-
-					            							</div>
-						
-					    
-
-					  </div> <!-- /.container-fluid -->
-					</nav>
-				</div>
-
-			</div>	 
-
-		</div>
-	</div>
-
-	<!-- Background Heading -->
-	
-</header>        
+    <header class="ova_header ovatheme_header_v2 bg_heading fixed has_logo_scroll has_logo_mobile ">
+        <div class="scroll_fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="ova-menu">
+                        <nav class="navbar">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="ova-logo navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ovatheme_header_v2" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <!-- LOGO PROPIO -->
+                                    <a href="https://ovatheme.com/em4u/" class="navbar-brand logo">
+                                        <img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_white.png" alt="EM4U &#8211; Event Management Multipurpose WordPress Theme" style=" " >
+                                    </a>
+                                    <a href="https://ovatheme.com/em4u/" class="navbar-brand logo_scroll">
+                                        <img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_white.png" alt="EM4U &#8211; Event Management Multipurpose WordPress Theme" style=" ">
+                                    </a>
+                                    <a href="https://ovatheme.com/em4u/" class="navbar-brand logo_mobile">
+                                        <img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_dark.png" alt="EM4U &#8211; Event Management Multipurpose WordPress Theme" style=" ">
+                                    </a>
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="ovatheme_header_v2">
+                                    <ul id="menu-primary-menu" class="nav navbar-nav navbar-right">
+                                        <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
+                                            <a title="Home" href="{{ url('/index') }}">{{ __('Home') }}</a>
+                                        </li>
+                                        <li id="menu-item-16" class="col_shortcode_style menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-16 dropdown ova-megamenu" style="height: ">
+                                            <a title="Event" href="#" class="col_shortcode_style">{{ __('Event') }}<span class="fa fa-caret-down show_dropmenu"></span></a>
+                                            <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
+                                            <ul class="ova-mega-menu three-columns  dropdown-menu"  role="menu">
+                                                <li  id="menu-item-651" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-651 dropdown" style="height: 620px">
+                                                    <div>
+                                                        <h5 class="title">Upcomming Event</h5>
+                                                        <div class="ovaem_slider_events_two ">
+                                                            <?php
+                                                            $actualDate = date('d-m-Y');
+                                                            $events = DB::table('events')
+                                                                        ->join('helds', 'events.id', '=', 'helds.idEvent', )
+                                                                        ->join('places', 'places.id', '=', 'helds.idPlace')
+                                                                        ->join('cities', 'places.idCity', '=', 'cities.id')
+                                                                        ->where('helds.date', '>', $actualDate)
+                                                                        ->select('events.name', 'helds.date', 'places.name as place', 'cities.name as city', 'events.description')
+                                                                        ->get();
+                                                            ?>
+                                                            @foreach ($events as $event)
+                                                                <div class="item">
+                                                                    <div class="event_content">
+                                                                        <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">
+                                                                            <div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3.jpg);"></div>
+                                                                            <h2 class="title"><a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">{{ $event->name }}</a></h2>
+                                                                            <div class="wrap_date_venue">
+                                                                                <div class="time"><i class="icon_calendar"></i>{{ $event->date }}</div>
+                                                                                <div class="venue"><i class="icon_pin_alt"></i>{{ $event->place }} - {{ $event->city }}</div>
+                                                                            </div>
+                                                                            <div class="desc">{{ $event->description }}</div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="countdown">
+                                                                        <div class="ova_countdown_menu">
+                                                                            <div class="ova_countdown_event" data-day="01" data-month="02" data-year="2024" data-hour="12" data-minute="09" data-timezone="0"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a class="ova-btn" href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Get Ticket</a>
+                                                                </div>
+                                                            @endforeach                                                
+                                                        </div>
+                                                    </div>
+                                                </li>	
+                                                <li  id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24 dropdown" style="height: 620px">
+                                                    <div>
+                                                        <h5 class="title">{{ __('Event Archive') }}</h5>
+                                                        <a title="Grid Version 1" href="https://ovatheme.com/em4u/event/" class="" >{{ __('All events')}}</a>
+                                                        <!-- <a title="Grid Version 2" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style2" class="" >Grid Version 2</a> -->
+                                                        <!-- <a title="Grid Version 3" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style3" class="" >Grid Version 3</a> -->
+                                                        <!-- <a title="Grid Version 4" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style4" class="" >Grid Version 4</a> -->
+                                                        <!-- <a title="List without Sidebar" href="https://ovatheme.com/em4u/event/?type=list" class="" >List without Sidebar</a> -->
+                                                        <!-- <a title="List with Sidebar" href="https://ovatheme.com/em4u/event/?type=list_sidebar" class="" >List with Sidebar</a> -->
+                                                        <!-- <a title="Grid Sidebar V1" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style1" class="" >Grid Sidebar V1</a> -->
+                                                        <!-- <a title="Grid Sidebar V2" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style2" class="" >Grid Sidebar V2</a> -->
+                                                        <!-- <a title="Grid Sidebar V3" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style3" class="" >Grid Sidebar V3</a> -->
+                                                        <!-- <a title="Grid Sidebar V4" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style4" class="" >Grid Sidebar V4</a> -->
+                                                    </div>
+                                                </li>	
+                                                <li  id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27 dropdown" style="height: 620px">
+                                                    <div>
+                                                        <h5 class="title">{{_('Event Pages') }}</h5>
+                                                        <a title="Upcoming Events" href="https://ovatheme.com/em4u/upcoming-event/" class="" >{{ __('Upcoming Events') }}</a>
+                                                        <a title="Past Events" href="https://ovatheme.com/em4u/past-event/" class="" >{{ __('Past Events') }}</a>
+                                                        <a title="Featured Events" href="https://ovatheme.com/em4u/featured-event/" class="" >{{ __('Featured Events') }}</a>
+                                                        <a title="Virtual Event - Zoom" href="https://ovatheme.com/em4u/event/online-yoga-class/" class="" >{{ __('Virtual Event') }} &#8211; Zoom</a>
+                                                        <a title="Event Free Ticket" href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/" class="" >{{ __('Event Free Ticket') }}</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li id="menu-item-5333" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5333 dropdown" style="height: ">
+                                            <a title="Categories" href="#" >Categories<span class="fa fa-caret-down show_dropmenu"></span></a>
+                                            <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
+                                            <ul class="dropdown-menu submenu" role="menu">
+                                                <?php
+                                                $categories = Category::all();
+                                                foreach ($categories as $category){
+                                                ?>
+                                                <li id="menu-item-5334" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
+                                                <a title="Conference" href="https://ovatheme.com/em4u/categories/conference/" >{{ $category->name }}</a></li>	
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+                                        </li>
+                                    <li id="menu-item-5332" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5332 dropdown" style="height: ">
+                                        <a title="Locations" href="#" >{{ __('Locations') }}<span class="fa fa-caret-down show_dropmenu"></span></a>
+                                        <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
+                                        <ul class="dropdown-menu submenu" role="menu">
+                                            <?php
+                                            $cities = City::take(10)->get();
+                                            ?>
+                                            @foreach ($cities as $city)
+                                                <li id="menu-item-5340" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-has-children menu-item-5340 dropdown" style="height: ">
+                                                    <a title="Texas" href="https://ovatheme.com/em4u/location/texas/" >{{ $city-> name }} <span class="fa fa-caret-down show_dropmenu"></span></a>
+                                                    <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
+                                                    <ul class="dropdown-menu submenu" role="menu">
+                                                        <?php
+                                                        $places = Place::where('idCity', $city->id)->get();
+                                                        ?>
+                                                        @foreach ($places as $place)
+                                                            <li id="menu-item-5341" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5341 dropdown" style="height: ">
+                                                                <a title="Austin" href="https://ovatheme.com/em4u/location/austin/" >{{ $place->name }}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>	
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-921" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-921 dropdown" style="height: ">
+                                        <a title="Pages" href="#" >{{ __('Pages') }}<span class="fa fa-caret-down show_dropmenu"></span></a>
+                                        <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
+                                        <ul class="dropdown-menu submenu" role="menu">
+                                            <li id="menu-item-942" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-942 dropdown" style="height: ">
+                                                <a title="About Us" href="https://ovatheme.com/em4u/about-us/" >{{ __('About Us') }}</a></li>	
+                                            <li id="menu-item-5350" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5350 dropdown" style="height: ">
+                                                <a title="Contact Us" href="#" >{{ __('Contact Us') }}<span class="fa fa-caret-down show_dropmenu"></span></a>
+                                                <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
+                                                <ul class="dropdown-menu submenu" role="menu">
+                                                    <li id="menu-item-1281" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1281 dropdown" style="height: ">
+                                                        <a title="Contact V1" href="https://ovatheme.com/em4u/contact-v1/" >{{ __('Contact') }}</a></li>		
+                                                    <li id="menu-item-1330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1330 dropdown" style="height: ">
+                                                </ul>
+                                            </li>
+                                            <li id="menu-item-2444" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2444 dropdown" style="height: ">
+                                                <a title="Checkout Event" href="https://ovatheme.com/em4u/checkout-event/" >{{ __('Checkout') }}</a>
+                                            </li>	
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
+                                            <a title="Home" href="https://ovatheme.com/em4u/blog/">{{ __('Blog') }}</a>
+                                    </li>
+                                    <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
+                                            <a title="Home" href="https://ovatheme.com/em4u/cart-event/">{{ __('Cart') }}</a>
+                                    </li>
+                                    <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
+                                            <a title="Home" href="https://ovatheme.com/em4u/my-account/">{{ __('Account') }}</a>
+                                    </li>
+                                    <li class="li_account">
+                                        <div class="ova-account">
+                                            <a href="https://ovatheme.com/em4u/member-login/" class="ova_icon_open"><i class=" icon_lock-open_alt"></i></a>
+                                            <a href="https://ovatheme.com/em4u/member-register/" class="ova_icon_key"><i class="icon_key_alt"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>					      
+                                </div><!-- /.navbar-collapse -->
+                                <div class="ova-account">
+                                    <a href="https://ovatheme.com/em4u/member-login/" class="ova_icon_open"><i class=" icon_lock-open_alt"></i></a>
+                                    <a href="https://ovatheme.com/em4u/member-register/" class="ova_icon_key"><i class="icon_key_alt"></i></a>
+                                </div>\
+                            </div> <!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>	 
+            </div>
+        </div>
+        <!-- Background Heading -->
+    </header>        
       			
-<div data-vc-parallax="1.5" data-vc-parallax-image="https://ovatheme.com/em4u/wp-content/uploads/2019/03/search_event.jpg" class="vc_row wpb_row vc_row-fluid vc_custom_1554393677789 vc_row-has-fill vc_row-o-full-height vc_row-o-columns-middle vc_row-flex vc_general vc_parallax vc_parallax-content-moving"><div class="patter_bg" style="background-color:" ></div><div class="container container-new"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ovaem_search_banner ovaem_search_state_city "><h2 class="search_title">Find Nearby Location</h2><h3 class="search_subtitle">Explore top-rated attractions, activities and more!</h3><form action="https://ovatheme.com/em4u/" method="GET" name="search_event" ><div class="ovaem_name_event"><input class="form-controll selectpicker" placeholder="What are you looking for ?" name="name_event" value="" /></div><div class="ovaem_country"><select  name='name_country' id='name_country' class='selectpicker  postform '>
-	<option value="" selected="selected">Todas las categorías</option>
-    <?php
-    $categories = Category::all();
-    foreach ($categories as $category){
-    ?>
-        <option class="level-0"> {{ $category->name }} </option>
-    <?php
-    }
-    ?>
-</select>
-</div><div class="ovaem_city"><select  name='name_city' id='name_city' class='selectpicker  postform '>
-	<option value='' selected='selected'>Todas las ciudades</option>
-	<?php
-    $cities = City::all();
-    foreach ($cities as $city){
-    ?>
-        <option class="level-0"> {{ $city->name }} </option>
-    <?php
-    }
-    ?>
-</select>
-</div><div class="ovaem_cat"><select  name='cat' id='cat' class='selectpicker '>
-    <option value='' selected='selected'>Todas las fechas</option>
-	<?php
-    $helds = Held::all();
-    foreach ($helds as $held){
-    ?>
-        <option class="level-0"> {{ $held->date }} </option>
-    <?php
-    }
-    ?>
-</select>
-</div><input type="hidden" name="post_type" value="event"><input type="hidden" name="search" value="search-event"><div class="ovaem_submit"><input type="submit" value="Search" /></div></form><div class="sub_title2">Or browse event by feature:</div><div class="browser_featured"><a href="https://ovatheme.com/em4u/upcoming-event/"><i class="icon_loading"></i>Upcoming Events</a><a href="https://ovatheme.com/em4u/featured-event/"><i class="icon_lightbulb_alt"></i>Featured Events</a><a href="https://ovatheme.com/em4u/event/"><i class="icon_archive_alt"></i>All Events</a></div></div></div></div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1554353656652"><div class="container container-new"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1554353920950"><div class="wpb_wrapper"><div class="ova_heading_v4 text-center"><h3 class="title">Popular Categories</h3><div class="sub_title"></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner vc_custom_1552202677727"><div class="wpb_wrapper"><a href="https://ovatheme.com/em4u/?categories=business" class="cat_info "><i class="icon_bag_alt"></i><h2 class="name">Business</h2><span class="count">2</span></a></div></div></div><div class="wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner vc_custom_1552202682990"><div class="wpb_wrapper"><a href="https://ovatheme.com/em4u/?categories=concert" class="cat_info "><i class="icon_music"></i><h2 class="name">Concert</h2><span class="count">2</span></a></div></div></div><div class="wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner vc_custom_1552202688180"><div class="wpb_wrapper"><a href="https://ovatheme.com/em4u/?categories=conference" class="cat_info "><i class="icon_mic_alt"></i><h2 class="name">Conference</h2><span class="count">4</span></a></div></div></div><div class="wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner vc_custom_1552202698153"><div class="wpb_wrapper"><a href="https://ovatheme.com/em4u/?categories=festival" class="cat_info "><i class="icon_bag_alt"></i><h2 class="name">Festival</h2><span class="count">2</span></a></div></div></div><div class="wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner vc_custom_1552202702847"><div class="wpb_wrapper"><a href="https://ovatheme.com/em4u/?categories=sport" class="cat_info "><i class="icon_pin_alt"></i><h2 class="name">Sport</h2><span class="count">3</span></a></div></div></div><div class="wpb_column vc_column_container vc_col-sm-2"><div class="vc_column-inner vc_custom_1552202707678"><div class="wpb_wrapper"><a href="https://ovatheme.com/em4u/?categories=travel" class="cat_info "><i class="icon_genius"></i><h2 class="name">Travel</h2><span class="count">1</span></a></div></div></div></div></div></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1554353279090"><div class="container container-new"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1554354170505"><div class="wpb_wrapper"><div class="ova_heading_v4 text-center"><h3 class="title">Most Visited Places</h3><div class="sub_title">Browse Popular Location</div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="city-girds "><div class="city-thumb">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t11.jpg" class="visible hidden-xs" alt="location">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/HoustonSkylineTexas_m.jpg" class="hidden visible-xs" alt="location">
-					</div><div class="city-title text-center">
-						<h3 class="lp-h3">
-							<a href="https://ovatheme.com/em4u/?location=texas">Texas</a>
-						</h3>
-						<label class="lp-listing-quantity">6 Events</label>
-					</div><a href="https://ovatheme.com/em4u/?location=texas" class="overlay-link"></a></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="city-girds "><div class="city-thumb">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t22_new.jpg" class="visible hidden-xs" alt="location">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/cali_m.jpg" class="hidden visible-xs" alt="location">
-					</div><div class="city-title text-center">
-						<h3 class="lp-h3">
-							<a href="https://ovatheme.com/em4u/?location=california">California</a>
-						</h3>
-						<label class="lp-listing-quantity">4 Events</label>
-					</div><a href="https://ovatheme.com/em4u/?location=california" class="overlay-link"></a></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="city-girds "><div class="city-thumb">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t33.jpg" class="visible hidden-xs" alt="location">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/los-angeles-california_m.jpg" class="hidden visible-xs" alt="location">
-					</div><div class="city-title text-center">
-						<h3 class="lp-h3">
-							<a href="https://ovatheme.com/em4u/?location=washington">Washington</a>
-						</h3>
-						<label class="lp-listing-quantity">2 Events</label>
-					</div><a href="https://ovatheme.com/em4u/?location=washington" class="overlay-link"></a></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="city-girds "><div class="city-thumb">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t44.jpg" class="visible hidden-xs" alt="location">
-						<img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/frodia_m.jpg" class="hidden visible-xs" alt="location">
-					</div><div class="city-title text-center">
-						<h3 class="lp-h3">
-							<a href="https://ovatheme.com/em4u/?location=los-angeles">Los Angeles</a>
-						</h3>
-						<label class="lp-listing-quantity">2 Events</label>
-					</div><a href="https://ovatheme.com/em4u/?location=los-angeles" class="overlay-link"></a></div></div></div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1554353284632 vc_row-has-fill"><div class="container container-new"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1554354202684"><div class="wpb_wrapper"><div class="ova_heading_v4 text-center"><h3 class="title">WHY CHOOSE US</h3><div class="sub_title"></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ova_box ova-trans  styl1 "><div class="num">01</div><div class="wrap_content"><h3 class="title"><a href="#" class="ova-trans">MULTIPLE EVENTS</a></h3><div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ova_box ova-trans  styl1 "><div class="num">02</div><div class="wrap_content"><h3 class="title"><a href="#" class="ova-trans">EVENT MANAGEMENT</a></h3><div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ova_box ova-trans  styl1 "><div class="num">03</div><div class="wrap_content"><h3 class="title"><a href="#" class="ova-trans">CREADIT CARD PAYMENT</a></h3><div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner vc_custom_1552203945250"><div class="wpb_wrapper"><div class="ova_box ova-trans  styl1 "><div class="num">04</div><div class="wrap_content"><h3 class="title"><a href="#" class="ova-trans">Location Management</a></h3><div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner vc_custom_1552203936532"><div class="wpb_wrapper"><div class="ova_box ova-trans  styl1 "><div class="num">05</div><div class="wrap_content"><h3 class="title"><a href="#" class="ova-trans">FREE REGISTRING MANAGEMENT</a></h3><div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner vc_custom_1552203940382"><div class="wpb_wrapper"><div class="ova_box ova-trans  styl1 "><div class="num">06</div><div class="wrap_content"><h3 class="title"><a href="#" class="ova-trans">EASY TO USE</a></h3><div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1554353291638"><div class="container container-new"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1554354237470"><div class="wpb_wrapper"><div class="ova_heading_v4 text-center"><h3 class="title">FEATURED EVENTS</h3><div class="sub_title">You can choose to display Featured, Upcoming, Past Events here</div></div></div></div></div><div class="padding_col_mobile wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1554353717414"><div class="wpb_wrapper"><div class="ovaem_events_filter " data-order="DESC"><div class="row"><div class="events_filter_hide_nav"><div class="select_cat_mobile_btn"><div class="btn_filter ova-btn ova-btn-second-color">Select Category<i class="arrow_carrot-down"></i></div><ul class="clearfix ovaem_events_filter_nav style2" data-tab_active ="">
-			                    <li class="all current"><a href="#" class="ova-btn ova-btn-rad-30" data-filter="*">All</a></li></ul></div></div><div class="ovaem_events_filter_content"><div class="col-md-4 col-sm-6 col-xs-6 ova-item isotope-item style2  festival"><a href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/"><div class="ova_thumbnail">
-
-			    							<img alt="Christmas event in the city" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_3-min-370x222.jpg" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_3-min-370x222.jpg 370w, https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_3-min-640x384.jpg 640w" sizes="(max-width: 640px) 100vw, 370px" /><div class="time"><span class="month">Nov</span><span class="date">4-2025</span></div></div></a><div class="wrap_content"><h2 class="title"><a href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/">Christmas event in the city</a></h2><div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div><div class="venue"><span><i class="icon_pin_alt"></i></span>City Hall, New York,...</div><div class="bottom"><div class="more_detail"><a class="btn_link" href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/"><span>Get ticket</span></a></div><span class="price"><span>Free</span></span></div></div></div><div class="col-md-4 col-sm-6 col-xs-6 ova-item isotope-item style2  business"><a href="https://ovatheme.com/em4u/event/how-to-become-an-entrepreneur/"><div class="ova_thumbnail">
-
-			    							<img alt="How to become an entrepreneur ?" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_2-copy-3-370x222.jpg" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_2-copy-3-370x222.jpg 370w, https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_2-copy-3-640x384.jpg 640w" sizes="(max-width: 640px) 100vw, 370px" /><div class="time"><span class="month">Dec</span><span class="date">19-2024</span></div></div></a><div class="wrap_content"><h2 class="title"><a href="https://ovatheme.com/em4u/event/how-to-become-an-entrepreneur/">How to become an entrepreneur ...</a></h2><div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div><div class="venue"><span><i class="icon_pin_alt"></i></span>795 Pine St, New Yor...</div><div class="bottom"><div class="more_detail"><a class="btn_link" href="https://ovatheme.com/em4u/event/how-to-become-an-entrepreneur/"><span>Get ticket</span></a></div><span class="price"><span>$10</span></span></div></div></div><div class="mobile_row"></div><div class="col-md-4 col-sm-6 col-xs-6 ova-item isotope-item style2  sport"><a href="https://ovatheme.com/em4u/event/phanxipang-tourist/"><div class="ova_thumbnail">
-
-			    							<img alt="Phanxipang Tourist" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_sport_1-copy-370x222.jpg" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_sport_1-copy-370x222.jpg 370w, https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_sport_1-copy-640x384.jpg 640w" sizes="(max-width: 640px) 100vw, 370px" /><div class="time"><span class="month">Dec</span><span class="date">18-2024</span></div></div></a><div class="wrap_content"><h2 class="title"><a href="https://ovatheme.com/em4u/event/phanxipang-tourist/">Phanxipang Tourist</a></h2><div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div><div class="venue"><span><i class="icon_pin_alt"></i></span>Broadway 473 Broadwa...</div><div class="bottom"><div class="more_detail"><a class="btn_link" href="https://ovatheme.com/em4u/event/phanxipang-tourist/"><span>Get ticket</span></a></div><span class="price"><span>$0-$15</span></span></div></div></div><div class="row"></div></div><div class="read_more"><a class="ova-btn ova-btn-rad-30 ova-btn-arrow" href="https://ovatheme.com/em4u/event/"><i class="arrow_carrot-right_alt"></i>All events</a></div></div></div></div></div></div></div></div></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-parallax="1.5" data-vc-parallax-image="https://ovatheme.com/em4u/wp-content/uploads/2017/09/bg3.jpg" class="vc_row wpb_row vc_row-fluid vc_custom_1554353298112 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving"><div class="patter_bg" style="background-color:rgba(0,0,0,0.56)" ></div><div class="container container-new"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ovaem_skill "><div class="top"><i class="icon_group"></i><div class="number">1256</div></div><div class="name">PARTICIPANT</div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ovaem_skill "><div class="top"><i class="icon_pin_alt"></i><div class="number">255</div></div><div class="name">Total Events</div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ovaem_skill "><div class="top"><i class="icon_globe"></i><div class="number">09</div></div><div class="name">VENUES</div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="ovaem_skill "><div class="top"><i class="icon_currency"></i><div class="number">19</div></div><div class="name">Sponsors</div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1554353305210 vc_row-has-fill"><div class="container container-new"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1554354271959"><div class="wpb_wrapper"><div class="ova_heading_v4 text-center"><h3 class="title">Latest News</h3><div class="sub_title"></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div  class="owl-carousel ova_blog " data-loop="true" data-auto_slider="true" data-duration="3000" data-dots="true"><div class="content ova-trans"><div class="ova_media"><a href="https://ovatheme.com/em4u/how-to-make-website/" class="img_media"><img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/6-370x222.jpg" alt="How to make website ?" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/6-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/6-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  ></a><a class="blog_link" href="https://ovatheme.com/em4u/how-to-make-website/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a></div><h2 class="title"><a href="https://ovatheme.com/em4u/how-to-make-website/">How to make website ?</a></h2><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div><div class="post-meta"><div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Oct 20, 2017</span></div><div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div></div></div><div class="content ova-trans"><div class="ova_media"><a href="https://ovatheme.com/em4u/course-about-virual-video/" class="img_media"><img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/7-1-370x222.jpg" alt="Course about virual video" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/7-1-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/7-1-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  ></a><a class="blog_link" href="https://ovatheme.com/em4u/course-about-virual-video/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a></div><h2 class="title"><a href="https://ovatheme.com/em4u/course-about-virual-video/">Course about virual video</a></h2><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div><div class="post-meta"><div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Oct 20, 2017</span></div><div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div></div></div><div class="content ova-trans"><div class="ova_media"><a href="https://ovatheme.com/em4u/learn-something-new-4/" class="img_media"><img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/16-1-370x222.jpg" alt="How to make success business ?" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/16-1-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/16-1-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  ></a><a class="blog_link" href="https://ovatheme.com/em4u/learn-something-new-4/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a></div><h2 class="title"><a href="https://ovatheme.com/em4u/learn-something-new-4/">How to make success business ?</a></h2><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div><div class="post-meta"><div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Aug 15, 2017</span></div><div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div></div></div><div class="content ova-trans"><div class="ova_media"><a href="https://ovatheme.com/em4u/learn-something-new-2/" class="img_media"><img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/13-370x222.jpg" alt="Learn something new" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/13-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/13-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  ></a><a class="blog_link" href="https://ovatheme.com/em4u/learn-something-new-2/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a></div><h2 class="title"><a href="https://ovatheme.com/em4u/learn-something-new-2/">Learn something new</a></h2><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div><div class="post-meta"><div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Jul 15, 2017</span></div><div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div></div></div><div class="content ova-trans"><div class="ova_media"><a href="https://ovatheme.com/em4u/em4u-event-management/" class="img_media"><img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/09/18-370x222.jpg" alt="EM4U &#8211; Event Management" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/09/18-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/09/18-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  ></a><a class="blog_link" href="https://ovatheme.com/em4u/em4u-event-management/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a></div><h2 class="title"><a href="https://ovatheme.com/em4u/em4u-event-management/">EM4U &#8211; Event Management</a></h2><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div><div class="post-meta"><div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> May 15, 2017</span></div><div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div></div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div>
+    <div data-vc-parallax="1.5" data-vc-parallax-image="https://ovatheme.com/em4u/wp-content/uploads/2019/03/search_event.jpg" class="vc_row wpb_row vc_row-fluid vc_custom_1554393677789 vc_row-has-fill vc_row-o-full-height vc_row-o-columns-middle vc_row-flex vc_general vc_parallax vc_parallax-content-moving">
+        <div class="patter_bg" style="background-color:" ></div>
+        <div class="container container-new">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovaem_search_banner ovaem_search_state_city ">
+                                <h2 class="search_title">{{ __('Events') }}</h2>
+                                <h3 class="search_subtitle">{{ __('Find your favorite events!') }}</h3>
+                                <form action="https://ovatheme.com/em4u/" method="GET" name="search_event" >
+                                    <div class="ovaem_name_event">
+                                        <input class="form-controll selectpicker" placeholder="{{ __('What are you looking for ?') }}" name="name_event" value="" />
+                                    </div>
+                                    <div class="ovaem_country">
+                                        <select  name='name_country' id='name_country' class='selectpicker  postform '>
+                                            <option value="" selected="selected">Todas las categorías</option>
+                                            <?php
+                                            $categories = Category::all();
+                                            foreach ($categories as $category){
+                                            ?>
+                                                <option class="level-0"> {{ $category->name }} </option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="ovaem_city">
+                                        <select  name='name_city' id='name_city' class='selectpicker  postform '>
+                                            <option value='' selected='selected'>Todas las ciudades</option>
+                                            <?php
+                                            $cities = City::all();
+                                            foreach ($cities as $city){
+                                            ?>
+                                                <option class="level-0"> {{ $city->name }} </option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="ovaem_cat">
+                                        <select  name='cat' id='cat' class='selectpicker '>
+                                            <option value='' selected='selected'>Todas las fechas</option>
+                                            <?php
+                                            $helds = Held::all();
+                                            foreach ($helds as $held){
+                                            ?>
+                                                <option class="level-0"> {{ $held->date }} </option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <input type="hidden" name="post_type" value="event">
+                                    <input type="hidden" name="search" value="search-event">
+                                    <div class="ovaem_submit">
+                                        <input type="submit" value="{{ __('Search') }}" />
+                                    </div>
+                                </form>
+                                <div class="sub_title2">{{ __('Or browse event by feature:') }}</div>
+                                <div class="browser_featured">
+                                    <a href="https://ovatheme.com/em4u/upcoming-event/"><i class="icon_loading"></i>{{ __('Upcoming Events') }}</a>
+                                    <a href="https://ovatheme.com/em4u/featured-event/"><i class="icon_lightbulb_alt"></i>{{ __('Featured Events') }}</a>
+                                    <a href="https://ovatheme.com/em4u/event/"><i class="icon_archive_alt"></i>{{ __('All events') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row wpb_row vc_row-fluid vc_custom_1554353656652">
+        <div class="container container-new">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner vc_custom_1554353920950">
+                        <div class="wpb_wrapper">
+                            <div class="ova_heading_v4 text-center">
+                                <h3 class="title">{{ __('Popular Categories') }}</h3>
+                                <div class="sub_title"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                $i = 0;
+                $categories = DB::table('categories')
+                              ->join('events', 'events.idCategory', '=', 'categories.id')
+                              ->select('categories.name', DB::raw('COUNT(events.idCategory) as number'))
+                              ->groupBy('categories.name', 'events.idCategory')
+                              ->get();
+                ?>
+                @foreach ($categories as $category)
+                    @if ($i < 6)
+                        <div class="wpb_column vc_column_container vc_col-sm-2">
+                            <div class="vc_column-inner vc_custom_1552202677727">
+                                <div class="wpb_wrapper">
+                                    <a href="https://ovatheme.com/em4u/?categories=business" class="cat_info "><i class="icon_bag_alt"></i>
+                                        <h2 class="name">{{ $category->name }}</h2><span class="count">{{ $category->number }}</span>
+                                        <?php $i++ ?>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1554353279090">
+        <div class="container container-new">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner vc_custom_1554354170505">
+                        <div class="wpb_wrapper">
+                            <div class="ova_heading_v4 text-center">
+                                <h3 class="title">{{ __('Most Visited Places') }}</h3>
+                                <div class="sub_title">{{ __('Browse Popular Location') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-6">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="city-girds ">
+                                <div class="city-thumb">
+                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t11.jpg" class="visible hidden-xs" alt="location">
+                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/HoustonSkylineTexas_m.jpg" class="hidden visible-xs" alt="location">
+					            </div>
+                                <div class="city-title text-center">
+                                    <h3 class="lp-h3">
+                                        <a href="https://ovatheme.com/em4u/?location=texas">Texas</a>
+                                    </h3>
+						            <label class="lp-listing-quantity">6 Events</label>
+					            </div>
+                                <a href="https://ovatheme.com/em4u/?location=texas" class="overlay-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-6">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="city-girds ">
+                                                <div class="city-thumb">
+                                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t22_new.jpg" class="visible hidden-xs" alt="location">
+                                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/cali_m.jpg" class="hidden visible-xs" alt="location">
+					                            </div>
+                                                <div class="city-title text-center">
+                                                    <h3 class="lp-h3">
+                                                        <a href="https://ovatheme.com/em4u/?location=california">California</a>
+                                                    </h3>
+                                                    <label class="lp-listing-quantity">4 Events</label>
+                                                </div>
+                                                <a href="https://ovatheme.com/em4u/?location=california" class="overlay-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="city-girds ">
+                                                <div class="city-thumb">
+                                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t33.jpg" class="visible hidden-xs" alt="location">
+                                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/los-angeles-california_m.jpg" class="hidden visible-xs" alt="location">
+                                                </div>
+                                                <div class="city-title text-center">
+                                                    <h3 class="lp-h3">
+                                                        <a href="https://ovatheme.com/em4u/?location=washington">Washington</a>
+                                                    </h3>
+                                                    <label class="lp-listing-quantity">2 Events</label>
+                                                </div>
+                                                <a href="https://ovatheme.com/em4u/?location=washington" class="overlay-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="city-girds ">
+                                                <div class="city-thumb">
+                                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/t44.jpg" class="visible hidden-xs" alt="location">
+                                                    <img src="https://ovatheme.com/em4u/wp-content/uploads/2019/03/frodia_m.jpg" class="hidden visible-xs" alt="location">
+                                                </div><div class="city-title text-center">
+                                                    <h3 class="lp-h3">
+                                                        <a href="https://ovatheme.com/em4u/?location=los-angeles">Los Angeles</a>
+                                                    </h3>
+                                                    <label class="lp-listing-quantity">2 Events</label>
+                                                </div>
+                                                <a href="https://ovatheme.com/em4u/?location=los-angeles" class="overlay-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row-full-width vc_clearfix"></div>
+    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1554353284632 vc_row-has-fill">
+        <div class="container container-new">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner vc_custom_1554354202684">
+                        <div class="wpb_wrapper">
+                            <div class="ova_heading_v4 text-center">
+                                <h3 class="title">WHY CHOOSE US</h3>
+                                <div class="sub_title"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ova_box ova-trans  styl1 ">
+                                <div class="num">01</div>
+                                <div class="wrap_content">
+                                    <h3 class="title"><a href="#" class="ova-trans">MULTIPLE EVENTS</a></h3>
+                                    <div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ova_box ova-trans  styl1 ">
+                                <div class="num">02</div>
+                                <div class="wrap_content">
+                                    <h3 class="title"><a href="#" class="ova-trans">EVENT MANAGEMENT</a></h3>
+                                    <div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ova_box ova-trans  styl1 ">
+                                <div class="num">03</div>
+                                <div class="wrap_content">
+                                    <h3 class="title"><a href="#" class="ova-trans">CREADIT CARD PAYMENT</a></h3>
+                                    <div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ova_box ova-trans  styl1 ">
+                                <div class="num">02</div>
+                                <div class="wrap_content">
+                                    <h3 class="title"><a href="#" class="ova-trans">EVENT MANAGEMENT</a></h3>
+                                    <div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ova_box ova-trans  styl1 ">
+                                <div class="num">03</div>
+                                <div class="wrap_content">
+                                    <h3 class="title"><a href="#" class="ova-trans">CREADIT CARD PAYMENT</a></h3>
+                                    <div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-4">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ova_box ova-trans  styl1 ">
+                                <div class="num">03</div>
+                                <div class="wrap_content">
+                                    <h3 class="title"><a href="#" class="ova-trans">CREADIT CARD PAYMENT</a></h3>
+                                    <div class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nib</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row-full-width vc_clearfix"></div>
+    <div class="vc_row wpb_row vc_row-fluid vc_custom_1554353291638">
+        <div class="container container-new">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner vc_custom_1554354237470">
+                        <div class="wpb_wrapper">
+                            <div class="ova_heading_v4 text-center">
+                                <h3 class="title">FEATURED EVENTS</h3>
+                                <div class="sub_title">You can choose to display Featured, Upcoming, Past Events here</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="padding_col_mobile wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner vc_custom_1554353717414">
+                        <div class="wpb_wrapper">
+                            <div class="ovaem_events_filter " data-order="DESC">
+                                <div class="row">
+                                    <div class="events_filter_hide_nav">
+                                        <div class="select_cat_mobile_btn">
+                                            <div class="btn_filter ova-btn ova-btn-second-color">Select Category<i class="arrow_carrot-down"></i></div>
+                                            <ul class="clearfix ovaem_events_filter_nav style2" data-tab_active ="">
+			                                    <li class="all current">
+                                                    <a href="#" class="ova-btn ova-btn-rad-30" data-filter="*">All</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="ovaem_events_filter_content">
+                                        <div class="col-md-4 col-sm-6 col-xs-6 ova-item isotope-item style2  festival">
+                                            <a href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/">
+                                                <div class="ova_thumbnail">
+			    							        <img alt="Christmas event in the city" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_3-min-370x222.jpg" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_3-min-370x222.jpg 370w, https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_3-min-640x384.jpg 640w" sizes="(max-width: 640px) 100vw, 370px" />
+                                                    <div class="time"><span class="month">Nov</span><span class="date">4-2025</span></div>
+                                                </div>
+                                            </a>
+                                            <div class="wrap_content">
+                                                <h2 class="title">
+                                                    <a href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/">Christmas event in the city</a>
+                                                </h2>
+                                                <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
+                                                <div class="venue"><span><i class="icon_pin_alt"></i></span>City Hall, New York,...</div>
+                                                <div class="bottom">
+                                                    <div class="more_detail">
+                                                        <a class="btn_link" href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/"><span>Get ticket</span></a>
+                                                    </div>
+                                                    <span class="price"><span>Free</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 col-xs-6 ova-item isotope-item style2  business">
+                                            <a href="https://ovatheme.com/em4u/event/how-to-become-an-entrepreneur/">
+                                                <div class="ova_thumbnail">
+                                                    <img alt="How to become an entrepreneur ?" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_2-copy-3-370x222.jpg" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_2-copy-3-370x222.jpg 370w, https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_2-copy-3-640x384.jpg 640w" sizes="(max-width: 640px) 100vw, 370px" />
+                                                    <div class="time"><span class="month">Dec</span><span class="date">19-2024</span></div>
+                                                </div>
+                                            </a>
+                                            <div class="wrap_content">
+                                                <h2 class="title"><a href="https://ovatheme.com/em4u/event/how-to-become-an-entrepreneur/">How to become an entrepreneur ...</a></h2>
+                                                <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
+                                                <div class="venue"><span><i class="icon_pin_alt"></i></span>795 Pine St, New Yor...</div>
+                                                <div class="bottom">
+                                                    <div class="more_detail"><a class="btn_link" href="https://ovatheme.com/em4u/event/how-to-become-an-entrepreneur/"><span>Get ticket</span></a></div>
+                                                    <span class="price"><span>$10</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mobile_row"></div><div class="col-md-4 col-sm-6 col-xs-6 ova-item isotope-item style2  sport">
+                                            <a href="https://ovatheme.com/em4u/event/phanxipang-tourist/">
+                                                <div class="ova_thumbnail">
+                                                    <img alt="Phanxipang Tourist" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_sport_1-copy-370x222.jpg" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_sport_1-copy-370x222.jpg 370w, https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_sport_1-copy-640x384.jpg 640w" sizes="(max-width: 640px) 100vw, 370px" />
+                                                    <div class="time"><span class="month">Dec</span><span class="date">18-2024</span></div>
+                                                </div>
+                                            </a>
+                                            <div class="wrap_content">
+                                                <h2 class="title"><a href="https://ovatheme.com/em4u/event/phanxipang-tourist/">Phanxipang Tourist</a></h2>
+                                                <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
+                                                <div class="venue"><span><i class="icon_pin_alt"></i></span>Broadway 473 Broadwa...</div>
+                                                <div class="bottom">
+                                                    <div class="more_detail"><a class="btn_link" href="https://ovatheme.com/em4u/event/phanxipang-tourist/"><span>Get ticket</span></a></div>
+                                                    <span class="price"><span>$0-$15</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                    </div>
+                                    <div class="read_more">
+                                        <a class="ova-btn ova-btn-rad-30 ova-btn-arrow" href="https://ovatheme.com/em4u/event/"><i class="arrow_carrot-right_alt"></i>All events</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-parallax="1.5" data-vc-parallax-image="https://ovatheme.com/em4u/wp-content/uploads/2017/09/bg3.jpg" class="vc_row wpb_row vc_row-fluid vc_custom_1554353298112 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving">
+        <div class="patter_bg" style="background-color:rgba(0,0,0,0.56)" ></div>
+        <div class="container container-new">
+            <div class="row">
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovaem_skill ">
+                                <div class="top">
+                                    <i class="icon_group"></i>
+                                    <div class="number">1256</div>
+                                </div>
+                                <div class="name">PARTICIPANT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovaem_skill ">
+                                <div class="top"><i class="icon_pin_alt"></i>
+                                    <div class="number">255</div>
+                                </div>
+                                <div class="name">Total Events</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovaem_skill ">
+                                <div class="top"><i class="icon_globe"></i>
+                                    <div class="number">09</div>
+                                </div>
+                                <div class="name">VENUES</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="ovaem_skill ">
+                                <div class="top"><i class="icon_currency"></i>
+                                    <div class="number">19</div>
+                                </div>
+                                <div class="name">Sponsors</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vc_row-full-width vc_clearfix"></div>
+    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1554353305210 vc_row-has-fill">
+        <div class="container container-new">
+            <div class="row"><div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner vc_custom_1554354271959">
+                    <div class="wpb_wrapper">
+                        <div class="ova_heading_v4 text-center">
+                            <h3 class="title">Latest News</h3>
+                            <div class="sub_title"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner">
+                    <div class="wpb_wrapper">
+                        <div  class="owl-carousel ova_blog " data-loop="true" data-auto_slider="true" data-duration="3000" data-dots="true">
+                            <div class="content ova-trans">
+                                <div class="ova_media">
+                                    <a href="https://ovatheme.com/em4u/how-to-make-website/" class="img_media">
+                                        <img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/6-370x222.jpg" alt="How to make website ?" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/6-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/6-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  >
+                                    </a>
+                                    <a class="blog_link" href="https://ovatheme.com/em4u/how-to-make-website/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a>
+                                </div>
+                                <h2 class="title"><a href="https://ovatheme.com/em4u/how-to-make-website/">How to make website ?</a></h2>
+                                <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div>
+                                <div class="post-meta">
+                                    <div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Oct 20, 2017</span></div>
+                                    <div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div>
+                                </div>
+                            </div>
+                            <div class="content ova-trans">
+                                <div class="ova_media">
+                                    <a href="https://ovatheme.com/em4u/course-about-virual-video/" class="img_media">
+                                        <img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/7-1-370x222.jpg" alt="Course about virual video" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/7-1-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/7-1-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  >
+                                    </a>
+                                    <a class="blog_link" href="https://ovatheme.com/em4u/course-about-virual-video/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a>
+                                </div>
+                                <h2 class="title"><a href="https://ovatheme.com/em4u/course-about-virual-video/">Course about virual video</a></h2>
+                                <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div>
+                                <div class="post-meta">
+                                    <div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Oct 20, 2017</span></div>
+                                    <div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div>
+                                </div>
+                            </div>
+                            <div class="content ova-trans">
+                                <div class="ova_media">
+                                    <a href="https://ovatheme.com/em4u/learn-something-new-4/" class="img_media">
+                                        <img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/16-1-370x222.jpg" alt="How to make success business ?" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/16-1-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/16-1-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  >
+                                    </a>
+                                    <a class="blog_link" href="https://ovatheme.com/em4u/learn-something-new-4/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a>
+                                </div>
+                                <h2 class="title"><a href="https://ovatheme.com/em4u/learn-something-new-4/">How to make success business ?</a></h2>
+                                <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div>
+                                <div class="post-meta">
+                                    <div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Aug 15, 2017</span></div>
+                                    <div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div>
+                                </div>
+                            </div>
+                            <div class="content ova-trans">
+                                <div class="ova_media">
+                                    <a href="https://ovatheme.com/em4u/learn-something-new-2/" class="img_media">
+                                        <img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/13-370x222.jpg" alt="Learn something new" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/10/13-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/10/13-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  >
+                                    </a>
+                                    <a class="blog_link" href="https://ovatheme.com/em4u/learn-something-new-2/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a>
+                                </div>
+                                <h2 class="title"><a href="https://ovatheme.com/em4u/learn-something-new-2/">Learn something new</a></h2>
+                                <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div>
+                                <div class="post-meta"><div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> Jul 15, 2017</span></div>
+                                <div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div></div></div><div class="content ova-trans"><div class="ova_media"><a href="https://ovatheme.com/em4u/em4u-event-management/" class="img_media"><img  src="https://ovatheme.com/em4u/wp-content/uploads/2017/09/18-370x222.jpg" alt="EM4U &#8211; Event Management" class="img-responsive" srcset=" https://ovatheme.com/em4u/wp-content/uploads/2017/09/18-370x222.jpg 1200w ,https://ovatheme.com/em4u/wp-content/uploads/2017/09/18-640x384.jpg 767w" sizes="(max-width: 600px) 100vw, 600px"  ></a><a class="blog_link" href="https://ovatheme.com/em4u/em4u-event-management/"><i class="ova_icon icon_image"></i><i class="arrow_right"></i></a></div><h2 class="title"><a href="https://ovatheme.com/em4u/em4u-event-management/">EM4U &#8211; Event Management</a></h2><div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodincididunt</div><div class="post-meta"><div class="post-date"><i class="icon_calendar"></i>&nbsp;<span class="day"> May 15, 2017</span></div><div class="post-comment"><i class="icon_comment_alt "></i>&nbsp;0 comments</div></div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div>
 
 
 
@@ -1145,64 +1697,94 @@ background-color: transparent;
 	
 	
 				
-				<footer class="footer_v1 ova-trans" style="background: url('https://ovatheme.com/em4u/wp-content/themes/em4u/assets/img/bg_footer.jpg')">
-	
-	<div class="bg_cover"></div>
-
-	<div class="wrap_widget">
-		<div class="container">
-			<div class="row">
-									<div class="col-sm-4 category pd_0 pd_l_0">
-						<div id="ovaem_categories_widget-1" class="widget widget_ovaem_categories_widget"><h4 class="widget-title">All Categories</h4><ul class='ovaem_list_categories_widget'><li><a href="https://ovatheme.com/em4u/?categories=business">Business</a><span class="count">2</span></li><li><a href="https://ovatheme.com/em4u/?categories=concert">Concert</a><span class="count">2</span></li><li><a href="https://ovatheme.com/em4u/?categories=conference">Conference</a><span class="count">5</span></li><li><a href="https://ovatheme.com/em4u/?categories=festival">Festival</a><span class="count">2</span></li><li><a href="https://ovatheme.com/em4u/?categories=sport">Sport</a><span class="count">3</span></li><li><a href="https://ovatheme.com/em4u/?categories=travel">Travel</a><span class="count">1</span></li></ul></div>					</div>
-				
-									<div class="col-sm-4 gallery pd_0">
-						<div id="text-3" class="widget widget_text"><h4 class="widget-title">Our Gallery</h4>			<div class="textwidget"><ul class="gallery "><br />
-<li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_3-1.jpg" data-gal="prettyPhoto[gal]" title="gallery1"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal1.jpg" alt="gallery1" /></a></li><li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_1-1.jpg" data-gal="prettyPhoto[gal]" title="gallery2"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal2.jpg" alt="gallery2" /></a></li><li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1.jpg" data-gal="prettyPhoto[gal]" title="gallery3"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal3.jpg" alt="gallery3" /></a></li><li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_3-1.jpg" data-gal="prettyPhoto[gal]" title="gallery4"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal4.jpg" alt="gallery4" /></a></li><li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1.jpg" data-gal="prettyPhoto[gal]" title="gallery5"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal5.jpg" alt="gallery5" /></a></li><li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_1-1.jpg" data-gal="prettyPhoto[gal]" title="gallery6"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal6.jpg" alt="gallery6" /></a></li></ul>
-<p><a class="all_gallery" href="#">ALL GALLERY</a></p>
+	<footer class="footer_v1 ova-trans" style="background: url('https://ovatheme.com/em4u/wp-content/themes/em4u/assets/img/bg_footer.jpg')">
+	    <div class="bg_cover"></div>
+        <div class="wrap_widget">
+            <div class="container">
+                <div class="row">
+					<div class="col-sm-4 category pd_0 pd_l_0">
+						<div id="ovaem_categories_widget-1" class="widget widget_ovaem_categories_widget">
+                            <h4 class="widget-title">All Categories</h4>
+                            <ul class='ovaem_list_categories_widget'>
+                                @foreach($categories as $category)
+                                    <li><a href="https://ovatheme.com/em4u/?categories=business">{{ $category->name }}</a><span class="count">{{ $category->number }}</span></li>
+                                @endforeach
+                            </ul>
+                        </div>					
+                    </div>
+                    <div class="col-sm-4 gallery pd_0">
+						<div id="text-3" class="widget widget_text">
+                            <h4 class="widget-title">Our Gallery</h4>			
+                            <div class="textwidget">
+                                <ul class="gallery "><br />
+                                    <li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_3-1.jpg" data-gal="prettyPhoto[gal]" title="gallery1"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal1.jpg" alt="gallery1" /></a></li>
+                                    <li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_1-1.jpg" data-gal="prettyPhoto[gal]" title="gallery2"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal2.jpg" alt="gallery2" /></a></li>
+                                    <li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1.jpg" data-gal="prettyPhoto[gal]" title="gallery3"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal3.jpg" alt="gallery3" /></a></li>
+                                    <li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_3-1.jpg" data-gal="prettyPhoto[gal]" title="gallery4"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal4.jpg" alt="gallery4" /></a></li>
+                                    <li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1.jpg" data-gal="prettyPhoto[gal]" title="gallery5"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal5.jpg" alt="gallery5" /></a></li>
+                                    <li><a href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_business_1-1.jpg" data-gal="prettyPhoto[gal]" title="gallery6"><img src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/gal6.jpg" alt="gallery6" /></a></li>
+                                </ul>
+                                <p><a class="all_gallery" href="#">ALL GALLERY</a></p>
+                            </div>
+                        </div>					
+                    </div>
+                    <div class="col-sm-4 tags  pd_0 pd_r_0">
+                        <div id="ovaem_tags_event_widget-2" class="widget widget_ovaem_tags_event_widget">
+                            <h4 class="widget-title">Tag Event</h4>
+                            <div class="ovaem_event_tags_widget">
+                                <a href="https://ovatheme.com/em4u/event_tags/business/" class="tag-cloud-link tag-link-31 tag-link-position-1" style="font-size: 12.581818181818pt;" aria-label="business (2 items)">business</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/conference/" class="tag-cloud-link tag-link-37 tag-link-position-2" style="font-size: 22pt;" aria-label="conference (6 items)">conference</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/festival/" class="tag-cloud-link tag-link-49 tag-link-position-3" style="font-size: 12.581818181818pt;" aria-label="festival (2 items)">festival</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/festival-theme/" class="tag-cloud-link tag-link-50 tag-link-position-4" style="font-size: 8pt;" aria-label="festival theme (1 item)">festival theme</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/game/" class="tag-cloud-link tag-link-53 tag-link-position-5" style="font-size: 8pt;" aria-label="game (1 item)">game</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/happy/" class="tag-cloud-link tag-link-54 tag-link-position-6" style="font-size: 8pt;" aria-label="happy (1 item)">happy</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/marketing/" class="tag-cloud-link tag-link-55 tag-link-position-7" style="font-size: 12.581818181818pt;" aria-label="marketing (2 items)">marketing</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/marries/" class="tag-cloud-link tag-link-56 tag-link-position-8" style="font-size: 8pt;" aria-label="marries (1 item)">marries</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/phanxipang/" class="tag-cloud-link tag-link-61 tag-link-position-9" style="font-size: 8pt;" aria-label="phanxipang (1 item)">phanxipang</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/rugby/" class="tag-cloud-link tag-link-63 tag-link-position-10" style="font-size: 8pt;" aria-label="rugby (1 item)">rugby</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/summer/" class="tag-cloud-link tag-link-67 tag-link-position-11" style="font-size: 8pt;" aria-label="summer (1 item)">summer</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/technology/" class="tag-cloud-link tag-link-69 tag-link-position-12" style="font-size: 22pt;" aria-label="technology (6 items)">technology</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/toronto-concert/" class="tag-cloud-link tag-link-70 tag-link-position-13" style="font-size: 8pt;" aria-label="toronto concert (1 item)">toronto concert</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/tour/" class="tag-cloud-link tag-link-71 tag-link-position-14" style="font-size: 8pt;" aria-label="tour (1 item)">tour</a>
+                                <a href="https://ovatheme.com/em4u/event_tags/tourist/" class="tag-cloud-link tag-link-72 tag-link-position-15" style="font-size: 8pt;" aria-label="tourist (1 item)">tourist</a>
+                            </div>
+                        </div>					
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap_bellow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 social  pd_0 pd_l_0">
+                        <div id="custom_html-1" class="widget_text widget widget_custom_html">
+                            <div class="textwidget custom-html-widget">
+                                <ul class="social_theme ">
+                                    <li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_facebook"></i></a></li>
+                                    <li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_twitter"></i></a></li>
+                                    <li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_pinterest"></i></a></li>
+                                    <li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_tumblr"></i></a></li>
+                                    <li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_dribbble"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>				
+                    </div>
+                    <div class="col-sm-4 pd_0 logo_white">
+                        <div id="media_image-1" class="widget widget_media_image">
+                            <img width="127" height="45" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_white.png" class="image wp-image-1852  attachment-full size-full" alt="" decoding="async" loading="lazy" style="max-width: 100%; height: auto;" />
+                        </div>			
+                    </div>
+                    <div class="col-sm-4 copyright  pd_0 pd_r_0">
+                        <div id="text-2" class="widget widget_text">			
+                            <div class="textwidget"><p>Copyright by <a href="http://ovathemes.com">ovatheme</a> on themeforest</p>
+                            </div>
+                        </div>				        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>			
 </div>
-		</div>					</div>
-				
-									<div class="col-sm-4 tags  pd_0 pd_r_0">
-						<div id="ovaem_tags_event_widget-2" class="widget widget_ovaem_tags_event_widget"><h4 class="widget-title">Tag Event</h4><div class="ovaem_event_tags_widget"><a href="https://ovatheme.com/em4u/event_tags/business/" class="tag-cloud-link tag-link-31 tag-link-position-1" style="font-size: 12.581818181818pt;" aria-label="business (2 items)">business</a>
-<a href="https://ovatheme.com/em4u/event_tags/conference/" class="tag-cloud-link tag-link-37 tag-link-position-2" style="font-size: 22pt;" aria-label="conference (6 items)">conference</a>
-<a href="https://ovatheme.com/em4u/event_tags/festival/" class="tag-cloud-link tag-link-49 tag-link-position-3" style="font-size: 12.581818181818pt;" aria-label="festival (2 items)">festival</a>
-<a href="https://ovatheme.com/em4u/event_tags/festival-theme/" class="tag-cloud-link tag-link-50 tag-link-position-4" style="font-size: 8pt;" aria-label="festival theme (1 item)">festival theme</a>
-<a href="https://ovatheme.com/em4u/event_tags/game/" class="tag-cloud-link tag-link-53 tag-link-position-5" style="font-size: 8pt;" aria-label="game (1 item)">game</a>
-<a href="https://ovatheme.com/em4u/event_tags/happy/" class="tag-cloud-link tag-link-54 tag-link-position-6" style="font-size: 8pt;" aria-label="happy (1 item)">happy</a>
-<a href="https://ovatheme.com/em4u/event_tags/marketing/" class="tag-cloud-link tag-link-55 tag-link-position-7" style="font-size: 12.581818181818pt;" aria-label="marketing (2 items)">marketing</a>
-<a href="https://ovatheme.com/em4u/event_tags/marries/" class="tag-cloud-link tag-link-56 tag-link-position-8" style="font-size: 8pt;" aria-label="marries (1 item)">marries</a>
-<a href="https://ovatheme.com/em4u/event_tags/phanxipang/" class="tag-cloud-link tag-link-61 tag-link-position-9" style="font-size: 8pt;" aria-label="phanxipang (1 item)">phanxipang</a>
-<a href="https://ovatheme.com/em4u/event_tags/rugby/" class="tag-cloud-link tag-link-63 tag-link-position-10" style="font-size: 8pt;" aria-label="rugby (1 item)">rugby</a>
-<a href="https://ovatheme.com/em4u/event_tags/summer/" class="tag-cloud-link tag-link-67 tag-link-position-11" style="font-size: 8pt;" aria-label="summer (1 item)">summer</a>
-<a href="https://ovatheme.com/em4u/event_tags/technology/" class="tag-cloud-link tag-link-69 tag-link-position-12" style="font-size: 22pt;" aria-label="technology (6 items)">technology</a>
-<a href="https://ovatheme.com/em4u/event_tags/toronto-concert/" class="tag-cloud-link tag-link-70 tag-link-position-13" style="font-size: 8pt;" aria-label="toronto concert (1 item)">toronto concert</a>
-<a href="https://ovatheme.com/em4u/event_tags/tour/" class="tag-cloud-link tag-link-71 tag-link-position-14" style="font-size: 8pt;" aria-label="tour (1 item)">tour</a>
-<a href="https://ovatheme.com/em4u/event_tags/tourist/" class="tag-cloud-link tag-link-72 tag-link-position-15" style="font-size: 8pt;" aria-label="tourist (1 item)">tourist</a></div></div>					</div>
-							</div>
-		</div>
-	</div>
-
-	<div class="wrap_bellow">
-		<div class="container">
-			<div class="row">
-
-								<div class="col-sm-4 social  pd_0 pd_l_0">
-					<div id="custom_html-1" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><ul class="social_theme "><li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_facebook"></i></a></li><li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_twitter"></i></a></li><li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_pinterest"></i></a></li><li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_tumblr"></i></a></li><li class=" "><a href="#" target="_blank" rel="noopener"><i class="social_dribbble"></i></a></li></ul></div></div>				</div>
-				
-								<div class="col-sm-4 pd_0 logo_white">
-					<div id="media_image-1" class="widget widget_media_image"><img width="127" height="45" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/logo_white.png" class="image wp-image-1852  attachment-full size-full" alt="" decoding="async" loading="lazy" style="max-width: 100%; height: auto;" /></div>				</div>
-				
-								<div class="col-sm-4 copyright  pd_0 pd_r_0">
-					<div id="text-2" class="widget widget_text">			<div class="textwidget"><p>Copyright by <a href="http://ovathemes.com">ovatheme</a> on themeforest</p>
-</div>
-		</div>				</div>
-				
-			</div>
-		</div>
-	</div>
-
-</footer>			
-		</div>
 		<script type="text/html" id="wpb-modifications"></script>	<script type="text/javascript">
 		(function () {
 			var c = document.body.className;

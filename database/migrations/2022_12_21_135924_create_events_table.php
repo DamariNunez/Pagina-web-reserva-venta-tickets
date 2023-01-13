@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('duration')->nullable(false);
             $table->float('value')->nullable(false);
             $table->string('description')->nullable(false);
+            $table->unsignedBigInteger('idCategory')->nullable(false);
             $table->unsignedBigInteger('idAudience')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 
+            $table->foreign('idCategory')->references('id')->on('categories')->onDelete('restrict');
             $table->foreign('idAudience')->references('id')->on('audiences')->onDelete('restrict');
         });
     }
