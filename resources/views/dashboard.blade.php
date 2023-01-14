@@ -23,6 +23,6 @@
         ?>
 
         <!-- Panel público -->   
-        <a href="{{ url('/index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ __('Public panel') }}</a> 
+        <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ __('Public panel') }}</a> 
     </x-slot>
 </x-app-layout>

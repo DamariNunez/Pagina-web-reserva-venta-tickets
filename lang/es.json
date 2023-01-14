@@ -14,7 +14,8 @@
     "Email Password Reset Link": "Enlace de restablecimiento de contraseña",
     "You're logged in!": "Ha iniciado sesión.",
     "Profile": "Perfil",
-    "Logout": "Cerrar sesión",
+    "Log out": "Cerrar sesión",
+    "Log Out": "Cerrar sesión",
     "Management panel": "Panel de administración",
     "Home": "Home",
     "Event": "Evento",
@@ -68,5 +69,6 @@
     "All Categories": "Todas las categorías",
     "Our Gallery": "Nuestra galería",
     "ALL GALLERY": "Toda la galería",
-    "Tag Event": "Etiquetas"
+    "Tag Event": "Etiquetas",
+    "Sign In": "Iniciar sesión"
 }
