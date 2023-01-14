@@ -962,15 +962,11 @@ background-color: transparent;
 	display: none;
 }
 		</style>
-		<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1554393677789{margin-top: -80px !important;padding-top: 60px !important;background-color: #343434 !important;}.vc_custom_1554353656652{margin-right: 0px !important;margin-left: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1554353279090{margin-top: 50px !important;}.vc_custom_1554353284632{margin-top: 100px !important;padding-bottom: 100px !important;background-color: #fafafa !important;}.vc_custom_1554353291638{margin-top: 20px !important;}.vc_custom_1554353298112{margin-top: 100px !important;padding-top: 70px !important;padding-bottom: 90px !important;}.vc_custom_1554353305210{padding-top: 30px !important;padding-bottom: 100px !important;background-color: #fafafa !important;}.vc_custom_1554353920950{padding-top: 50px !important;}.vc_custom_1552202677727{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202682990{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202688180{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202698153{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202702847{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202707678{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1554354170505{padding-bottom: 15px !important;}.vc_custom_1554354202684{padding-top: 50px !important;padding-bottom: 20px !important;}.vc_custom_1552203945250{padding-top: 20px !important;}.vc_custom_1552203936532{padding-top: 20px !important;}.vc_custom_1552203940382{padding-top: 20px !important;}.vc_custom_1554354237470{padding-top: 40px !important;padding-bottom: 25px !important;}.vc_custom_1554353717414{margin-top: -120px !important;}.vc_custom_1554354271959{padding-top: 40px !important;padding-bottom: 20px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+		<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1554393677789{margin-top: -80px !important;padding-top: 60px !important;background-color: #343434 !important;}.vc_custom_1554353656652{margin-right: 0px !important;margin-left: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1554353279090{margin-top: 50px !important;}.vc_custom_1554353284632{margin-top: 100px !important;padding-bottom: 100px !important;background-color: #fafafa !important;}.vc_custom_1554353291638{margin-top: 20px !important;}.vc_custom_1554353298112{margin-top: 100px !important;padding-top: 70px !important;padding-bottom: 90px !important;}.vc_custom_1554353305210{padding-top: 30px !important;padding-bottom: 100px !important;background-color: #fafafa !important;}.vc_custom_1554353920950{padding-top: 50px !important;}.vc_custom_1552202677727{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202682990{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202688180{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202698153{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202702847{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1552202707678{padding-top: 0px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1554354170505{padding-bottom: 15px !important;}.vc_custom_1554354202684{padding-top: 50px !important;padding-bottom: 20px !important;}.vc_custom_1552203945250{padding-top: 20px !important;}.vc_custom_1552203936532{padding-top: 20px !important;}.vc_custom_1552203940382{padding-top: 20px !important;}.vc_custom_1554354237470{padding-top: 40px !important;padding-bottom: 25px !important;}.vc_custom_1554353717414{margin-top: -120px !important;}.vc_custom_1554354271959{padding-top: 40px !important;padding-bottom: 20px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+</head>
 
 <body class="home page-template-default page page-id-5275 theme-em4u woocommerce-no-js totop wpb-js-composer js-comp-ver-6.9.0 vc_responsive" >
-
-    
-
-        
     <div class="ovatheme_container_wide event_header_version2 bg_white">
-    	
         <!-- Heading Version 2 -->
     <header class="ova_header ovatheme_header_v2 bg_heading fixed has_logo_scroll has_logo_mobile ">
         <div class="scroll_fixed">
@@ -1893,15 +1889,9 @@ var wc_cart_fragments_params = {"ajax_url":"\/em4u\/wp-admin\/admin-ajax.php","w
 <script type='text/javascript' src='https://ovatheme.com/em4u/wp-content/themes/em4u/assets/plugins/placeholders.jquery.min.js' id='placeholders-js'></script>
 <script type='text/javascript' src='https://ovatheme.com/em4u/wp-content/themes/em4u/assets/js/theme.js' id='em4u-theme-js-js'></script>
 <script type='text/javascript' src='https://ovatheme.com/em4u/wp-content/plugins/ova-megamenu/assets/script.min.js' id='ova_megamenu_script-js'></script>
-<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LfGN7sUAAAAADiDCzM0obzuSoDLqEA-CI-owtfw&#038;ver=3.0' id='google-recaptcha-js'></script>
 <script type='text/javascript' src='https://ovatheme.com/em4u/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'></script>
 <script type='text/javascript' src='https://ovatheme.com/em4u/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
-<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
-/* <![CDATA[ */
-var wpcf7_recaptcha = {"sitekey":"6LfGN7sUAAAAADiDCzM0obzuSoDLqEA-CI-owtfw","actions":{"homepage":"homepage","contactform":"contactform"}};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://ovatheme.com/em4u/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.7.2' id='wpcf7-recaptcha-js'></script>
+
 <script type='text/javascript' src='https://ovatheme.com/em4u/wp-content/plugins/cubeportfolio/public/js/main.min-1.16.2.js?ver=1.16.2' id='cubeportfolio-jquery-js-js'></script>
 <script type='text/javascript' id='wpb_composer_front_js-js-extra'>
 /* <![CDATA[ */
