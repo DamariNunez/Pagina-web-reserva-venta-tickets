@@ -5,6 +5,7 @@
     use App\Models\Place;
     use App\Models\Event;
     use App\Models\User;
+    use App\Models\Language;
 ?>
 <!DOCTYPE html>
 <html lang="en-US" >
@@ -43,61 +44,88 @@
                                     <input class="form-controll selectpicker" placeholder="Enter Name ..." name="name_event" value="">
                                 </div><div class="ovaem_cat">
                                     <div class="btn-group bootstrap-select">
-                                        <select name="cat" id="cat" class="selectpicker" tabindex="-98">
-                                            <option value="">All Categories</option>
-                                            <option class="level-0" value="business">Business</option>
-                                            <option class="level-0" value="concert" selected="selected">Concert</option>
-                                            <option class="level-0" value="conference">Conference</option>
-                                            <option class="level-0" value="festival">Festival</option>
-                                            <option class="level-0" value="sport">Sport</option>
-                                            <option class="level-0" value="travel">Travel</option>
+                                        <select name="name_category" id="name_category" class="selectpicker" tabindex="-98">
+                                            <?php
+                                            $categories = Category::all();
+                                            foreach ($categories as $category){
+                                                ?> 
+                                                @if ($name_category == $category->name)
+                                                    <option selected="Selected">{{ $name_category }}</option>
+                                                @else
+                                                    @if ($name_category == null)
+                                                        <option value="" selected="Selected">{{ __('All Categories') }}</option>
+                                                    @endif
+                                                    <option> {{ $category->name }} </option>
+                                                @endif
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div><div class="ovaem_country">
                                     <div class="btn-group bootstrap-select postform">
-                                        <select name="name_country" id="name_country" class="selectpicker postform" tabindex="-98">
-                                            <option value="">All States</option>
-                                            <option class="level-0" value="california" selected="selected">California</option>
-                                            <option class="level-0" value="texas">Texas</option>
-                                            <option class="level-0" value="washington">Washington</option>
+                                        <select name="name_city" id="name_city" class="selectpicker postform" tabindex="-98">
+                                            <?php
+                                            $cities = City::all();
+                                            foreach ($cities as $city){
+                                                ?> 
+                                                @if ($name_city == $city->name)
+                                                    <option selected="Selected">{{ $name_city }}</option>
+                                                @else
+                                                    @if ($name_city == null)
+                                                        <option value="" selected="Selected">{{ __('All cities') }}</option>
+                                                    @endif
+                                                    <option> {{ $city->name }} </option>
+                                                @endif
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div><div class="ovaem_city">
                                     <div class="btn-group bootstrap-select postform">
                                         <select name="name_city" id="name_city" class="selectpicker postform" tabindex="-98">
-                                            <option value="" selected="selected">All Cities</option>
-                                            <option class="level-0" value="los-angeles">Los Angeles</option>
-                                            <option class="level-0" value="sacramento">Sacramento</option>
+                                            <option value="" selected="Selected">{{ __('All places') }}</option>
+                                            <?php
+                                            $places = Place::all();
+                                            foreach ($places as $place){
+                                                ?> 
+                                                <option>{{ $place->name }}</option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div><div class="ovaem_venue">
                                     <div class="btn-group bootstrap-select">
                                         <select name="name_venue" class="selectpicker" tabindex="-98">
-                                            <option value="">All Venue</option>
-                                            <option value="225-liberty-street-new-york">225 Liberty Street, New York</option>
-                                            <option value="732-macdougal-street" selected="">732 Macdougal Street</option>
-                                            <option value="beekman-street-new-york">Beekman Street, New York</option>
-                                            <option value="pace-university">Pace University</option>
-                                            <option value="park-row-new-york">Park Row, New York</option>
-                                            <option value="seamores-broome-street-new-york">Seamore’s, Broome Street, New York</option>
+                                        <option value="" selected="Selected">{{ __('All values') }}</option>
+                                            <?php
+                                            for ($i = 1; $i <= 10; $i++){
+                                                ?> 
+                                                <option>{{ ($i*10) }} - {{ ($i*10+10)  }}</option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div><div class="ovaem_time">
                                     <div class="btn-group bootstrap-select select_alltime">
                                         <select name="time" class="selectpicker select_alltime" style="z-index: 9999" tabindex="-98">
-                                            <option value="">All Time</option><option value="today">Today</option>
-                                            <option value="tomorrow" selected="">Tomorrow</option>
-                                            <option value="this_week">This Week</option>
-                                            <option value="this_week_end">This Weekend</option>
-                                            <option value="next_week">Next Week</option>
-                                            <option value="next_month">Next Month</option>
-                                            <option value="past">Past Events</option>
-                                            <option value="future">Future Events</option>
+                                        <option value="" selected="Selected">{{ __('All languages') }}</option>
+                                            <?php
+                                            $languages = Language::all();
+                                            foreach ($languages as $language){
+                                                ?> 
+                                                <option>{{ $language->name }}</option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div><div class="ovaem_date">
-                                    <input id="from" class="ovaem_select_date ovaem_date_from form-controll selectpicker" placeholder="From ..." data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_from" value=""><input id="to" class="ovaem_select_date ovaem_date_to form-controll selectpicker" placeholder="To ..." data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_to" value="">
-                                </div><input type="hidden" name="post_type" value="event"><input type="hidden" name="search" value="search-event"><div class="ovaem_submit"><input type="submit" value="Find Event">
+                                    <input id="from" class="ovaem_select_date ovaem_date_from form-controll selectpicker" placeholder="{{ __('From ...') }}" data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_from" value=""><input id="to" class="ovaem_select_date ovaem_date_to form-controll selectpicker" placeholder="{{ __('To ...') }}" data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_to" value="">
+                                </div><input type="hidden" name="post_type" value="event"><input type="hidden" name="search" value="search-event"><div class="ovaem_submit"><input type="submit" value="{{ __('Find Event') }}">
                                 </div>
                             </form>
                         </div>				
@@ -109,59 +137,65 @@
             <div class="row">
                 <div class="ovaem_events_filter">
                     <div class="ovaem_events_filter_content">
+                        @if ($events)
+                            @foreach ($events as $event)
+                                <div class="col-md-4 col-sm-6 ova-item style1 ">
+                                    <a href="https://ovatheme.com/em4u/event/marketing-2017/">
+                                        <div class="ova_thumbnail">
+                                            <img alt="Marketing 2017" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
+                                                        https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
+                                            <div class="venue">
+                                                <span><i class="icon_pin_alt"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
+                                            </div>
+                                            <div class="time">
+                                                <span class="month">Nov</span>
+                                                <span class="date">20-2017</span>
+                                                <span class="price"><span><span>$0-$15</span></span></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="wrap_content">
+                                        <h2 class="title">
+                                            <a href="https://ovatheme.com/em4u/event/marketing-2017/">Marketing 2017</a>
+                                        </h2>
+                                        <div class="status"><span class="past">Past</span></div>
+                                        <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
+                                        <div class="more_detail">
+                                            <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/marketing-2017/">Get ticket													</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                         <div class="col-md-4 col-sm-6 ova-item style1 ">
-                            <a href="https://ovatheme.com/em4u/event/marketing-2017/">
-                                <div class="ova_thumbnail">
-                                    <img alt="Marketing 2017" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
-                                                https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
-                                    <div class="venue">
-                                        <span><i class="icon_pin_alt"></i></span>Park Row, New York														
+                            
+                                <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">
+                                    <div class="ova_thumbnail">
+                                        <img alt="Adobe wants to let you draw data" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-370x222.jpg 1200w,
+                                                    https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
+                                        <div class="venue">
+                                            <span><i class="icon_pin_alt"></i></span>Pace University														
+                                        </div>
+                                        <div class="time">
+                                            <span class="month">Feb</span>
+                                            <span class="date">1-2024</span>
+                                            <span class="price"><span><span>$0-$15</span></span></span>
+                                        </div>
                                     </div>
-                                    <div class="time">
-                                        <span class="month">Nov</span>
-                                        <span class="date">20-2017</span>
-                                        <span class="price"><span><span>$0-$15</span></span></span>
+                                </a>
+                                <div class="wrap_content">
+                                    <h2 class="title">
+                                        <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Adobe wants to let you draw da...</a>
+                                    </h2>
+                                    <div class="status">
+                                        <span class="upcoming">Upcoming</span>													
                                     </div>
-                                </div>
-                            </a>
-                            <div class="wrap_content">
-                                <h2 class="title">
-                                    <a href="https://ovatheme.com/em4u/event/marketing-2017/">Marketing 2017</a>
-                                </h2>
-                                <div class="status"><span class="past">Past</span></div>
-                                <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
-                                <div class="more_detail">
-                                    <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/marketing-2017/">Get ticket													</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 ova-item style1 ">
-                            <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">
-                                <div class="ova_thumbnail">
-                                    <img alt="Adobe wants to let you draw data" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-370x222.jpg 1200w,
-                                                https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
-                                    <div class="venue">
-                                        <span><i class="icon_pin_alt"></i></span>Pace University														
-                                    </div>
-                                    <div class="time">
-                                        <span class="month">Feb</span>
-                                        <span class="date">1-2024</span>
-                                        <span class="price"><span><span>$0-$15</span></span></span>
+                                    <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
+                                    <div class="more_detail">
+                                        <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Get ticket													</a>
                                     </div>
                                 </div>
-                            </a>
-                            <div class="wrap_content">
-                                <h2 class="title">
-                                    <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Adobe wants to let you draw da...</a>
-                                </h2>
-                                <div class="status">
-                                    <span class="upcoming">Upcoming</span>													
-                                </div>
-                                <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
-                                <div class="more_detail">
-                                    <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Get ticket													</a>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="mobile_row"></div>	
                         <div class="col-md-4 col-sm-6 ova-item style1 ">

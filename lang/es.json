@@ -74,5 +74,11 @@
     "Enter Name ...": "Nombre del evento",
     "All categories": "Todas las categorías",
     "All cities": "Todas las ciudades",
-    "All dates": "Todas las fechas"
+    "All dates": "Todas las fechas",
+    "All places": "Todos los lugares",
+    "All values": "Todos los precios",
+    "All languages": "Todos los idiomas",
+    "From ...": "Desde ...",
+    "To ...": "hasta ...",
+    "Find Event": "Encontrar evento"
 }
