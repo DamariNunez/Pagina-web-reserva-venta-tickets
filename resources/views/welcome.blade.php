@@ -23,13 +23,13 @@
                                     <div class="ovaem_search_banner ovaem_search_state_city ">
                                         <h2 class="search_title">{{ __('Events') }}</h2>
                                         <h3 class="search_subtitle">{{ __('Find your favorite events!') }}</h3>
-                                        <form action="https://ovatheme.com/em4u/" method="GET" name="search_event" >
+                                        <form action="{{ route('search.index') }}" method="GET" name="search_event" >
                                             <div class="ovaem_name_event">
                                                 <input class="form-controll selectpicker" placeholder="{{ __('What are you looking for ?') }}" name="name_event" value="" />
                                             </div>
                                             <div class="ovaem_country">
-                                                <select  name='name_city' id='name_city' class='selectpicker  postform '>
-                                                    <option value="" selected="selected">Todas las categorías</option>
+                                                <select  name='name_category' id='name_category' class='selectpicker  postform '>
+                                                    <option value="" selected="selected">{{ __('All categories') }}</option>
                                                     <?php
                                                     $categories = Category::all();
                                                     foreach ($categories as $category){
@@ -42,7 +42,7 @@
                                             </div>
                                             <div class="ovaem_city">
                                                 <select  name='name_city' id='name_city' class='selectpicker  postform '>
-                                                    <option value='' selected='selected'>Todas las ciudades</option>
+                                                    <option value='' selected='selected'>{{ __('All cities') }}</option>
                                                     <?php
                                                     $cities = City::all();
                                                     foreach ($cities as $city){
@@ -54,8 +54,8 @@
                                                 </select>
                                             </div>
                                             <div class="ovaem_cat">
-                                                <select  name='cat' id='cat' class='selectpicker '>
-                                                    <option value='' selected='selected'>Todas las fechas</option>
+                                                <select  name='date' id='date' class='selectpicker '>
+                                                    <option value='' selected='selected'>{{ __('All dates') }}</option>
                                                     <?php
                                                     $helds = Held::all();
                                                     foreach ($helds as $held){

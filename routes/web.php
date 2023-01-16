@@ -28,8 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/search', 'App\Http\Controllers\SearchController@index')->name('search.index');
+//Route::get('search')->name('search');
+//Route::get('/search', ['uses' => 'SearchController@index'])->name('search.index');
+//Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
 require __DIR__.'/auth.php';
