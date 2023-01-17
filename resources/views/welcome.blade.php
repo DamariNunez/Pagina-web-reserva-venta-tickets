@@ -28,7 +28,7 @@
                                                 <input class="form-controll selectpicker" placeholder="{{ __('What are you looking for ?') }}" name="name_event" value="" />
                                             </div>
                                             <div class="ovaem_country">
-                                                <select  name='name_category' id='name_category' class='selectpicker  postform '>
+                                                <select  name='name_category' id='name_category' class='selectpicker'>
                                                     <option value="" selected="selected">{{ __('All categories') }}</option>
                                                     <?php
                                                     $categories = Category::all();
@@ -40,9 +40,9 @@
                                                     ?>
                                                 </select>
                                             </div>
-                                            <div class="ovaem_city">
-                                                <select  name='name_city' id='name_city' class='selectpicker  postform '>
-                                                    <option value='' selected='selected'>{{ __('All cities') }}</option>
+                                            <div class="ovaem_country">
+                                                <select  name='name_cit' id='name_cit' class='selectpicker'>
+                                                    <option value="" selected='selected'>{{ __('All cities') }}</option>
                                                     <?php
                                                     $cities = City::all();
                                                     foreach ($cities as $city){
@@ -53,18 +53,8 @@
                                                     ?>
                                                 </select>
                                             </div>
-                                            <div class="ovaem_cat">
-                                                <select  name='date' id='date' class='selectpicker '>
-                                                    <option value='' selected='selected'>{{ __('All dates') }}</option>
-                                                    <?php
-                                                    $helds = Held::all();
-                                                    foreach ($helds as $held){
-                                                    ?>
-                                                        <option class="level-0"> {{ $held->date }} </option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </select>
+                                            <div class="ovaem_cat" data-date_format="d M Y">
+                                                <input id="date" class="ovaem_select_date ovaem_date_from form-controll selectpicker" placeholder="{{ __('All dates') }}" data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="date" value="">
                                             </div>
                                             <input type="hidden" name="post_type" value="event">
                                             <input type="hidden" name="search" value="search-event">
@@ -74,9 +64,9 @@
                                         </form>
                                         <div class="sub_title2">{{ __('Or browse event by feature:') }}</div>
                                         <div class="browser_featured">
-                                            <a href="https://ovatheme.com/em4u/upcoming-event/"><i class="fa-solid fa-lock-open"></i>{{ __('Upcoming Events') }}</a>
-                                            <a href="https://ovatheme.com/em4u/featured-event/"><i class="fa-regular fa-calendar"></i>{{ __('Featured Events') }}</a>
-                                            <a href="https://ovatheme.com/em4u/event/"><i class="fa-sharp fa-solid fa-pen-nib"></i>{{ __('All events') }}</a>
+                                            <a href="{{ route('search.featured') }}"><i class="fa-solid fa-lock-open"></i>{{ __('Upcoming Events') }}</a>
+                                            <a href="{{ route('search.featured') }}"><i class="fa-regular fa-calendar"></i>{{ __('Featured Events') }}</a>
+                                            <a href="{{ route('search.index') }}"><i class="fa-sharp fa-solid fa-pen-nib"></i>{{ __('All events') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -449,7 +439,7 @@
                                                 <div class="row"></div>
                                             </div>
                                             <div class="read_more">
-                                                <a class="ova-btn ova-btn-rad-30 ova-btn-arrow" href="https://ovatheme.com/em4u/event/"><i class="fa-solid fa-clock"></i>{{ __('All events') }}</a>
+                                                <a class="ova-btn ova-btn-rad-30 ova-btn-arrow" href="{{ route('search.all') }}"><i class="fa-solid fa-clock"></i>{{ __('All events') }}</a>
                                             </div>
                                         </div>
                                     </div>

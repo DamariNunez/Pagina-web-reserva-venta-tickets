@@ -71,7 +71,7 @@
     "ALL GALLERY": "Toda la galería",
     "Tag Event": "Etiquetas",
     "Sign In": "Iniciar sesión",
-    "Enter Name ...": "Nombre del evento",
+    "Enter Name ...": "Nombre del evento ...",
     "All categories": "Todas las categorías",
     "All cities": "Todas las ciudades",
     "All dates": "Todas las fechas",
@@ -80,5 +80,7 @@
     "All languages": "Todos los idiomas",
     "From ...": "Desde ...",
     "To ...": "hasta ...",
-    "Find Event": "Encontrar evento"
+    "Find Event": "Encontrar evento",
+    "Upcoming": "Próximamente",
+    "Past": "Pasado"
 }

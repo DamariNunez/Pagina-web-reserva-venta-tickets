@@ -28,7 +28,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/search', 'App\Http\Controllers\SearchController@index')->name('search.index');
+Route::prefix('search')->group(function () {
+    Route::get('/index', 'App\Http\Controllers\SearchController@index')->name('search.index');
+    Route::get('/filter', 'App\Http\Controllers\SearchController@filter')->name('search.filter');
+    Route::get('/all', 'App\Http\Controllers\SearchController@all')->name('search.all');
+    Route::get('/featured', 'App\Http\Controllers\SearchController@featured')->name('search.featured');
+});
 //Route::get('search')->name('search');
 //Route::get('/search', ['uses' => 'SearchController@index'])->name('search.index');
 //Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);

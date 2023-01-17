@@ -39,21 +39,23 @@
                 <div class="ovaem_search">
                     <div class="container">
                         <div class="ovaem_search_event ovaem_search_state_city">
-                            <form action="https://ovatheme.com/em4u/" method="GET" name="search_event">
+                            <form action="{{ route('search.filter') }}" method="GET" name="search_event">
                                 <div class="ovaem_name_event">
-                                    <input class="form-controll selectpicker" placeholder="Enter Name ..." name="name_event" value="">
+                                    <input class="form-controll selectpicker" placeholder="{{ __('Enter Name ...') }}" name="name_event" value="{{ $name_event }}">
                                 </div><div class="ovaem_cat">
                                     <div class="btn-group bootstrap-select">
                                         <select name="name_category" id="name_category" class="selectpicker" tabindex="-98">
                                             <?php
+                                            $i = 0;
                                             $categories = Category::all();
                                             foreach ($categories as $category){
                                                 ?> 
                                                 @if ($name_category == $category->name)
                                                     <option selected="Selected">{{ $name_category }}</option>
                                                 @else
-                                                    @if ($name_category == null)
+                                                    @if ($name_category == null && $i == 0)
                                                         <option value="" selected="Selected">{{ __('All Categories') }}</option>
+                                                        <?php $i = 1;?>
                                                     @endif
                                                     <option> {{ $category->name }} </option>
                                                 @endif
@@ -62,18 +64,20 @@
                                             ?>
                                         </select>
                                     </div>
-                                </div><div class="ovaem_country">
-                                    <div class="btn-group bootstrap-select postform">
-                                        <select name="name_city" id="name_city" class="selectpicker postform" tabindex="-98">
+                                </div><div class="ovaem_cat">
+                                    <div class="btn-group bootstrap-select">
+                                        <select name="name_city" id="name_city" class="selectpicker" tabindex="-98">
                                             <?php
+                                            $i = 0;
                                             $cities = City::all();
                                             foreach ($cities as $city){
                                                 ?> 
                                                 @if ($name_city == $city->name)
                                                     <option selected="Selected">{{ $name_city }}</option>
                                                 @else
-                                                    @if ($name_city == null)
+                                                    @if ($name_city == null && $i == 0)
                                                         <option value="" selected="Selected">{{ __('All cities') }}</option>
+                                                        <?php $i = 1;?>
                                                     @endif
                                                     <option> {{ $city->name }} </option>
                                                 @endif
@@ -83,13 +87,18 @@
                                         </select>
                                     </div>
                                 </div><div class="ovaem_city">
-                                    <div class="btn-group bootstrap-select postform">
-                                        <select name="name_city" id="name_city" class="selectpicker postform" tabindex="-98">
+                                    <div class="btn-group bootstrap-select">
+                                        <select name="name_place" id="name_place" class="selectpicker" tabindex="-98">
                                             <option value="" selected="Selected">{{ __('All places') }}</option>
                                             <?php
                                             $places = Place::all();
                                             foreach ($places as $place){
                                                 ?> 
+                                                @if ($name_place)
+                                                    @if ($name_place == $place->name)
+                                                        <option selected="Selected">{{ $name_place }}</option>
+                                                    @endif
+                                                @endif
                                                 <option>{{ $place->name }}</option>
                                                 <?php
                                             }
@@ -98,25 +107,42 @@
                                     </div>
                                 </div><div class="ovaem_venue">
                                     <div class="btn-group bootstrap-select">
-                                        <select name="name_venue" class="selectpicker" tabindex="-98">
-                                        <option value="" selected="Selected">{{ __('All values') }}</option>
+                                        <select name="price" class="selectpicker" tabindex="-98">
+                                            <option value="" selected="Selected">{{ __('All values') }}</option>
                                             <?php
                                             for ($i = 1; $i <= 10; $i++){
                                                 ?> 
+                                                @if ($price)
+                                                    <?php
+                                                    $val = $price[0].' - '.$price[1];
+                                                    $cal = ($i*10).' - '.($i*10+10);
+                                                    echo 'type'.gettype($val).' '.gettype($cal);
+                                                    echo 'damari*'.$val.'*'.$cal.'*';
+                                                    ?>
+                                                    @if ($val == $cal)
+                                                        <?php echo 'puerco'; ?>
+                                                        <option selected="Selected">{{ $price[0] }}-{{ $price[1] }}</option>
+                                                    @endif
+                                                @endif
                                                 <option>{{ ($i*10) }} - {{ ($i*10+10)  }}</option>
                                                 <?php
                                             }
                                             ?>
                                         </select>
                                     </div>
-                                </div><div class="ovaem_time">
-                                    <div class="btn-group bootstrap-select select_alltime">
-                                        <select name="time" class="selectpicker select_alltime" style="z-index: 9999" tabindex="-98">
+                                </div><div class="ovaem_venue">
+                                <div class="btn-group bootstrap-select">
+                                        <select name="name_language" class="selectpicker" tabindex="-98">
                                         <option value="" selected="Selected">{{ __('All languages') }}</option>
                                             <?php
                                             $languages = Language::all();
                                             foreach ($languages as $language){
                                                 ?> 
+                                                @if ($name_language)
+                                                    @if ($name_language == $language->name)
+                                                        <option selected="Selected">{{ $name_language }}</option>
+                                                    @endif
+                                                @endif
                                                 <option>{{ $language->name }}</option>
                                                 <?php
                                             }
@@ -124,7 +150,7 @@
                                         </select>
                                     </div>
                                 </div><div class="ovaem_date">
-                                    <input id="from" class="ovaem_select_date ovaem_date_from form-controll selectpicker" placeholder="{{ __('From ...') }}" data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_from" value=""><input id="to" class="ovaem_select_date ovaem_date_to form-controll selectpicker" placeholder="{{ __('To ...') }}" data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_to" value="">
+                                    <input id="from" class="ovaem_select_date ovaem_date_from form-controll selectpicker" placeholder="{{ __('From ...') }}" data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_from" value="{{ $dateFrom }}"><input id="to" class="ovaem_select_date ovaem_date_to form-controll selectpicker" placeholder="{{ __('To ...') }}" data-date_format="d M Y" data-lang="en-GB" data-first-day="0" name="ovaem_date_to" value="{{ $dateTo }}">
                                 </div><input type="hidden" name="post_type" value="event"><input type="hidden" name="search" value="search-event"><div class="ovaem_submit"><input type="submit" value="{{ __('Find Event') }}">
                                 </div>
                             </form>
@@ -139,158 +165,69 @@
                     <div class="ovaem_events_filter_content">
                         @if ($events)
                             @foreach ($events as $event)
-                                <div class="col-md-4 col-sm-6 ova-item style1 ">
+                                <div class="col-md-4 col-sm-6 ova-item style1">
                                     <a href="https://ovatheme.com/em4u/event/marketing-2017/">
                                         <div class="ova_thumbnail">
                                             <img alt="Marketing 2017" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
                                                         https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
                                             <div class="venue">
-                                                <span><i class="icon_pin_alt"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
+                                                <span><i class="fa-solid fa-location-dot"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
                                             </div>
+                                                <?php
+                                                list($day, $month, $year) = explode("-", date($event->date));
+                                                switch ($month) {
+                                                    case 01: $month = 'Ene' ; break;
+                                                    case 02: $month = 'Feb' ; break;
+                                                    case 03: $month = 'Mar' ; break;
+                                                    case 04: $month = 'Abr' ; break;
+                                                    case 05: $month = 'May' ; break;
+                                                    case 06: $month = 'Jun' ; break;
+                                                    case 07: $month = 'Jul' ; break;
+                                                    case 8: $month = 'Ago' ; break;
+                                                    case 9: $month = 'Sep' ; break;
+                                                    case 10: $month = 'Oct' ; break;
+                                                    case 11: $month = 'Nov' ; break;
+                                                    case 12: $month = 'Dic' ; break;
+                                                }?>
                                             <div class="time">
-                                                <span class="month">Nov</span>
-                                                <span class="date">20-2017</span>
-                                                <span class="price"><span><span>$0-$15</span></span></span>
+                                                <span class="month">{{ $month }}</span>
+                                                <span class="date">{{ $day }}-{{ $year }}</span>
+                                                <span class="price"><span><span>${{ $event->value }}</span></span></span>
                                             </div>
                                         </div>
                                     </a>
                                     <div class="wrap_content">
                                         <h2 class="title">
-                                            <a href="https://ovatheme.com/em4u/event/marketing-2017/">Marketing 2017</a>
+                                            <a href="https://ovatheme.com/em4u/event/marketing-2017/">{{ $event->eventName }}</a>
                                         </h2>
-                                        <div class="status"><span class="past">Past</span></div>
-                                        <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
+                                        <?php $actualDate = date ( 'd-m-Y' ); ?>
+                                        @if ($actualDate > $event->date)
+                                            <div class="status"><span class="past">{{ __('Past') }}</span></div>
+                                        @else
+                                            <div class="status"><span class="past">{{ __('Upcoming') }}</span></div>
+                                        @endif
+                                        <div class="except">{{ $event->description }}</div>
                                         <div class="more_detail">
-                                            <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/marketing-2017/">Get ticket													</a>
+                                            <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/marketing-2017/">{{ __('Get ticket') }}													</a>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         @endif
-                        <div class="col-md-4 col-sm-6 ova-item style1 ">
-                            
-                                <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">
-                                    <div class="ova_thumbnail">
-                                        <img alt="Adobe wants to let you draw data" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-370x222.jpg 1200w,
-                                                    https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
-                                        <div class="venue">
-                                            <span><i class="icon_pin_alt"></i></span>Pace University														
-                                        </div>
-                                        <div class="time">
-                                            <span class="month">Feb</span>
-                                            <span class="date">1-2024</span>
-                                            <span class="price"><span><span>$0-$15</span></span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="wrap_content">
-                                    <h2 class="title">
-                                        <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Adobe wants to let you draw da...</a>
-                                    </h2>
-                                    <div class="status">
-                                        <span class="upcoming">Upcoming</span>													
-                                    </div>
-                                    <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
-                                    <div class="more_detail">
-                                        <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">Get ticket													</a>
-                                    </div>
-                                </div>
-                            
-                        </div>
-                        <div class="mobile_row"></div>	
-                        <div class="col-md-4 col-sm-6 ova-item style1 ">
-                            <a href="https://ovatheme.com/em4u/event/happy-wedding/">
-                                <div class="ova_thumbnail">
-                                    <img alt="Happy wedding" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1-370x222.jpg 1200w,
-                                                https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_festival_2-1-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
-                                    <div class="venue">
-                                        <span><i class="icon_pin_alt"></i></span>Seamore's, Broome St...														
-                                    </div>
-                                    <div class="time">
-                                        <span class="month">Feb</span>
-                                        <span class="date">15-2024</span>
-                                        <span class="price"><span><span>$0-$15</span></span></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="wrap_content">
-                                <h2 class="title">
-                                    <a href="https://ovatheme.com/em4u/event/happy-wedding/">Happy wedding</a>
-                                </h2>
-                                <div class="status">
-                                    <span class="upcoming">Upcoming</span>												
-                                </div>
-                                <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
-                                <div class="more_detail">
-                                    <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/happy-wedding/">Get ticket</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row"></div>
-                        <div class="col-md-4 col-sm-6 ova-item style1 ">
-                            <a href="https://ovatheme.com/em4u/event/conference-about-bitcoin-2017/">
-                                <div class="ova_thumbnail">
-                                    <img alt="Conference about Bitcoin 2020" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_2-2-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_2-2-370x222.jpg 1200w,
-                                                https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_2-2-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
-                                    <div class="venue">
-                                        <span><i class="icon_pin_alt"></i></span>Pace University														
-                                    </div>
-                                    <div class="time">
-                                        <span class="month">Feb</span>
-                                        <span class="date">22-2024</span>
-                                        <span class="price"><span><span>$10</span></span></span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="wrap_content">
-                                <h2 class="title">
-                                    <a href="https://ovatheme.com/em4u/event/conference-about-bitcoin-2017/">Conference about Bitcoin 2020</a>
-                                </h2>
-                                <div class="status">
-                                    <span class="upcoming">Upcoming</span>													
-                                </div>
-                                <div class="except">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae...</div>
-                                <div class="more_detail">
-                                    <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/conference-about-bitcoin-2017/">Get ticket</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mobile_row"></div>
-                        <div class="row"></div>	
                         <div class="ovaem_events_pagination clearfix">
                             <div class="ovaem_pagination">
                                 <ul class="pagination">
-                                    <li class="active">
-                                        <a href="https://ovatheme.com/em4u/?name_event&amp;name_country&amp;name_city&amp;name_venue&amp;time&amp;post_type=event&amp;search=search-event">1</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://ovatheme.com/em4u/page/2/?name_event&amp;name_country&amp;name_city&amp;name_venue&amp;time&amp;post_type=event&amp;search=search-event">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://ovatheme.com/em4u/page/3/?name_event&amp;name_country&amp;name_city&amp;name_venue&amp;time&amp;post_type=event&amp;search=search-event">3</a>
-                                    </li>
-                                    <li class="next page-numbers">
-                                        <a href="https://ovatheme.com/em4u/page/2/?name_event&amp;name_country&amp;name_city&amp;name_venue&amp;time&amp;post_type=event&amp;search=search-event"><i class="arrow_carrot-right"></i></a>
-                                    </li>
+                                    <div class="col">
+                                        <div class="float-right">
+                                            
+                                        </div>
+                                    </div>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--
-			<div class="container">
-				 Content 
-				<div class="row">
-					<div class="ovaem_events_filter">
-						<div class="ovaem_events_filter_content">
-                            <div class="container search_not_found">Not Found Events</div>
-                            <div class="ovaem_events_pagination clearfix"></div>
-						</div>
-					</div>
-				</div>
-            </div>
-            -->
         </div>
         @include('footer')		
     </body>
