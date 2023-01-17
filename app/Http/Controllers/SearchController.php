@@ -277,6 +277,119 @@ class SearchController extends Controller
         'dateTo' => $dateTo]);
     }
 
+    public function Past (){
+
+        $events = null;
+        $name_event = null;
+        $name_category = null;
+        $name_city = null;
+        $name_place = null;
+        $priceArray = null;
+        $name_language = null;
+        $dateFrom = null;
+        $dateTo = null;
+        $events = DB::table('events')
+                ->join('categories', 'events.idCategory', '=', 'categories.id')
+                ->join('helds', 'helds.idEvent', '=', 'events.id')
+                ->join('places', 'helds.idPlace', '=', 'places.id')
+                ->join('cities', 'places.idCity', '=', 'cities.id')
+                ->join('availables', 'availables.idEvent', '=', 'events.id')
+                ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->where('helds.date', '<', $date = date('Y-m-d'))
+                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                ->groupBy('events.name')
+                ->get();
+        return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
+        'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
+        'dateTo' => $dateTo]);
+    }
+
+    public function Zoom (){
+
+        $events = null;
+        $name_event = null;
+        $name_category = null;
+        $name_city = null;
+        $name_place = null;
+        $priceArray = null;
+        $name_language = null;
+        $dateFrom = null;
+        $dateTo = null;
+        $events = DB::table('events')
+                ->join('categories', 'events.idCategory', '=', 'categories.id')
+                ->join('helds', 'helds.idEvent', '=', 'events.id')
+                ->join('places', 'helds.idPlace', '=', 'places.id')
+                ->join('cities', 'places.idCity', '=', 'cities.id')
+                ->join('availables', 'availables.idEvent', '=', 'events.id')
+                ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->where('helds.idPlace', '=', 11)
+                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                ->groupBy('events.name')
+                ->get();
+        return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
+        'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
+        'dateTo' => $dateTo]);
+    }
+
+    public function Free (){
+
+        $events = null;
+        $name_event = null;
+        $name_category = null;
+        $name_city = null;
+        $name_place = null;
+        $priceArray = null;
+        $name_language = null;
+        $dateFrom = null;
+        $dateTo = null;
+        $events = DB::table('events')
+                ->join('categories', 'events.idCategory', '=', 'categories.id')
+                ->join('helds', 'helds.idEvent', '=', 'events.id')
+                ->join('places', 'helds.idPlace', '=', 'places.id')
+                ->join('cities', 'places.idCity', '=', 'cities.id')
+                ->join('availables', 'availables.idEvent', '=', 'events.id')
+                ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->where('events.value', '=', 0)
+                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                ->groupBy('events.name')
+                ->get();
+        return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
+        'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
+        'dateTo' => $dateTo]);
+    }
+
+    public function Category (Request $request){
+
+        $events = null;
+        $name_event = null;
+        $name_category = null;
+        $name_city = null;
+        $name_place = null;
+        $priceArray = null;
+        $name_language = null;
+        $dateFrom = null;
+        $dateTo = null;
+        echo "mielito".$request->menu_category;
+        $events = DB::table('events')
+                ->join('categories', 'events.idCategory', '=', 'categories.id')
+                ->join('helds', 'helds.idEvent', '=', 'events.id')
+                ->join('places', 'helds.idPlace', '=', 'places.id')
+                ->join('cities', 'places.idCity', '=', 'cities.id')
+                ->join('availables', 'availables.idEvent', '=', 'events.id')
+                ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->where('categories.name', '=', $request->menu_category)
+                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                ->groupBy('events.name')
+                ->get();
+        return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
+        'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
+        'dateTo' => $dateTo]);
+    }
+
     public function FormatteDate (String $date) {
         if ($date){
             list($day, $month, $year) = explode(" ", $date);

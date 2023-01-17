@@ -33,6 +33,10 @@ Route::prefix('search')->group(function () {
     Route::get('/filter', 'App\Http\Controllers\SearchController@filter')->name('search.filter');
     Route::get('/all', 'App\Http\Controllers\SearchController@all')->name('search.all');
     Route::get('/featured', 'App\Http\Controllers\SearchController@featured')->name('search.featured');
+    Route::get('/past', 'App\Http\Controllers\SearchController@past')->name('search.past');
+    Route::get('/zoom', 'App\Http\Controllers\SearchController@zoom')->name('search.zoom');
+    Route::get('/free', 'App\Http\Controllers\SearchController@free')->name('search.free');
+    Route::get('/category', 'App\Http\Controllers\SearchController@category')->name('search.category');
 });
 //Route::get('search')->name('search');
 //Route::get('/search', ['uses' => 'SearchController@index'])->name('search.index');

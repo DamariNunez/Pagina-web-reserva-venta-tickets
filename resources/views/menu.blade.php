@@ -33,6 +33,7 @@
                                 </a>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
+                            <form action="{{ route('search.category') }}" method="GET" name="">
                             <div class="collapse navbar-collapse" id="ovatheme_header_v2">
                                 <ul id="menu-primary-menu" class="nav navbar-nav navbar-right">
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
@@ -83,7 +84,7 @@
                                             <li  id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24 dropdown" style="height: 620px">
                                                 <div>
                                                     <h5 class="title">{{ __('Event Archive') }}</h5>
-                                                    <a title="Grid Version 1" href="https://ovatheme.com/em4u/event/" class="" >{{ __('All events')}}</a>
+                                                    <a title="Grid Version 1" href="{{ route('search.all') }}" class="" >{{ __('All events')}}</a>
                                                                 <!-- <a title="Grid Version 2" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style2" class="" >Grid Version 2</a> -->
                                                                 <!-- <a title="Grid Version 3" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style3" class="" >Grid Version 3</a> -->
                                                                 <!-- <a title="Grid Version 4" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style4" class="" >Grid Version 4</a> -->
@@ -98,11 +99,11 @@
                                             <li  id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27 dropdown" style="height: 620px">
                                                 <div>
                                                     <h5 class="title">{{_('Event Pages') }}</h5>
-                                                    <a title="Upcoming Events" href="https://ovatheme.com/em4u/upcoming-event/" class="" >{{ __('Upcoming Events') }}</a>
-                                                    <a title="Past Events" href="https://ovatheme.com/em4u/past-event/" class="" >{{ __('Past Events') }}</a>
-                                                    <a title="Featured Events" href="https://ovatheme.com/em4u/featured-event/" class="" >{{ __('Featured Events') }}</a>
-                                                    <a title="Virtual Event - Zoom" href="https://ovatheme.com/em4u/event/online-yoga-class/" class="" >{{ __('Virtual Event') }} &#8211; Zoom</a>
-                                                    <a title="Event Free Ticket" href="https://ovatheme.com/em4u/event/christmas-event-in-the-city/" class="" >{{ __('Event Free Ticket') }}</a>
+                                                    <a title="Upcoming Events" href="{{ route('search.featured') }}" class="" >{{ __('Upcoming Events') }}</a>
+                                                    <a title="Past Events" href="{{ route('search.past') }}" class="" >{{ __('Past Events') }}</a>
+                                                    <a title="Featured Events" href="{{ route('search.featured') }}" class="" >{{ __('Featured Events') }}</a>
+                                                    <a title="Virtual Event - Zoom" href="{{ route('search.zoom') }}" class="" >{{ __('Virtual Event') }} &#8211; Zoom</a>
+                                                    <a title="Event Free Ticket" href="{{ route('search.free') }}" class="" >{{ __('Event Free Ticket') }}</a>
                                                 </div>
                                             </li>
                                         </ul>
@@ -110,13 +111,17 @@
                                     <li id="menu-item-5333" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5333 dropdown" style="height: ">
                                         <a title="Categories" href="#" >Categories<span class="fa fa-caret-down show_dropmenu"></span></a>
                                         <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-                                        <ul class="dropdown-menu submenu" role="menu">
+                                        <ul class="dropdown-menu" role="menu">
                                             <?php
                                             $categories = Category::all();
                                             foreach ($categories as $category){
                                             ?>
-                                                <li id="menu-item-5334" class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
-                                                <a title="Conference" href="https://ovatheme.com/em4u/categories/conference/" >{{ $category->name }}</a></li>	
+                                                <li id="menu-item-5334"  class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
+                                                    <a type="submit" title="{{ $category->name }}">{{ $category->name }}</a>
+                                                </li>
+                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
+                                                    <input type="submit" value="{{ $category->name }}" name="menu_category" />
+                                                </li>
                                             <?php
                                             }
                                             ?>
@@ -140,6 +145,9 @@
                                                         @foreach ($places as $place)
                                                             <li id="menu-item-5341" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5341 dropdown" style="height: ">
                                                                 <a title="Austin" href="https://ovatheme.com/em4u/location/austin/" >{{ $place->name }}</a>
+                                                            </li>
+                                                            <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
+                                                                <input type="submit" value="{{ $place->name }}" name="{{ $place->name }}" />
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -207,6 +215,7 @@
                                     @endif
                                 </ul>	
                             </div> <!-- /.container-fluid -->
+                            </form>
                         </nav>
                     </div>
                 </div>	 
