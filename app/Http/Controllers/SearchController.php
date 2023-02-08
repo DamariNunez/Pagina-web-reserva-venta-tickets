@@ -108,12 +108,12 @@ class SearchController extends Controller
         }
         if ($events == null && $name_event == null && $name_category == null && $name_city == null && $name_date == null) {
             $events = DB::table('events')
-            ->join('categories', 'events.idCategory', '=', 'categories.id')
-            ->join('helds', 'helds.idEvent', '=', 'events.id')
-            ->join('places', 'helds.idPlace', '=', 'places.id')
-            ->join('cities', 'places.idCity', '=', 'cities.id')
-            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
-            ->paginate(self::PAGINATE_SIZE);
+                        ->join('categories', 'events.idCategory', '=', 'categories.id')
+                        ->join('helds', 'helds.idEvent', '=', 'events.id')
+                        ->join('places', 'helds.idPlace', '=', 'places.id')
+                        ->join('cities', 'places.idCity', '=', 'cities.id')
+                        ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                        ->paginate(self::PAGINATE_SIZE);
         }
         return view('search', ['events' => $events, 'name_category' => $name_category, 'name_city' => $name_city, 'name_date' => $name_date,
                                'name_event' => $name_event, 'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 
@@ -190,35 +190,6 @@ class SearchController extends Controller
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
                                'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
                                'dateTo' => $dateTo]);
-    }
-
-    public function Upcoming (){
-
-        $cadena = '';
-        $events = null;
-        $name_event = null;
-        $name_category = null;
-        $name_city = null;
-        $name_place = null;
-        $priceArray = null;
-        $name_language = null;
-        $dateFrom = null;
-        $dateTo = null;
-        $events = DB::table('events')
-                ->join('categories', 'events.idCategory', '=', 'categories.id')
-                ->join('helds', 'helds.idEvent', '=', 'events.id')
-                ->join('places', 'helds.idPlace', '=', 'places.id')
-                ->join('cities', 'places.idCity', '=', 'cities.id')
-                ->join('availables', 'availables.idEvent', '=', 'events.id')
-                ->join('languages', 'availables.idLanguage', '=', 'languages.id')
-                //->whereRaw($cadena)
-                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
-                ->groupBy('events.name', 'helds.date')
-                ->get();
-        return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
-        'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
-        'dateTo' => $dateTo]);
     }
 
     public function Featured (){
@@ -363,6 +334,7 @@ class SearchController extends Controller
 
     public function Category (Request $request){
 
+        $cadena = '';
         $events = null;
         $name_event = null;
         $name_category = null;
@@ -372,19 +344,35 @@ class SearchController extends Controller
         $name_language = null;
         $dateFrom = null;
         $dateTo = null;
-        echo "mielito".$request->menu_category;
-        $events = DB::table('events')
-                ->join('categories', 'events.idCategory', '=', 'categories.id')
-                ->join('helds', 'helds.idEvent', '=', 'events.id')
-                ->join('places', 'helds.idPlace', '=', 'places.id')
-                ->join('cities', 'places.idCity', '=', 'cities.id')
-                ->join('availables', 'availables.idEvent', '=', 'events.id')
-                ->join('languages', 'availables.idLanguage', '=', 'languages.id')
-                ->where('categories.name', '=', $request->menu_category)
-                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
-                ->groupBy('events.name')
-                ->get();
+        if ($request->has('menu_category') || $request->has('menu_city') || $request->has('menu_place')){
+            $name_category = $request->menu_category;
+            $name_city = $request->menu_city;
+            $name_place = $request->menu_place;
+            if ($name_category){
+                $cadena = $cadena.' and categories.name = '."'".$name_category."'";
+            }
+            if ($name_city){
+                $cadena = $cadena.' and cities.name = '."'".$name_city."'";
+            }
+            if ($name_place){
+                $cadena = $cadena.' and places.name = '."'".$name_place."'";
+            }
+            $cadena = substr($cadena, 4);
+            if ($name_category || $name_city || $name_place){
+                $events = DB::table('events')
+                    ->join('categories', 'events.idCategory', '=', 'categories.id')
+                    ->join('helds', 'helds.idEvent', '=', 'events.id')
+                    ->join('places', 'helds.idPlace', '=', 'places.id')
+                    ->join('cities', 'places.idCity', '=', 'cities.id')
+                    ->join('availables', 'availables.idEvent', '=', 'events.id')
+                    ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                    ->whereRaw($cadena)
+                    ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
+                            'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                    ->groupBy('events.name')
+                    ->get();
+            }
+        }
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
         'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
         'dateTo' => $dateTo]);

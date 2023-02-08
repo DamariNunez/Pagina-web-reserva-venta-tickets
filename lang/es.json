@@ -82,5 +82,20 @@
     "To ...": "hasta ...",
     "Find Event": "Encontrar evento",
     "Upcoming": "Próximamente",
-    "Past": "Pasado"
+    "Past": "Pasado",
+    "Reserve": "Reservar",
+    "Event Detail": "Detalles del evento",
+    "Date": "Fecha",
+    "City": "Ciudad",
+    "Address": "Dirección",
+    "Map": "Mapa",
+    "Organizers": "Organizadores",
+    "Purchase your tickets": "Adquiere tus entradas",
+    "Quantity": "Cantidad",
+    "Add to cart": "Añadir al carro",
+    "Category": "Categoría",
+    "Description": "Descripción",
+    "Related events": "Eventos relacionados",
+    "Search for": "Buscar",
+    "Search events…": "Buscar eventos…"
 }

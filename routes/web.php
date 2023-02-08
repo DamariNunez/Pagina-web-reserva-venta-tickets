@@ -38,6 +38,16 @@ Route::prefix('search')->group(function () {
     Route::get('/free', 'App\Http\Controllers\SearchController@free')->name('search.free');
     Route::get('/category', 'App\Http\Controllers\SearchController@category')->name('search.category');
 });
+
+Route::prefix('detail')->group(function () {
+    Route::get('/index', 'App\Http\Controllers\DetailController@index')->name('detail.index');
+});
+
+Route::prefix('reserve')->group(function () {
+    Route::get('/index', 'App\Http\Controllers\ReserveController@index')->name('reserve.index');
+    Route::get('/filter', 'App\Http\Controllers\ReserveController@filter')->name('reserve.filter');
+});
+
 //Route::get('search')->name('search');
 //Route::get('/search', ['uses' => 'SearchController@index'])->name('search.index');
 //Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);

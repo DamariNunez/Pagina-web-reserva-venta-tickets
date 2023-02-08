@@ -136,6 +136,9 @@
                                             ?>
                                             @foreach ($cities as $city)
                                                 <li id="menu-item-5340" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-has-children menu-item-5340 dropdown" style="height: ">
+                                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
+                                                        <input type="submit" value="{{ $city-> name }}" name="menu_city" />
+                                                    </li>
                                                     <a title="Texas" href="https://ovatheme.com/em4u/location/texas/" >{{ $city-> name }} <span class="fa fa-caret-down show_dropmenu"></span></a>
                                                     <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
                                                     <ul class="dropdown-menu submenu" role="menu">
@@ -147,7 +150,7 @@
                                                                 <a title="Austin" href="https://ovatheme.com/em4u/location/austin/" >{{ $place->name }}</a>
                                                             </li>
                                                             <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
-                                                                <input type="submit" value="{{ $place->name }}" name="{{ $place->name }}" />
+                                                                <input type="submit" value="{{ $place->name }}" name="menu_place" />
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -170,18 +173,18 @@
                                                 </ul>
                                             </li>
                                             <li id="menu-item-2444" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2444 dropdown" style="height: ">
-                                                <a title="Checkout Event" href="https://ovatheme.com/em4u/checkout-event/" >{{ __('Checkout') }}</a>
+                                                <a title="Blog" href="https://ovatheme.com/em4u/checkout-event/" >{{ __('Blog') }}</a>
                                             </li>	
                                         </ul>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
-                                        <a title="Home" href="https://ovatheme.com/em4u/blog/">{{ __('Blog') }}</a>
+                                        <a title="Checkout" href="https://ovatheme.com/em4u/blog/">{{ __('Checkout') }}</a>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
-                                            <a title="Home" href="https://ovatheme.com/em4u/cart-event/">{{ __('Cart') }}</a>
+                                            <a title="Cart" href="https://ovatheme.com/em4u/cart-event/">{{ __('Cart') }}</a>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
-                                            <a title="Home" href="https://ovatheme.com/em4u/my-account/">{{ __('Account') }}</a>
+                                            <a title="Account" href="https://ovatheme.com/em4u/my-account/">{{ __('Account') }}</a>
                                     </li>
                                     <!-- Panel administrativo -->
                                     <?php

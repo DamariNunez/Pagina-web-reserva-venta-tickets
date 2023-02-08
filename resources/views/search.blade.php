@@ -163,57 +163,61 @@
             <div class="row">
                 <div class="ovaem_events_filter">
                     <div class="ovaem_events_filter_content">
-                        @if ($events)
-                            @foreach ($events as $event)
-                                <div class="col-md-4 col-sm-6 ova-item style1">
-                                    <a href="https://ovatheme.com/em4u/event/marketing-2017/">
-                                        <div class="ova_thumbnail">
-                                            <img alt="Marketing 2017" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
-                                                        https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
-                                            <div class="venue">
-                                                <span><i class="fa-solid fa-location-dot"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
+                        <form action="{{ route('detail.index') }}" method="GET" name="detail_event">
+                            @if ($events)
+                                @foreach ($events as $event)
+                                    <div class="col-md-4 col-sm-6 ova-item style1">
+                                        <a href="https://ovatheme.com/em4u/event/marketing-2017/">
+                                            <div class="ova_thumbnail">
+                                                <img alt="Marketing 2017" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
+                                                            https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
+                                                <div class="venue">
+                                                    <span><i class="fa-solid fa-location-dot"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
+                                                </div>
+                                                    <?php
+                                                    list($day, $month, $year) = explode("-", date($event->date));
+                                                    switch ($month) {
+                                                        case 01: $month = 'Ene' ; break;
+                                                        case 02: $month = 'Feb' ; break;
+                                                        case 03: $month = 'Mar' ; break;
+                                                        case 04: $month = 'Abr' ; break;
+                                                        case 05: $month = 'May' ; break;
+                                                        case 06: $month = 'Jun' ; break;
+                                                        case 07: $month = 'Jul' ; break;
+                                                        case 8: $month = 'Ago' ; break;
+                                                        case 9: $month = 'Sep' ; break;
+                                                        case 10: $month = 'Oct' ; break;
+                                                        case 11: $month = 'Nov' ; break;
+                                                        case 12: $month = 'Dic' ; break;
+                                                    }?>
+                                                <div class="time">
+                                                    <span name="month" id="month" value="{{ $month }}" class="month">{{ $month }}</span>
+                                                    <span name="day" value="{{ $day }}-{{ $year }}" class="date">{{ $day }}-{{ $year }}</span>
+                                                    <span name="price" value="{{ $event->value }}" class="price"><span><span>${{ $event->value }}</span></span></span>
+                                                </div>
                                             </div>
-                                                <?php
-                                                list($day, $month, $year) = explode("-", date($event->date));
-                                                switch ($month) {
-                                                    case 01: $month = 'Ene' ; break;
-                                                    case 02: $month = 'Feb' ; break;
-                                                    case 03: $month = 'Mar' ; break;
-                                                    case 04: $month = 'Abr' ; break;
-                                                    case 05: $month = 'May' ; break;
-                                                    case 06: $month = 'Jun' ; break;
-                                                    case 07: $month = 'Jul' ; break;
-                                                    case 8: $month = 'Ago' ; break;
-                                                    case 9: $month = 'Sep' ; break;
-                                                    case 10: $month = 'Oct' ; break;
-                                                    case 11: $month = 'Nov' ; break;
-                                                    case 12: $month = 'Dic' ; break;
-                                                }?>
-                                            <div class="time">
-                                                <span class="month">{{ $month }}</span>
-                                                <span class="date">{{ $day }}-{{ $year }}</span>
-                                                <span class="price"><span><span>${{ $event->value }}</span></span></span>
+                                        </a>
+                                        <div class="wrap_content">
+                                            <h2 class="title">
+                                                <a name="name_event" value="{{ $event->eventName }}" href="{{ route('detail.index') }}">{{ $event->eventName }}</a>
+                                            </h2>
+                                            <?php $actualDate = date ( 'd-m-Y' ); ?>
+                                            @if ($actualDate > $event->date)
+                                                <div class="status"><span class="past">{{ __('Past') }}</span></div>
+                                            @else
+                                                <div class="status"><span class="past">{{ __('Upcoming') }}</span></div>
+                                            @endif
+                                            <div class="except">{{ $event->description }}</div>
+                                            <div class="more_detail">
+                                                <?php $cadena =  $event->eventName?>
+                                                <!-- <a class="btn_link ova-btn ova-btn-rad-30">{{ __('Get ticket') }}</a> -->
+                                                <input type="submit" name="button-event" class="btn_link ova-btn ova-btn-rad-30" value="{{ __('Get ticket') }} {{ $cadena }}">
                                             </div>
-                                        </div>
-                                    </a>
-                                    <div class="wrap_content">
-                                        <h2 class="title">
-                                            <a href="https://ovatheme.com/em4u/event/marketing-2017/">{{ $event->eventName }}</a>
-                                        </h2>
-                                        <?php $actualDate = date ( 'd-m-Y' ); ?>
-                                        @if ($actualDate > $event->date)
-                                            <div class="status"><span class="past">{{ __('Past') }}</span></div>
-                                        @else
-                                            <div class="status"><span class="past">{{ __('Upcoming') }}</span></div>
-                                        @endif
-                                        <div class="except">{{ $event->description }}</div>
-                                        <div class="more_detail">
-                                            <a class="btn_link ova-btn ova-btn-rad-30" href="https://ovatheme.com/em4u/event/marketing-2017/">{{ __('Get ticket') }}													</a>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        @endif
+                                @endforeach
+                            @endif
+                        </form>
                         <div class="ovaem_events_pagination clearfix">
                             <div class="ovaem_pagination">
                                 <ul class="pagination">

@@ -101,9 +101,10 @@
                                 <div class="wpb_column vc_column_container vc_col-sm-2">
                                     <div class="vc_column-inner vc_custom_1552202677727">
                                         <div class="wpb_wrapper">
-                                            <a href="https://ovatheme.com/em4u/?categories=business" class="cat_info "><i class="fa-solid fa-masks-theater"></i>
-                                                <h2 class="name">{{ $category->name }}</h2><span class="count">{{ $category->number }}</span>
-                                                <?php $i++ ?>
+                                            <input type="submit" value="{{ $category->name }}" name="name_category" />
+                                                <a href="{{ route('search.filter') }}" name="name_category" class="cat_info "><i class="fa-solid fa-masks-theater"></i>
+                                                    <h2 class="name">{{ $category->name }}</h2><span class="count">{{ $category->number }}</span>
+                                                    <?php $i++ ?>
                                             </a>
                                         </div>
                                     </div>
