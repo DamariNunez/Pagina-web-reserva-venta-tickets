@@ -6,6 +6,7 @@
     use App\Models\Event;
     use App\Models\User;
     use App\Models\Language;
+    use App\Models\Ticket;
 ?>
 <!DOCTYPE html>
 <html lang="en-US" >
@@ -18,14 +19,14 @@
                     <div class="ova-bg-heading" style="background-image: url( https://ovatheme.com/em4u/wp-content/themes/em4u/assets/img/bg_heading-compressor.jpg ); ">
                         <div class="bg_cover"></div>
                         <div class="container ova-breadcrumbs">
-                            <h1 class="ova_title">DDD</h1>
+                            <h1 class="ova_title">{{ __('Cart') }}</h1>
                             <div id="breadcrumbs" >
                                 <div class="breadcrumbs">
                                     <div class="breadcrumbs-pattern">
                                         <div class="container">
                                             <div class="row">
-                                                <ul class="breadcrumb"><li><a href="{{ url('/') }}">{{ __('Home') }}</a></li> 
-                                                <li>DDD&nbsp;</li>
+                                                <ul class="breadcrumb"><li><a href="{{ url('/') }}">{{ __('Events') }}</a></li> 
+                                                <li>{{ __('Cart') }}&nbsp;</li>
                                             </div>
                                         </div>
                                     </div>
@@ -44,9 +45,6 @@
                                         <div class="wpb_wrapper">
                                             <div class="woocommerce">
                                                 <div class="woocommerce-notices-wrapper">
-                                                    <div class="woocommerce-message" role="alert">
-                                                        <a href="" tabindex="1" class="button wc-forward wp-element-button">Continue shopping</a> “Product One” has been added to your cart.	
-                                                    </div>
                                                 </div>
                                                 <div class="ova_cart">
                                                     <form class="woocommerce-cart-form" action="https://ovatheme.com/em4u/cart/" method="post">
@@ -54,37 +52,78 @@
                                                             <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th class="product-remove">Remove</th>
-                                                                        <th class="product-name">Product</th>
-                                                                        <th class="product-price">Price</th>
-                                                                        <th class="product-quantity">Quantity</th>
-                                                                        <th class="product-subtotal">Total</th>
+                                                                        <th class="product-remove">{{ __('Remove') }}</th>
+                                                                        <th class="product-name">{{ __('Event') }}</th>
+                                                                        <th class="product-name">{{ __('Place') }}</th>
+                                                                        <th class="product-name">{{ __('Date') }}</th>
+                                                                        <th class="product-price">{{ __('Price') }}</th>
+                                                                        <th class="product-quantity">{{ __('Quantity') }}</th>
+                                                                        <th class="product-subtotal">{{ __('Total') }}</th>
+                                                                        <th class="product-subtotal">{{ __('Status') }}</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr class="woocommerce-cart-form__cart-item cart_item">
-                                                                        <td class="product-remove">
-                                                                            <a href="https://ovatheme.com/em4u/cart/?remove_item=68a83eeb494a308fe5295da69428a507&amp;_wpnonce=f235c3eaca" class="remove" aria-label="Remove this item" data-product_id="1259" data-product_sku="">×</a>								
-                                                                        </td>
-                                                                        <td class="product-name" data-title="Product">
-                                                                            <a href="https://ovatheme.com/em4u/product/product-one/">Product One</a>								
-                                                                        </td>
-                                                                        <td class="product-price" data-title="Price">
-                                                                            <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>15.00</bdi></span>								
-                                                                        </td>
-                                                                        <td class="product-quantity" data-title="Quantity">
-                                                                            <div class="quantity">
-                                                                                <label class="screen-reader-text" for="quantity_63ee4e96435d0">Product One quantity</label>
-                                                                                <input type="number" id="quantity_63ee4e96435d0" class="input-text qty text" name="cart[68a83eeb494a308fe5295da69428a507][qty]" value="1" title="Qty" size="4" min="0" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td class="product-subtotal" data-title="Total">
-                                                                            <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>15.00</bdi></span>								
-                                                                        </td>
-                                                                    </tr>
+                                                                    <?php $sum = 0; ?>
+                                                                    @if ( $tickets )
+                                                                        @foreach ( $tickets as $ticket )
+                                                                            <tr class="woocommerce-cart-form__cart-item cart_item">
+                                                                                <td class="product-remove">
+                                                                                    <a href="https://ovatheme.com/em4u/cart/?remove_item=68a83eeb494a308fe5295da69428a507&amp;_wpnonce=f235c3eaca" class="remove" aria-label="Remove this item" data-product_id="1259" data-product_sku="">×</a>								
+                                                                                </td>
+                                                                                <td class="product-name" data-title="Product">
+                                                                                   {{ $ticket->eventName }} 							
+                                                                                </td>
+                                                                                <td class="product-name" data-title="Product">
+                                                                                   {{ $ticket->placeName }}, {{ $ticket->cityName }}							
+                                                                                </td>
+                                                                                <?php
+                                                                                list($year, $month, $day) = explode("-", date($ticket->date));
+                                                                                switch ($month) {
+                                                                                    case 01: $month = 'Ene' ; break;
+                                                                                    case 02: $month = 'Feb' ; break;
+                                                                                    case 03: $month = 'Mar' ; break;
+                                                                                    case 04: $month = 'Abr' ; break;
+                                                                                    case 05: $month = 'May' ; break;
+                                                                                    case 06: $month = 'Jun' ; break;
+                                                                                    case 07: $month = 'Jul' ; break;
+                                                                                    case 8: $month = 'Ago' ; break;
+                                                                                    case 9: $month = 'Sep' ; break;
+                                                                                    case 10: $month = 'Oct' ; break;
+                                                                                    case 11: $month = 'Nov' ; break;
+                                                                                    case 12: $month = 'Dic' ; break;
+                                                                                }
+                                                                                list($hour, $min, $sec) = explode(":", date($ticket->time));
+                                                                                if ( $hour > 12){
+                                                                                    $period = 'pm';
+                                                                                } else {
+                                                                                    $period = 'am';
+                                                                                }
+                                                                                ?>
+                                                                                <td class="product-name" data-title="Product">
+                                                                                {{ $month }} {{ $day }}, {{ $year }} {{ $hour }}:{{ $min }} {{ $period }}				
+                                                                                </td>
+                                                                                <td class="product-price" data-title="Price">
+                                                                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->value }}</bdi></span>								
+                                                                                </td>
+                                                                                <td class="product-quantity" data-title="Quantity">
+                                                                                    <div class="quantity">
+                                                                                        <label class="screen-reader-text" for="quantity_63ee4e96435d0">{{ __('Product One quantity') }}</label>
+                                                                                        <input type="number" id="quantity" class="input-text qty text" name="cart[68a83eeb494a308fe5295da69428a507][qty]" value="{{ $ticket->quantity }}" title="Qty" size="4" min="0" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="product-subtotal" data-title="Total">
+                                                                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->total }}</bdi></span>								
+                                                                                </td>
+                                                                                <td class="product-name" data-title="Product">
+                                                                                   {{ $ticket->status }} 							
+                                                                                </td>
+                                                                                <?php if ( $ticket->status == 'approved' ) {$sum = $sum + $ticket->total;} ?>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    @endif
                                                                     <tr>
                                                                         <td colspan="6" class="actions">
-                                                                            <button type="submit" class="button" name="update_cart" value="Update cart" disabled="" aria-disabled="true">Update cart</button>
+                                                                            <button type="submit" class="button" name="update_cart" value="Update cart">{{ __('Update cart') }}</button>
 														                    <input type="hidden" id="woocommerce-cart-nonce" name="woocommerce-cart-nonce" value="f235c3eaca">
                                                                             <input type="hidden" name="_wp_http_referer" value="/em4u/cart/">						
                                                                         </td>
@@ -96,27 +135,27 @@
                                                             <div class="cart-collaterals">
                                                                 <div class="coupon">
                                                                     <label for="coupon_code">
-                                                                        Discount code<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span>
+                                                                    {{ __('Discount code') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span>
                                                                     </label>
-                                                                    <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code">
-                                                                    <input type="submit" class="button" name="apply_coupon" value="Apply coupon">
+                                                                    <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="{{ __('Coupon code') }}">
+                                                                    <input type="submit" class="button" name="apply_coupon" value="{{ __('Apply coupon') }}">
                                                                 </div>
 								                                <div class="cart_totals ">
-                                                                    <h2>Cart totals<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span></h2>
+                                                                    <h2>{{ __('Cart totals') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span></h2>
                                                                     <table cellspacing="0" class="shop_table shop_table_responsive">
                                                                         <tbody>
                                                                             <tr class="cart-subtotal">
-                                                                                <th>Subtotal</th>
-                                                                                <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>15.00</bdi></span></td>
+                                                                                <th>{{ __('Subtotal') }}</th>
+                                                                                <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></td>
                                                                             </tr>
                                                                             <tr class="order-total">
-                                                                                <th>Total</th>
-                                                                                <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>15.00</bdi></span></strong> </td>
+                                                                                <th>{{ __('Total') }}</th>
+                                                                                <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></strong> </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
                                                                     <div class="wc-proceed-to-checkout">
-                                                                        <a href="https://ovatheme.com/em4u/checkout/" class="checkout-button button alt wc-forward wp-element-button">Proceed to checkout</a>
+                                                                        <a href="https://ovatheme.com/em4u/checkout/" class="checkout-button button alt wc-forward wp-element-button">{{ __('Proceed to pay') }}</a>
                                                                     </div>
                                                                 </div>			
                                                             </div>        

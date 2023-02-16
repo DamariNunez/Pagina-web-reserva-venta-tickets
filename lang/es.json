@@ -97,5 +97,18 @@
     "Description": "Descripción",
     "Related events": "Eventos relacionados",
     "Search for": "Buscar",
-    "Search events…": "Buscar eventos…"
+    "Search events…": "Buscar eventos…",
+    "Remove": "Eliminar",
+    "Price": "Precio",
+    "Producto Una cantidad": "Producto Una Cantidad",
+    "Update cart": "Modificar carrito",
+    "Discount code": "Código de descuento",
+    "Cart totals": "Total del carrito",
+    "Subtotal": "Subtotal",
+    "Total": "Total",
+    "Coupon code": "Código del cupón",
+    "Apply coupon": "Aplicar cupón",
+    "Proceed to pay": "Proceda a pagar",
+    "Status": "Estado",
+    "Place": "Lugar"
 }

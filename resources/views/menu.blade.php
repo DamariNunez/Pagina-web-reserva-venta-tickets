@@ -181,7 +181,7 @@
                                         <a title="Checkout" href="https://ovatheme.com/em4u/blog/">{{ __('Checkout') }}</a>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
-                                            <a title="Cart" href="https://ovatheme.com/em4u/cart-event/">{{ __('Cart') }}</a>
+                                            <a title="Cart" href="{{ route('cart.cart') }}">{{ __('Cart') }}</a>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
                                             <a title="Account" href="https://ovatheme.com/em4u/my-account/">{{ __('Account') }}</a>

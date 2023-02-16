@@ -112,7 +112,7 @@ class SearchController extends Controller
                         ->join('helds', 'helds.idEvent', '=', 'events.id')
                         ->join('places', 'helds.idPlace', '=', 'places.id')
                         ->join('cities', 'places.idCity', '=', 'cities.id')
-                        ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                        ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'helds.time as time', 'places.name as placeName', 'cities.name as cityName')
                         ->paginate(self::PAGINATE_SIZE);
         }
         return view('search', ['events' => $events, 'name_category' => $name_category, 'name_city' => $name_city, 'name_date' => $name_date,

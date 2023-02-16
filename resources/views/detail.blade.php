@@ -24,7 +24,7 @@
                                 <div class="breadcrumbs-pattern">
                                     <div class="container">
                                         <div class="row">
-                                            <ul class="breadcrumb"><li><a href="{{ url('/') }}">{{ __('Home') }}</a></li> 
+                                            <ul class="breadcrumb"><li><a href="{{ url('/') }}">{{ __('Events') }}</a></li> 
                                             <li>{{ $name_event }}&nbsp;</li>
                                         </div>
                                     </div>
@@ -611,7 +611,7 @@
 													} else {
 														$period = 'am';
 													}
-													?>
+												?>
 												<span>{{ $month }} {{ $day }}, {{ $year }} {{ $hour }}:{{ $min }} {{ $period }}</span>
 											</div>
 											<div class="clearfix event_row">
