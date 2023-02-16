@@ -48,6 +48,10 @@ Route::prefix('reserve')->group(function () {
     Route::get('/filter', 'App\Http\Controllers\ReserveController@filter')->name('reserve.filter');
 });
 
+Route::prefix('cart')->group(function () {
+    Route::get('/index', 'App\Http\Controllers\CartController@index')->name('cart.index');
+});
+
 //Route::get('search')->name('search');
 //Route::get('/search', ['uses' => 'SearchController@index'])->name('search.index');
 //Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);

@@ -41,66 +41,68 @@
                                 <div class="woocommerce-notices-wrapper"></div>
                                 <div id="product-1259" class="product type-product post-1259 status-publish first instock product_cat-boss product_tag-boss-2018 product_tag-morder-boss has-post-thumbnail shipping-taxable purchasable product-type-simple">
                                     @if ( $events )
-                                        <div class="woo_top">
-                                            <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
-                                                <figure class="woocommerce-product-gallery__wrapper">
-                                                    <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                        <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg">
-                                                            <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product2" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                        </a>
-                                                    </div>
-                                                    <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                        <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg">
-                                                            <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product6" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                        </a>
-                                                    </div>
-                                                    <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                        <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg">
-                                                            <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product5" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                        </a>
-                                                    </div>
-                                                    <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                        <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg">
-                                                            <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product4" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                        </a>
-                                                    </div>
-                                                    <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                        <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg">
-                                                            <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product2" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                        </a>
-                                                    </div>	
-                                                </figure>
-                                            </div>
-                                            <div class="summary entry-summary">
-                                                <h2 class="product_title entry-title">{{ $name_event }}</h2>
-                                                <p class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $events[0]->value }}</bdi></span></p>
-                                                <div class="woocommerce-product-details__short-description">
-                                                    <p>{{ $events[0]->description }}</p>
+                                        @foreach ( $events as $event )
+                                            <div class="woo_top">
+                                                <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
+                                                    <figure class="woocommerce-product-gallery__wrapper">
+                                                        <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-100x100.jpeg" class="woocommerce-product-gallery__image">
+                                                            <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg">
+                                                                <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product2" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image_width="513" data-large_image_height="655">
+                                                            </a>
+                                                        </div>
+                                                        <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6-100x100.jpeg" class="woocommerce-product-gallery__image">
+                                                            <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg">
+                                                                <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product6" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg" data-large_image_width="513" data-large_image_height="655">
+                                                            </a>
+                                                        </div>
+                                                        <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5-100x100.jpeg" class="woocommerce-product-gallery__image">
+                                                            <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg">
+                                                                <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product5" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg" data-large_image_width="513" data-large_image_height="655">
+                                                            </a>
+                                                        </div>
+                                                        <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4-100x100.jpeg" class="woocommerce-product-gallery__image">
+                                                            <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg">
+                                                                <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product4" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg" data-large_image_width="513" data-large_image_height="655">
+                                                            </a>
+                                                        </div>
+                                                        <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-100x100.jpeg" class="woocommerce-product-gallery__image">
+                                                            <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg">
+                                                                <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product2" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image_width="513" data-large_image_height="655">
+                                                            </a>
+                                                        </div>	
+                                                    </figure>
                                                 </div>
-                                                <p class="stock in-stock">{{ __('Purchase your tickets') }}</p>
-                                                <form class="cart" action="https://ovatheme.com/em4u/product/product-one/" method="post" enctype="multipart/form-data">
-                                                    <div class="quantity">
-                                                        <label class="screen-reader-text" for="quantity_63e40363f3ff3">{{ __('Quantity') }}</label>
-                                                        <input type="number" id="quantity_63e40363f3ff3" class="input-text qty text" name="quantity" value="1" title="Qty" size="4" min="1" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                                <div class="summary entry-summary">
+                                                    <h2 class="product_title entry-title">{{ $event->eventName }}</h2>
+                                                    <p class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $event->value }}</bdi></span></p>
+                                                    <div class="woocommerce-product-details__short-description">
+                                                        <p>{{ $event->description }}</p>
                                                     </div>
-                                                    <button type="submit" name="add-to-cart" value="1259" class="single_add_to_cart_button button alt wp-element-button">{{ __('Add to cart') }}</button>
-                                                </form>
-                                                <div class="product_meta">
-                                                    <span class="posted_in">{{ __('Category') }}: <a href="https://ovatheme.com/em4u/product-category/boss/" rel="tag">{{ $events[0]->category }}</a></span>
+                                                    <p class="stock in-stock">{{ __('Purchase your tickets') }}</p>
+                                                    <form class="cart" action="{{ route('cart.index') }}" method="GET" enctype="multipart/form-data">
+                                                        <div class="quantity">
+                                                            <label class="screen-reader-text" for="quantity_63e40363f3ff3">{{ __('Quantity') }}</label>
+                                                            <input type="number" id="quantity_63e40363f3ff3" class="input-text qty text" name="quantity" value="1" title="Qty" size="4" min="1" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                                        </div>
+                                                        <button type="submit" name="add-to-cart" value="1259" class="single_add_to_cart_button button alt wp-element-button">{{ __('Add to cart') }}</button>
+                                                    </form>
+                                                    <div class="product_meta">
+                                                        <span class="posted_in">{{ __('Category') }}: <a href="https://ovatheme.com/em4u/product-category/boss/" rel="tag">{{ $event->category }}</a></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="woocommerce-tabs wc-tabs-wrapper">
-                                            <ul class="tabs wc-tabs" role="tablist">
-                                                <li class="description_tab active" id="tab-title-description" role="tab" aria-controls="tab-description">
-                                                    <a href="#tab-description">{{ __('Description') }}</a>
-                                                </li>
-                                            </ul>
-                                            <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="">
-                                                <h2>{{ __('Description') }}</h2>
-                                                <p>{{ $events[0]->description }}</p>                                        
+                                            <div class="woocommerce-tabs wc-tabs-wrapper">
+                                                <ul class="tabs wc-tabs" role="tablist">
+                                                    <li class="description_tab active" id="tab-title-description" role="tab" aria-controls="tab-description">
+                                                        <a href="#tab-description">{{ __('Description') }}</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="">
+                                                    <h2>{{ __('Description') }}</h2>
+                                                    <p>{{ $event->description }}</p>                                        
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endforeach
                                     @endif
                                 </div>
                             </div>
