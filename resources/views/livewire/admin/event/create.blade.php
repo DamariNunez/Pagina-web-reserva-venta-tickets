@@ -19,7 +19,6 @@
     </div>
 
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
-
         <div class="card-body">
             <!-- Name Input -->
             <div class='form-group'>
@@ -70,7 +69,6 @@
                     @endforeach    
                 </select>   
             </div>
-
         </div>
 
         <div class="card-footer">

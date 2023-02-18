@@ -132,5 +132,10 @@
     "TotalValue": "TotalValue",
     "IdPayment": "Payment",
     "Row": "Row",
-    "Chair": "Chair"
+    "Chair": "Chair",
+    "IdImage": "Images",
+    "Acept": "Acept",
+    "Img": "Img",
+    "Image": "Image",
+    "Images": "Images"
 }

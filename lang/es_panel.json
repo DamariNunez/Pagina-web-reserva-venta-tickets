@@ -133,5 +133,10 @@
     "TotalValue": "Valor total",
     "IdPayment": "Pago",
     "Row": "Fila",
-    "Chair": "Silla"
+    "Chair": "Silla",
+    "IdImage": "Imágenes",
+    "Acept": "Aceptar",
+    "Img": "Img",
+    "Image": "Image",
+    "Images": "Images"
 }

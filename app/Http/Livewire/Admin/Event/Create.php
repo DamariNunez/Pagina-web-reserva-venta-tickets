@@ -8,6 +8,7 @@ use Livewire\WithFileUploads;
 use App\Models\Audience;
 use App\Models\Language;
 use App\Models\Available;
+use App\Models\Image;
 
 class Create extends Component
 {
@@ -26,7 +27,7 @@ class Create extends Component
         'value' => 'required|numeric|min:1',
         'description' => 'required|string|max:255',
         'idAudience' => 'required',  
-        'idLanguage' => 'required',      
+        'idLanguage' => 'required'
     ];
 
     public function updated($input)
@@ -78,7 +79,7 @@ class Create extends Component
                     'user_id' => auth()->id(),
                 ]);
             } 
-        }       
+        }          
 
         $this->reset();
     }
