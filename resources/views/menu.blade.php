@@ -33,7 +33,6 @@
                                 </a>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <form action="{{ route('search.category') }}" method="GET" name="">
                             <div class="collapse navbar-collapse" id="ovatheme_header_v2">
                                 <ul id="menu-primary-menu" class="nav navbar-nav navbar-right">
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
@@ -60,22 +59,22 @@
                                                         @foreach ($events as $event)
                                                             <div class="item">
                                                                 <div class="event_content">
-                                                                    <a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">
-                                                                        <div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3.jpg);"></div>
-                                                                        <h2 class="title"><a href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">{{ $event->name }}</a></h2>
-                                                                        <div class="wrap_date_venue">
-                                                                            <div class="time"><i class="fa-solid fa-calendar"></i>{{ $event->date }}</div>
-                                                                            <div class="venue"><i class="fa-sharp fa-solid fa-location-dot"></i>{{ $event->place }} - {{ $event->city }}</div>
-                                                                        </div>
-                                                                        <div class="desc">{{ $event->description }}</div>
-                                                                    </a>
+                                                                    <div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3.jpg);"></div>
+                                                                    <h2 class="title"><a>{{ $event->name }}</a></h2>
+                                                                    <div class="wrap_date_venue">
+                                                                        <div class="time"><i class="fa-solid fa-calendar"></i>{{ $event->date }}</div>
+                                                                        <div class="venue"><i class="fa-sharp fa-solid fa-location-dot"></i>{{ $event->place }} - {{ $event->city }}</div>
+                                                                    </div>
+                                                                    <div class="desc">{{ $event->description }}</div>
                                                                 </div>
                                                                 <div class="countdown">
                                                                     <div class="ova_countdown_menu">
                                                                         <div class="ova_countdown_event" data-day="01" data-month="02" data-year="2024" data-hour="12" data-minute="09" data-timezone="0"></div>
                                                                     </div>
                                                                 </div>
-                                                                <a class="ova-btn" href="https://ovatheme.com/em4u/event/adobe-wants-to-let-you-draw-data/">{{ __('Get ticket') }}</a>
+                                                                <form action="{{ route('detail.index') }}" method="GET" name="detail_event">
+                                                                    <input type="submit" name="button-event" class="btn_link ova-btn ova-btn-rad-30" value="{{ __('Get ticket') }} {{ $event->name }}">
+                                                                </form>
                                                             </div>
                                                         @endforeach                                                
                                                     </div>
@@ -84,16 +83,7 @@
                                             <li  id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24 dropdown" style="height: 620px">
                                                 <div>
                                                     <h5 class="title">{{ __('Event Archive') }}</h5>
-                                                    <a title="Grid Version 1" href="{{ route('search.all') }}" class="" >{{ __('All events')}}</a>
-                                                                <!-- <a title="Grid Version 2" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style2" class="" >Grid Version 2</a> -->
-                                                                <!-- <a title="Grid Version 3" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style3" class="" >Grid Version 3</a> -->
-                                                                <!-- <a title="Grid Version 4" href="https://ovatheme.com/em4u/event/?type=grid&#038;style_grid=style4" class="" >Grid Version 4</a> -->
-                                                                <!-- <a title="List without Sidebar" href="https://ovatheme.com/em4u/event/?type=list" class="" >List without Sidebar</a> -->
-                                                                <!-- <a title="List with Sidebar" href="https://ovatheme.com/em4u/event/?type=list_sidebar" class="" >List with Sidebar</a> -->
-                                                                <!-- <a title="Grid Sidebar V1" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style1" class="" >Grid Sidebar V1</a> -->
-                                                                <!-- <a title="Grid Sidebar V2" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style2" class="" >Grid Sidebar V2</a> -->
-                                                                <!-- <a title="Grid Sidebar V3" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style3" class="" >Grid Sidebar V3</a> -->
-                                                                <!-- <a title="Grid Sidebar V4" href="https://ovatheme.com/em4u/event/?type=grid_sidebar&#038;style_grid=style4" class="" >Grid Sidebar V4</a> -->
+                                                    <a title="Grid Version 1" href="{{ route('search.index') }}" class="" >{{ __('All events')}}</a>
                                                 </div>
                                             </li>	
                                             <li  id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27 dropdown" style="height: 620px">
@@ -116,12 +106,13 @@
                                             $categories = Category::all();
                                             foreach ($categories as $category){
                                             ?>
-                                                <li id="menu-item-5334"  class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
-                                                    <a type="submit" title="{{ $category->name }}">{{ $category->name }}</a>
-                                                </li>
-                                                <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
-                                                    <input type="submit" value="{{ $category->name }}" name="menu_category" />
-                                                </li>
+                                                <form action="{{ route('search.category') }}" method="GET" name="detail_event">
+                                                    <div class="container-fluid">
+                                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
+                                                            <input style="background-color: transparent; border: none;" type="submit" value="{{ $category->name }}" name="menu_category" />
+                                                        </li>
+                                                    </div>
+                                                </form>
                                             <?php
                                             }
                                             ?>
@@ -135,26 +126,13 @@
                                             $cities = City::take(10)->get();
                                             ?>
                                             @foreach ($cities as $city)
-                                                <li id="menu-item-5340" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-has-children menu-item-5340 dropdown" style="height: ">
-                                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
-                                                        <input type="submit" value="{{ $city-> name }}" name="menu_city" />
-                                                    </li>
-                                                    <a title="Texas" href="https://ovatheme.com/em4u/location/texas/" >{{ $city-> name }} <span class="fa fa-caret-down show_dropmenu"></span></a>
-                                                    <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-                                                    <ul class="dropdown-menu submenu" role="menu">
-                                                        <?php
-                                                        $places = Place::where('idCity', $city->id)->get();
-                                                        ?>
-                                                        @foreach ($places as $place)
-                                                            <li id="menu-item-5341" class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-5341 dropdown" style="height: ">
-                                                                <a title="Austin" href="https://ovatheme.com/em4u/location/austin/" >{{ $place->name }}</a>
-                                                            </li>
-                                                            <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
-                                                                <input type="submit" value="{{ $place->name }}" name="menu_place" />
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </li>	
+                                                <form action="{{ route('search.category') }}" method="GET" name="detail_event">
+                                                    <div class="container-fluid">
+                                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-categories menu-item-5334 dropdown" style="height: ">
+                                                            <input style="background-color: transparent; border: none;" type="submit" value="{{ $city->name }}" name="menu_city" />
+                                                        </li>
+                                                    </div>
+                                                </form>	
                                             @endforeach
                                         </ul>
                                     </li>
@@ -165,26 +143,15 @@
                                             <li id="menu-item-942" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-942 dropdown" style="height: ">
                                                 <a title="About Us" href="https://ovatheme.com/em4u/about-us/" >{{ __('About Us') }}</a></li>	
                                             <li id="menu-item-5350" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5350 dropdown" style="height: ">
-                                                <a title="Contact Us" href="#" >{{ __('Contact Us') }}<span class="fa fa-caret-down show_dropmenu"></span></a>
-                                                <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
-                                                <ul class="dropdown-menu submenu" role="menu">
-                                                    <li id="menu-item-1281" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1281 dropdown" style="height: ">
-                                                        <a title="Contact V1" href="https://ovatheme.com/em4u/contact-v1/" >{{ __('Contact') }}</a></li>		
-                                                </ul>
+                                                <a title="Contact V1" href="https://ovatheme.com/em4u/contact-v1/" >{{ __('Contact') }}</a></li>		
                                             </li>
-                                            <li id="menu-item-2444" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2444 dropdown" style="height: ">
-                                                <a title="Blog" href="https://ovatheme.com/em4u/checkout-event/" >{{ __('Blog') }}</a>
-                                            </li>	
                                         </ul>
-                                    </li>
-                                    <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
-                                        <a title="Checkout" href="https://ovatheme.com/em4u/blog/">{{ __('Checkout') }}</a>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
                                             <a title="Cart" href="{{ route('cart.cart') }}">{{ __('Cart') }}</a>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
-                                            <a title="Account" href="https://ovatheme.com/em4u/my-account/">{{ __('Account') }}</a>
+                                            <a title="Account" href="{{ url('/profile') }}">{{ __('Account') }}</a>
                                     </li>
                                     <!-- Panel administrativo -->
                                     <?php
@@ -199,10 +166,11 @@
                                     ?>
                                     @if (Route::has('login'))
                                         @auth
-                                            <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">logout</a>
                                             <li class="li_account">
                                                 <div class="ova-account">
-                                                    @include('layouts.navigation')
+                                                    <form method="POST" action="{{ route('logout') }}">
+                                                        <a href="{{ url('/') }}" class="ova_icon_open"><i class="fa-solid fa-right-to-bracket"></i></a>
+                                                    </form>
                                                 </div>
                                             </li>
                                         @else
@@ -218,7 +186,6 @@
                                     @endif
                                 </ul>	
                             </div> <!-- /.container-fluid -->
-                            </form>
                         </nav>
                     </div>
                 </div>	 
