@@ -35,8 +35,11 @@ class SearchController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('events.name', 'like', '%'. $name_event. '%')
-                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                            'helds.date as date', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                            ->groupBy('helds.date')
                             ->paginate(self::PAGINATE_SIZE);
             }
             elseif ($name_category && $name_city == null && $name_date == null){
@@ -45,8 +48,11 @@ class SearchController extends Controller
                                 ->join('helds', 'helds.idEvent', '=', 'events.id')
                                 ->join('places', 'helds.idPlace', '=', 'places.id')
                                 ->join('cities', 'places.idCity', '=', 'cities.id')
+                                ->join('images', 'images.idEvent', '=', 'events.id')
                                 ->where('categories.name', $name_category)
-                                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                                'helds.date as date', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                                ->groupBy('helds.date')
                                 ->paginate(self::PAGINATE_SIZE);
             }
             elseif ($name_category && $name_city && $name_date == null){
@@ -55,9 +61,12 @@ class SearchController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('categories.name', $name_category)
                             ->where('cities.name', $name_city)
-                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                            'helds.date as date', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                            ->groupBy('helds.date')
                             ->paginate(self::PAGINATE_SIZE);
             }
             elseif ($name_category && $name_city == null && $name_date){
@@ -67,9 +76,12 @@ class SearchController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('categories.name', $name_category)
                             ->where('helds.date', $name_date)
-                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                            'helds.date as date', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                            ->groupBy('helds.date')
                             ->paginate(self::PAGINATE_SIZE);
             }
             elseif ($name_category == null && $name_city && $name_date == null){
@@ -78,8 +90,11 @@ class SearchController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('cities.name', $name_city)
-                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                            'helds.date as date', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                            ->groupBy('helds.date')
                             ->paginate(self::PAGINATE_SIZE);
             }
             elseif ($name_category == null && $name_city && $name_date){
@@ -89,20 +104,27 @@ class SearchController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('cities.name', $name_city)
                             ->where('helds.date', $name_date)
-                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                            'helds.date as date', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                            ->groupBy('helds.date')
                             ->paginate(self::PAGINATE_SIZE);
             }
             elseif ($name_category == null && $name_city == null && $name_date){
-                $name_date = $this->FormatteDate($request);
+                $name_date = $this->FormatteDate($request->date);
+                echo 'daam'.$name_date;
                 $events = DB::table('events')
                             ->join('categories', 'events.idCategory', '=', 'categories.id')
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('helds.date', $name_date)
-                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName')
+                            ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                            'helds.date as date', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                            ->groupBy('helds.date')
                             ->paginate(self::PAGINATE_SIZE);
             }
         }
@@ -112,7 +134,10 @@ class SearchController extends Controller
                         ->join('helds', 'helds.idEvent', '=', 'events.id')
                         ->join('places', 'helds.idPlace', '=', 'places.id')
                         ->join('cities', 'places.idCity', '=', 'cities.id')
-                        ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 'helds.time as time', 'places.name as placeName', 'cities.name as cityName')
+                        ->join('images', 'images.idEvent', '=', 'events.id')
+                        ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
+                        'helds.date as date', 'helds.time as time', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                        ->groupBy('helds.date')
                         ->paginate(self::PAGINATE_SIZE);
         }
         return view('search', ['events' => $events, 'name_category' => $name_category, 'name_city' => $name_city, 'name_date' => $name_date,
@@ -185,7 +210,7 @@ class SearchController extends Controller
                 ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
                         'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
                 ->groupBy('events.name', 'helds.date')
-                ->get();
+                ->paginate(self::PAGINATE_SIZE);
         }
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
                                'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
@@ -211,38 +236,12 @@ class SearchController extends Controller
                 ->join('cities', 'places.idCity', '=', 'cities.id')
                 ->join('availables', 'availables.idEvent', '=', 'events.id')
                 ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->join('images', 'images.idEvent', '=', 'events.id')
                 ->where('helds.date', '>', $date)
                 ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName', 'images.img as img')
                 ->groupBy('events.name')
-                ->get();
-        return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
-        'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
-        'dateTo' => $dateTo]);
-    }
-
-    public function All (){
-
-        $events = null;
-        $name_event = null;
-        $name_category = null;
-        $name_city = null;
-        $name_place = null;
-        $priceArray = null;
-        $name_language = null;
-        $dateFrom = null;
-        $dateTo = null;
-        $events = DB::table('events')
-                ->join('categories', 'events.idCategory', '=', 'categories.id')
-                ->join('helds', 'helds.idEvent', '=', 'events.id')
-                ->join('places', 'helds.idPlace', '=', 'places.id')
-                ->join('cities', 'places.idCity', '=', 'cities.id')
-                ->join('availables', 'availables.idEvent', '=', 'events.id')
-                ->join('languages', 'availables.idLanguage', '=', 'languages.id')
-                ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
-                ->groupBy('events.name')
-                ->get();
+                ->paginate(self::PAGINATE_SIZE);
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
         'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
         'dateTo' => $dateTo]);
@@ -266,11 +265,12 @@ class SearchController extends Controller
                 ->join('cities', 'places.idCity', '=', 'cities.id')
                 ->join('availables', 'availables.idEvent', '=', 'events.id')
                 ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->join('images', 'images.idEvent', '=', 'events.id')
                 ->where('helds.date', '<', $date = date('Y-m-d'))
                 ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName', 'images.img as img')
                 ->groupBy('events.name')
-                ->get();
+                ->paginate(self::PAGINATE_SIZE);
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
         'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
         'dateTo' => $dateTo]);
@@ -294,11 +294,12 @@ class SearchController extends Controller
                 ->join('cities', 'places.idCity', '=', 'cities.id')
                 ->join('availables', 'availables.idEvent', '=', 'events.id')
                 ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->join('images', 'images.idEvent', '=', 'events.id')
                 ->where('helds.idPlace', '=', 11)
                 ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName', 'images.img as img')
                 ->groupBy('events.name')
-                ->get();
+                ->paginate(self::PAGINATE_SIZE);
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
         'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
         'dateTo' => $dateTo]);
@@ -322,11 +323,12 @@ class SearchController extends Controller
                 ->join('cities', 'places.idCity', '=', 'cities.id')
                 ->join('availables', 'availables.idEvent', '=', 'events.id')
                 ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->join('images', 'images.idEvent', '=', 'events.id')
                 ->where('events.value', '=', 0)
                 ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName', 'images.img as img')
                 ->groupBy('events.name')
-                ->get();
+                ->paginate(self::PAGINATE_SIZE);
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 
         'name_place' => $name_place, 'price' => $priceArray, 'name_language' => $name_language, 'dateFrom' => $dateFrom,
         'dateTo' => $dateTo]);
@@ -370,7 +372,7 @@ class SearchController extends Controller
                     ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
                             'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
                     ->groupBy('events.name')
-                    ->get();
+                    ->paginate(self::PAGINATE_SIZE);
             }
         }
         return view('search', ['events' => $events, 'name_event' => $name_event, 'name_category' => $name_category, 'name_city' => $name_city, 

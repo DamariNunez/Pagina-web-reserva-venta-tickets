@@ -13,7 +13,7 @@ class DetailController extends Controller
     const PAGINATE_SIZE = 6;
 
     public function index (Request $request){
-
+        $events = null;
         $name_event = null;
         if ($request->has('button-event')){
             $name_event = $_GET['button-event'];
@@ -27,11 +27,11 @@ class DetailController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
-                            ->join('images', 'images.idEvent', '=', 'event.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('events.name', 'like', '%'. $name_event. '%')
                             ->select('categories.name as category', 'events.name as eventName', 'events.description as description', 
                             'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName',
-                            'helds.time as time', 'events.duration as duration', 'images.ing as img')
+                            'helds.time as time', 'events.duration as duration', 'images.img as img')
                             ->paginate(self::PAGINATE_SIZE);
             }
         }

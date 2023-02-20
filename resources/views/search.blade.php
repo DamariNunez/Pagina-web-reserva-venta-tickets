@@ -167,41 +167,38 @@
                             @if ($events)
                                 @foreach ($events as $event)
                                     <div class="col-md-4 col-sm-6 ova-item style1">
-                                        <a href="https://ovatheme.com/em4u/event/marketing-2017/">
-                                            <div class="ova_thumbnail">
-                                                <img alt="{{ $event->eventName }}" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
-                                                            https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
-                                                <div class="venue">
-                                                    <span><i class="fa-solid fa-location-dot"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
-                                                </div>
-                                                    <?php
-                                                    list($day, $month, $year) = explode("-", date($event->date));
-                                                    switch ($month) {
-                                                        case 01: $month = 'Ene' ; break;
-                                                        case 02: $month = 'Feb' ; break;
-                                                        case 03: $month = 'Mar' ; break;
-                                                        case 04: $month = 'Abr' ; break;
-                                                        case 05: $month = 'May' ; break;
-                                                        case 06: $month = 'Jun' ; break;
-                                                        case 07: $month = 'Jul' ; break;
-                                                        case 8: $month = 'Ago' ; break;
-                                                        case 9: $month = 'Sep' ; break;
-                                                        case 10: $month = 'Oct' ; break;
-                                                        case 11: $month = 'Nov' ; break;
-                                                        case 12: $month = 'Dic' ; break;
-                                                    }?>
-                                                <div class="time">
-                                                    <span name="month" id="month" value="{{ $month }}" class="month">{{ $month }}</span>
-                                                    <span name="day" value="{{ $day }}-{{ $year }}" class="date">{{ $day }}-{{ $year }}</span>
-                                                    <span name="price" value="{{ $event->value }}" class="price"><span><span>${{ $event->value }}</span></span></span>
-                                                </div>
+                                        <div class="ova_thumbnail">
+                                            <img alt="{{ $event->eventName }}" src="{{asset($event->img)}}" sizes="(max-width: 767px) 100vw, 600px">
+                                            <div class="venue">
+                                                <span><i class="fa-solid fa-location-dot"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
                                             </div>
-                                        </a>
+                                                <?php
+                                                list($day, $month, $year) = explode("-", date($event->date));
+                                                switch ($month) {
+                                                    case 01: $month = 'Ene' ; break;
+                                                    case 02: $month = 'Feb' ; break;
+                                                    case 03: $month = 'Mar' ; break;
+                                                    case 04: $month = 'Abr' ; break;
+                                                    case 05: $month = 'May' ; break;
+                                                    case 06: $month = 'Jun' ; break;
+                                                    case 07: $month = 'Jul' ; break;
+                                                    case 8: $month = 'Ago' ; break;
+                                                    case 9: $month = 'Sep' ; break;
+                                                    case 10: $month = 'Oct' ; break;
+                                                    case 11: $month = 'Nov' ; break;
+                                                    case 12: $month = 'Dic' ; break;
+                                                }?>
+                                            <div class="time">
+                                                <span name="month" id="month" value="{{ $month }}" class="month">{{ $month }}</span>
+                                                <span name="day" value="{{ $day }}-{{ $year }}" class="date">{{ $day }}-{{ $year }}</span>
+                                                <span name="price" value="{{ $event->value }}" class="price"><span><span>${{ $event->value }}</span></span></span>
+                                            </div>
+                                        </div>
                                         <div class="wrap_content">
                                             <h2 class="title">
-                                                <a name="name_event" value="{{ $event->eventName }}" href="{{ route('detail.index') }}">{{ $event->eventName }}</a>
+                                                <a name="name_event" value="{{ $event->eventName }}">{{ $event->eventName }}</a>
                                             </h2>
-                                            <?php $actualDate = date ( 'd-m-Y' ); ?>
+                                            <?php $actualDate = date ( 'Y-m-d' ); ?>
                                             @if ($actualDate > $event->date)
                                                 <div class="status"><span class="past">{{ __('Past') }}</span></div>
                                             @else
@@ -223,7 +220,7 @@
                                 <ul class="pagination">
                                     <div class="col">
                                         <div class="float-right">
-                                            
+                                                {{$events->links()}}
                                         </div>
                                     </div>
                                 </ul>
