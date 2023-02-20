@@ -23,10 +23,12 @@ class ReserveController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'events.id')
                             ->where('events.name', 'like', '%'. $name_event. '%')
-                            ->select('categories.name as category', 'events.name as eventName', 'events.description as description', 
+                            ->select('events.id as id', 'categories.name as category', 'events.name as eventName', 'events.description as description', 
                             'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName',
-                            'helds.time as time', 'events.duration as duration', 'events.value as value')
+                            'helds.time as time', 'events.duration as duration', 'images.img as img')
+                            ->groupBy('events.name', 'helds.date')
                             ->paginate(self::PAGINATE_SIZE);
             }
         }
@@ -43,7 +45,7 @@ class ReserveController extends Controller
                         ->join('places', 'helds.idPlace', '=', 'places.id')
                         ->join('cities', 'places.idCity', '=', 'cities.id')
                         ->where('events.name', 'like', '%'. $request->s. '%')
-                        ->select('categories.name as category', 'events.name as eventName', 'events.description as description', 
+                        ->select('events.id as id', 'categories.name as category', 'events.name as eventName', 'events.description as description', 
                         'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName',
                         'helds.time as time', 'events.duration as duration', 'events.value as value')
                         ->paginate(self::PAGINATE_SIZE);

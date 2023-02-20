@@ -6,6 +6,7 @@
     use App\Models\Event;
     use App\Models\User;
     use App\Models\Language;
+    use App\Models\Image;
 ?>
 <!DOCTYPE html>
 <html lang="en-US" >
@@ -43,31 +44,21 @@
                                     <div class="woo_top">
                                         <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
                                             <figure class="woocommerce-product-gallery__wrapper">
-                                                <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                    <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg">
-                                                        <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product2" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                    </a>
-                                                </div>
-                                                <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                    <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg">
-                                                        <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product6" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product6.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                    </a>
-                                                </div>
-                                                <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                    <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg">
-                                                        <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product5" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product5.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                    </a>
-                                                </div>
-                                                <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                    <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg">
-                                                        <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product4" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product4.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                    </a>
-                                                </div>
-                                                <div data-thumb="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-100x100.jpeg" class="woocommerce-product-gallery__image">
-                                                    <a data-gal="product[gal]" href="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg">
-                                                        <img width="513" height="600" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2-513x600.jpeg" class="attachment-shop_single size-shop_single" alt="" decoding="async" loading="lazy" title="product2" data-caption="" data-src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image="https://ovatheme.com/em4u/wp-content/uploads/2017/10/product2.jpeg" data-large_image_width="513" data-large_image_height="655">
-                                                    </a>
-                                                </div>	
+                                                @if ( $events )
+                                                    <?php 
+                                                    $images = Image::where('idEvent', '=', $events[0]->id)->get();
+                                                    ?>
+                                                @endif
+                                                @if ( $images )
+                                                    @foreach ( $images as $img )
+                                                        <div data-thumb="{{asset($img->img)}}" class="woocommerce-product-gallery__image">
+                                                            <a data-gal="product[gal]" href="{{asset($img->img)}}">
+                                                                <img alt="{{ $events[0]->eventName }}" src="{{asset($img->img)}}" sizes="(max-width: 767px) 100vw, 600px">    
+                                                            </a>
+                                                        </div>
+                                                        
+                                                    @endforeach
+                                                @endif	
                                             </figure>
                                         </div>
                                         <div class="summary entry-summary">
