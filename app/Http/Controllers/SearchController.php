@@ -136,7 +136,8 @@ class SearchController extends Controller
                         ->join('cities', 'places.idCity', '=', 'cities.id')
                         ->join('images', 'images.idEvent', '=', 'events.id')
                         ->select('events.name as eventName', 'events.description as description', 'events.value as value', 
-                        'helds.date as date', 'helds.time as time', 'places.name as placeName', 'cities.name as cityName', 'images.img as img')
+                        'helds.date as date', 'helds.time as time', 'places.name as placeName', 'cities.name as cityName', 
+                        'images.img as img')
                         ->groupBy('helds.date')
                         ->paginate(self::PAGINATE_SIZE);
         }
@@ -206,9 +207,10 @@ class SearchController extends Controller
                 ->join('cities', 'places.idCity', '=', 'cities.id')
                 ->join('availables', 'availables.idEvent', '=', 'events.id')
                 ->join('languages', 'availables.idLanguage', '=', 'languages.id')
+                ->join('images', 'images.idEvent', '=', 'events.id')
                 ->whereRaw($cadena)
                 ->select('events.name as eventName', 'events.description as description', 'events.value as value', 'helds.date as date', 
-                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName')
+                        'places.name as placeName', 'cities.name as cityName', 'languages.name as LanguageName', 'images.img as img')
                 ->groupBy('events.name', 'helds.date')
                 ->paginate(self::PAGINATE_SIZE);
         }
