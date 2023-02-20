@@ -27,10 +27,11 @@ class DetailController extends Controller
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
                             ->join('places', 'helds.idPlace', '=', 'places.id')
                             ->join('cities', 'places.idCity', '=', 'cities.id')
+                            ->join('images', 'images.idEvent', '=', 'event.id')
                             ->where('events.name', 'like', '%'. $name_event. '%')
                             ->select('categories.name as category', 'events.name as eventName', 'events.description as description', 
                             'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName',
-                            'helds.time as time', 'events.duration as duration')
+                            'helds.time as time', 'events.duration as duration', 'images.ing as img')
                             ->paginate(self::PAGINATE_SIZE);
             }
         }

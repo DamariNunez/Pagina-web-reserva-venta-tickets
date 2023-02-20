@@ -10,7 +10,9 @@
 ?>
 <tr x-data="{ modalIsOpen : false }">
     <td class="">{{ $image->idEvent }}</td>
-    <td class="">{{ $image->img }}</td>
+    <td class="">
+        <img src="{{asset($image->img)}}" width="150" height="150" >
+    </td>
     
     @if(getCrudConfig('Image')->delete or getCrudConfig('Image')->update)
         <td>

@@ -39,7 +39,9 @@ class Create extends Component
         }
         
         Image::create([
-            'img' => $this->img->getClientOriginalName(),
+            //'img' => $this->img->getClientOriginalName(),
+            //'extension' => $this->img->extension(),
+            'img' => 'storage/'.$this->img->store('files', 'public'),
             'idEvent' => $this->idEvent,
             'user_id' => auth()->id(),
         ]);

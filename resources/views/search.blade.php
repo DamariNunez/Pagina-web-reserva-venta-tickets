@@ -169,7 +169,7 @@
                                     <div class="col-md-4 col-sm-6 ova-item style1">
                                         <a href="https://ovatheme.com/em4u/event/marketing-2017/">
                                             <div class="ova_thumbnail">
-                                                <img alt="Marketing 2017" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
+                                                <img alt="{{ $event->eventName }}" src="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg" srcset="https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-370x222.jpg 1200w,
                                                             https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_6-min-640x384.jpg 767w" sizes="(max-width: 767px) 100vw, 600px">
                                                 <div class="venue">
                                                     <span><i class="fa-solid fa-location-dot"></i></span>{{ $event->placeName }}, {{ $event->cityName }}													
