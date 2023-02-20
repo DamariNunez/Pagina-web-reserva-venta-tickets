@@ -49,7 +49,9 @@ class ReserveController extends Controller
                         'events.value as value', 'helds.date as date', 'places.name as placeName', 'cities.name as cityName',
                         'helds.time as time', 'events.duration as duration', 'events.value as value')
                         ->paginate(self::PAGINATE_SIZE);
-            $name_event = $events[0]->eventName;
+            if ($events[0] != null){
+                $name_event = $events[0]->eventName;
+            }
         }
         return view ('reserve', ['events' => $events, 'name_event' => $name_event]);
     }
