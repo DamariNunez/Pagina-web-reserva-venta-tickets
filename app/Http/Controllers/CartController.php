@@ -8,9 +8,11 @@ use App\Models\Ticket;
 use App\Models\Held;
 use App\Models\Place;
 use App\Models\City;
+use App\Mail\Email;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Mail;
 use DB;
 
 class CartController extends Controller
@@ -21,6 +23,7 @@ class CartController extends Controller
         $name_event = null;
         $price = null;
         $tickets = null;
+        $user = Auth::user();
         if ($request->has('name_event') && $request->has('quantity') && $request->has('date') && $request->has('place') && $request->has('city')){
             $name_event = $request->name_event;
             $quantity = $request->quantity;
@@ -32,7 +35,7 @@ class CartController extends Controller
                 $idPlace = Place::where('name', $request->place)
                                 ->where('idCity', $idCity[0])->pluck('id');
             }
-            if ( $idEvent != null && $idHeld != null && $idPlace != null ){
+            if ( $idEvent[0] != null && $idHeld[0] != null && $idPlace[0] != null ){
                 $ticket = new Ticket();
                 $ticket->quantity = $quantity;
                 $ticket->idUser = Auth::id();
@@ -41,6 +44,7 @@ class CartController extends Controller
                 $ticket->idPlace = $idPlace[0];
                 $ticket->status = 'pending';
                 $ticket->save();
+                Mail::to($user->email)->send(new Email());
             }
         }
         if (Auth::check()){
@@ -61,6 +65,7 @@ class CartController extends Controller
 
     public function cart(){
         $name_event = null;
+        $tickets = null;
         if (Auth::check()){
             $idUser = Auth::id();
             $tickets = DB::table('events')

@@ -42,13 +42,13 @@
 						<div class="col-md-8">
 							<div class="content">
 							<!-- Message -->
-							<?php $actualDate = date ( 'd-m-Y' ); ?>
+							<?php $actualDate = date ( 'Y-m-d' ); ?>
 							@foreach ( $events as $event)
 								@if ($actualDate > $event->date)														
 									<div class="mb-2 bg-info text-white">The event is expired</div>
 									<br>	
 								@endif
-							@endforeach				
+							@endforeach			
 							<!-- Gallery, Thumbnail -->
 							<div class="gallery">
 								<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -56,8 +56,6 @@
 									<ol class="carousel-indicators">
 										<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
 										<li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-										<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-										<li data-target="#carousel-example-generic" data-slide-to="3" class="active"></li>
 									</ol>
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner" role="listbox">
