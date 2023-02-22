@@ -119,5 +119,7 @@
     "Approved": "Aprovado",
     "Denied": "Denegado",
     "Your reservation is under review, once your order has been confirmed, we will notify you": "La reservación realizada se encuentra en revisión, una vez que se haya confirmado su pedido, le notificaremos",
-    "The reservation has been approved, therefore, you have 72 hours to make the respective payment.": "La reservación ha sido aprovada, por lo tanto, tiene 72 horas para realizar el respectivo pago"
+    "The reservation has been approved, therefore, you have 72 hours to make the respective payment.": "La reservación ha sido aprovada, por lo tanto, tiene 72 horas para realizar el respectivo pago",
+    "The event is expired": "El evento ha expirado",
+    "Share": "Compartir"
 }

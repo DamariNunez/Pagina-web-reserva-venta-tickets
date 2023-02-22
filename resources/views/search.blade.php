@@ -207,7 +207,6 @@
                                             <div class="except">{{ $event->description }}</div>
                                             <div class="more_detail">
                                                 <?php $cadena =  $event->eventName?>
-                                                <!-- <a class="btn_link ova-btn ova-btn-rad-30">{{ __('Get ticket') }}</a> -->
                                                 <input type="submit" name="button-event" class="btn_link ova-btn ova-btn-rad-30" value="{{ __('Get ticket') }} {{ $cadena }}">
                                             </div>
                                         </div>

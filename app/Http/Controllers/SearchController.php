@@ -114,7 +114,6 @@ class SearchController extends Controller
             }
             elseif ($name_category == null && $name_city == null && $name_date){
                 $name_date = $this->FormatteDate($request->date);
-                echo 'daam'.$name_date;
                 $events = DB::table('events')
                             ->join('categories', 'events.idCategory', '=', 'categories.id')
                             ->join('helds', 'helds.idEvent', '=', 'events.id')
