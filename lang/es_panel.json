@@ -42,7 +42,7 @@
     "Namespace is invalid": "El espacio de nombres no es válido",
     "Model": "Modelo",
     "Route": "Ruta",
-    "Status": "Stado",
+    "Status": "Estado",
     "Built": "Construido",
     "CRUD's Route": "Ruta del CRUD",
     "Your CRUD list": "Lista del CRUD",
@@ -126,7 +126,7 @@
     "ISO_code": "ISO code",
     "Quantity": "Cantidad",
     "IdUser": "Usuario",
-    "IdPlace": "Lugares",
+    "IdPlace": "Lugar",
     "IdLanguage": "Idiomas",
     "TotalCost": "Costo total",
     "IdTicket": "Ticket",
@@ -138,5 +138,6 @@
     "Acept": "Aceptar",
     "Img": "Img",
     "Image": "Image",
-    "Images": "Images"
+    "Images": "Images",
+    "IdHeld": "Fecha y hora"
 }

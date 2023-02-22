@@ -1,8 +1,10 @@
 <?php
     use App\Models\User;
     use App\Models\Event;
+    use App\Models\Held;
+    use App\Models\Place;
+    use App\Models\City;
 ?>
-
 <tr x-data="{ modalIsOpen : false }">
     <td class="">{{ $ticket->quantity }}</td>
     <?php
@@ -14,14 +16,33 @@
             <?php
         }
     }
-    ?>
-    <?php
     $events = Event::all();
     foreach ($events as $event){
         if ($event->id == $ticket->idEvent){
             ?>
             <td class="">{{ $event->name }}</td>
             <?php
+        }
+    }
+    $helds = Held::all();
+    foreach ($helds as $held){
+        if ($held->id == $ticket->idHeld){
+            ?>
+            <td class="">{{ $held->date }} {{ $held->time }}</td>
+            <?php
+        }
+    }
+    $places = Place::all();
+    $cities = City::all();
+    foreach ($places as $place){
+        if ($place->id == $ticket->idPlace){
+            foreach ($cities as $city){
+                if ($place->idCity == $city->id){
+                    ?>
+                    <td class="">{{ $place->name }} - {{ $city->name }}</td>
+                    <?php
+                }
+            }
         }
     }
     ?>

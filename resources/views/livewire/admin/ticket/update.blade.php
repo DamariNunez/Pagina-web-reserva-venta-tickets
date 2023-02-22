@@ -1,8 +1,10 @@
 <?php
     use App\Models\User;
     use App\Models\Event;
+    use App\Models\Held;
+    use App\Models\Place;
+    use App\Models\City;
 ?>
-
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('UpdateTitle', ['name' => __('Ticket') ]) }}</h3>
@@ -75,6 +77,65 @@
                         }    
                         ?>
                     @endforeach    
+                </select>
+            </div>
+            <!-- IdHeld Input -->
+            <div class='form-group'>
+                <label for='input-idHeld' class='col-sm-2 control-label '> {{ __('IdHeld') }}</label>
+                <select id='input-idHeld' wire:model.lazy='idHeld' class="form-control  @error('idHeld') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $i = 0;
+                    $helds = Held::all();
+                    ?>
+                    @foreach ($helds as $held)
+                        <?php
+                        $i = 0;
+                        if ($held->id == $ticket->idHeld) {
+                            ?>
+                            <option selected>{{ $held->date }} {{ $held->time }}</option>
+                            <?php
+                            $i = 1;
+                        }
+                        if($i == 0 ){
+                            ?>
+                            <option>{{ $held->date }} {{ $held->time }}</option>
+                            <?php
+                        }    
+                        ?>
+                    @endforeach    
+                </select>
+            </div>
+            <!-- IdPlace Input -->
+            <div class='form-group'>
+                <label for='input-idPlace' class='col-sm-2 control-label '> {{ __('IdPlace') }}</label>
+                <select id='input-idPlace' wire:model.lazy='idPlace' class="form-control  @error('idPlace') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $i = 0;
+                    $places = Place::all();
+                    $cities = City::all();
+                    foreach ($places as $place){
+                        $i = 0;
+                        if ($place->id == $held->idPlace) {
+                            foreach ($cities as $city){
+                                if ($city->id == $place->idCity){
+                                     ?>
+                                    <option selected>{{ $place->name }}-{{ $city->name }}</option>
+                                    <?php
+                                    $i = 1;
+                                }
+                            }
+                        }    
+                        if($i == 0 ){
+                            foreach ($cities as $city){
+                                if ($city->id == $place->idCity){
+                                    ?>
+                                    <option>{{ $place->name }}-{{ $city->name }}</option>
+                                    <?php
+                                }
+                            }    
+                        }
+                    }   
+                    ?>   
                 </select>
             </div>
             <!-- Status Input -->

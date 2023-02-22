@@ -25,13 +25,13 @@ class TicketComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['quantity', 'idUser', 'idEvent', 'status'];
+        return ['quantity', 'idUser', 'idEvent', 'idHeld', 'idPlace', 'status'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['quantity', 'idUser', 'idEvent', 'status'];
+        return ['quantity', 'idUser', 'idEvent', 'idHeld', 'idPlace', 'status'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -43,6 +43,8 @@ class TicketComponent implements CRUDComponent
             'quantity' => 'number',
             'idUser' => 'number',
             'idEvent' => 'number',
+            'idHeld' => 'number', 
+            'idPlace' => 'number', 
             'status' => 'text'
         ];
     }
@@ -55,6 +57,8 @@ class TicketComponent implements CRUDComponent
             'quantity' => 'required',
             'idUser' => 'required',
             'idEvent' => 'required',
+            'idHeld' => 'required', 
+            'idPlace' => 'required', 
             'status' => 'required'
         ];
     }
@@ -66,6 +70,8 @@ class TicketComponent implements CRUDComponent
             'quantity' => 'number',
             'idUser' => 'number',
             'idEvent' => 'number',
+            'idHeld' => 'number', 
+            'idPlace' => 'number', 
             'status' => 'text'
         ];
     }

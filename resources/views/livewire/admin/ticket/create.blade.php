@@ -1,6 +1,9 @@
 <?php
     use App\Models\User;
     use App\Models\Event;
+    use App\Models\Held;
+    use App\Models\Place;
+    use App\Models\City;
 ?>
 
 <div class="card">
@@ -33,7 +36,7 @@
                     ?>
                     <option></option>
                     @foreach ($users as $user)
-                        <option>{{ $user->username.' '.$user->lastmane }}</option>
+                        <option>{{ $user->username.' '.$user->lastname }}</option>
                     @endforeach    
                 </select>  
             </div>
@@ -47,6 +50,37 @@
                     <option></option>
                     @foreach ($events as $event)
                         <option>{{ $event->name }}</option>
+                    @endforeach    
+                </select>  
+            </div>
+            <!-- IdHeld Input -->
+            <div class='form-group'>
+                <label for='input-idHeld' class='col-sm-2 control-label '> {{ __('IdHeld') }}</label>
+                <select id='input-idHeld' wire:model.lazy='idHeld' class="form-control  @error('idHeld') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                    <?php
+                    $helds = Held::all();
+                    ?>
+                    <option></option>
+                    @foreach ($helds as $held)
+                        <option>{{ $held->date.' '.$held->time }}</option>
+                    @endforeach    
+                </select>  
+            </div>
+            <!-- IdPlace Input -->
+            <div class='form-group'>
+                <label for='input-idPlace' class='col-sm-2 control-label '> {{ __('IdPlace') }}</label>
+                <select id='input-idPlace' wire:model.lazy='idPlace' class="form-control  @error('idPlace') is-invalid @enderror" placeholder='' autocomplete='on' required>
+                <?php
+                    $places = Place::all();
+                    $cities = City::all();
+                    ?>
+                    <option></option>
+                    @foreach ($places as $place)
+                        @foreach ($cities as $city){
+                            @if ($place->idCity == $city->id){
+                                <option>{{ $place->name.'-'.$city->name }}</option>
+                            @endif
+                        @endforeach
                     @endforeach    
                 </select>  
             </div>

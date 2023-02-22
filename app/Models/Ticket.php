@@ -17,6 +17,8 @@ class Ticket extends Model
         'quantity',
         'idUser',
         'idEvent',
+        'idHeld',
+        'idPlace',
         'status'
     ];
 }

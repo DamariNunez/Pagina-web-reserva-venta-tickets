@@ -4,6 +4,7 @@
     use App\Models\Place;
     use App\Models\Event;
     use App\Models\Ticket;
+    use App\Models\User;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -12,8 +13,13 @@
   </head>
   <body>
     <?php
-    $user = Auth::user();
-    $ticket = Ticket::where('idUser', $user->id)->orderBy('tickets.id', 'desc')->first();
+    $user = null;
+    if ($id != 0){
+      $user = User::where('id', $id)->get();
+    }
+    if (!empty($user)){
+      $ticket = Ticket::where('idUser', $user[0]->id)->orderBy('tickets.id', 'desc')->first();
+    }
     $event = Event::where('events.id', $ticket->idEvent)->orderBy('events.id', 'desc')->first();
     $held = Held::where('helds.id', $ticket->idHeld)->orderBy('helds.id', 'desc')->first();
     $place = Place::where('places.id', $ticket->idPlace)->orderBy('places.id', 'desc')->first();
@@ -42,7 +48,7 @@
 		}
 		?>
     <h2>{{ __('Reservation') }}: </h2>
-    <h4>{{ __('Name') }}: {{ $user->username }}</h4>
+    <h4>{{ __('Name') }}: {{ $user[0]->username }} {{ $user[0]->lastname }}</h4>
     <h4>{{ __('Reservation code') }}: {{ $ticket->id }}</h4>
     <h4>{{ __('Event') }}: {{ $event->name }}</h4>
     <h4>{{ __('City') }}: {{ $city->name }}</h4>
@@ -51,8 +57,8 @@
     <h4>{{ __('Time') }}: {{ $hour }}:{{ $min }} {{ $period }}</h4>
     <h4>{{ __('Quantity') }}: {{ $ticket->quantity }}</h4>
     <h4>{{ __('Total') }}: {{ $total }}</h4>
-    <h4>{{ __('Status') }}: {{ __('$ticket->status') }}</h4>
+    <h4>{{ __('Status') }}: {{ __('Approved') }}</h4>
     <br>
-    <p>{{ __('Your reservation is under review, once your order has been confirmed, we will notify you') }}</p>	
+    <p>{{ __('The reservation has been approved, therefore, you have 72 hours to make the respective payment.') }}</p>	
   </body>
 </html>

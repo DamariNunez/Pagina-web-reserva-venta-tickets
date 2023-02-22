@@ -3,10 +3,12 @@
 namespace App\Http\Livewire\Admin\Ticket;
 
 use App\Models\Ticket;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use App\Models\User;
 use App\Models\Event;
+use App\Models\Held;
+use App\Models\Place;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
@@ -15,12 +17,16 @@ class Create extends Component
     public $quantity;
     public $idUser;
     public $idEvent;
+    public $idHeld;
+    public $idPlace;
     public $status;
     
     protected $rules = [
         'quantity' => 'required|numeric',
         'idUser' => 'required',
         'idEvent' => 'required',
+        'idHeld'=> 'required', 
+        'idPlace' => 'required', 
         'status' => 'required|string',        
     ];
 
@@ -47,10 +53,25 @@ class Create extends Component
             $this->idEvent = $idEve[0];
         }
 
+        $arrayHeld = explode(' ', $this->idHeld);
+        $idHe =  Held::where('date', $arrayHeld[0])
+                     ->where('time', $arrayHeld[1])->pluck('id');
+        if (!empty($idHe)){
+            $this->idHeld = $idHe[0];
+        }
+
+        $arrayPlace = explode('-', $this->idPlace);
+        $idPla =  Place::where('name', $arrayPlace[0])->pluck('id');
+        if (!empty($idPla)){
+            $this->idPlace = $idPla[0];
+        }
+
         Ticket::create([
             'quantity' => $this->quantity,
             'idUser' => $this->idUser,
             'idEvent' => $this->idEvent,
+            'idHeld' => $this->idHeld,
+            'idPlace' => $this->idPlace,
             'status' => $this->status,
             'user_id' => auth()->id(),
         ]);

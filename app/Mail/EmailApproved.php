@@ -8,25 +8,28 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Http\Request;
 
-class Email extends Mailable
+class EmailApproved extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = '¡Anótalo en tu agenda! Tu evento está reservado';
+    public $id;
+
+    public $subject = '¡Anótalo en tu agenda! Tu evento está aprovado';
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($request)
     {
-        //
+        $this->id = $request;
     }
 
     public function build()
     {
-        return $this->view('emails.contactanos');
+        return $this->view('emails.aprovado');
     }
 }

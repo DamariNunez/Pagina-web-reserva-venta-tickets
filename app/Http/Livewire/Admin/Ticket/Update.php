@@ -3,10 +3,14 @@
 namespace App\Http\Livewire\Admin\Ticket;
 
 use App\Models\Ticket;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use App\Models\User;
 use App\Models\Event;
+use App\Models\Held;
+use App\Models\Place;
+use App\Mail\EmailApproved;
+use Livewire\Component;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Mail;
 
 class Update extends Component
 {
@@ -17,12 +21,16 @@ class Update extends Component
     public $quantity;
     public $idUser;
     public $idEvent;
+    public $idHeld;
+    public $idPlace;
     public $status;
     
     protected $rules = [
         'quantity' => 'required|numeric',
         'idUser' => 'required',
         'idEvent' => 'required',
+        'idHeld'=> 'required', 
+        'idPlace' => 'required',
         'status' => 'required|string',      
     ];
 
@@ -31,6 +39,8 @@ class Update extends Component
         $this->quantity = $this->ticket->quantity;
         $this->idUser = $this->ticket->idUser;
         $this->idEvent = $this->ticket->idEvent;
+        $this->idHeld = $this->ticket->idHeld;
+        $this->idPlace = $this->ticket->idPlace;
         $this->status = $this->ticket->status;        
     }
 
@@ -57,10 +67,30 @@ class Update extends Component
             $this->idEvent = $idEve[0];
         }
         
+        $arrayHeld = explode(' ', $this->idHeld);
+        $idHe =  Held::where('date', $arrayHeld[0])
+                     ->where('time', $arrayHeld[1])->pluck('id');
+        if (!empty($idHe)){
+            $this->idHeld = $idHe[0];
+        }
+
+        $arrayPlace = explode('-', $this->idPlace);
+        $idPla =  Place::where('name', $arrayPlace[0])->pluck('id');
+        if (!empty($idPla)){
+            $this->idPlace = $idPla[0];
+        }
+
+        $user = User::where('id', $this->idUser)->get();
+        if ($this->status == 'approved'){
+            Mail::to($user[0]->email)->send(new EmailApproved($user[0]->id));
+        }
+
         $this->ticket->update([
             'quantity' => $this->quantity,
             'idUser' => $this->idUser,
             'idEvent' => $this->idEvent,
+            'idHeld' => $this->idHeld,
+            'idPlace' => $this->idPlace,
             'status' => $this->status,
             'user_id' => auth()->id(),
         ]);

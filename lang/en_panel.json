@@ -125,7 +125,7 @@
     "ISO_code": "ISO_code",
     "Quantity": "Quantity",
     "IdUser": "User",
-    "IdPlace": "Places",
+    "IdPlace": "Place",
     "IdLanguage": "Languages",
     "TotalCost": "TotalCost",
     "IdTicket": "Ticket",
@@ -137,5 +137,6 @@
     "Acept": "Acept",
     "Img": "Img",
     "Image": "Image",
-    "Images": "Images"
+    "Images": "Images",
+    "IdHeld": "Date and time"
 }
