@@ -41,17 +41,19 @@
 				$period = 'am';
 		}
 		?>
-    <h2>{{ __('Reservation') }}: </h2>
-    <h4>{{ __('Name') }}: {{ $user->username }}</h4>
-    <h4>{{ __('Reservation code') }}: {{ $ticket->id }}</h4>
-    <h4>{{ __('Event') }}: {{ $event->name }}</h4>
-    <h4>{{ __('City') }}: {{ $city->name }}</h4>
-    <h4>{{ __('Place') }}: {{ $place->name }}</h4>
-    <h4>{{ __('Date') }}: {{ $month }} {{ $day }}, {{ $year }}</h4>
-    <h4>{{ __('Time') }}: {{ $hour }}:{{ $min }} {{ $period }}</h4>
-    <h4>{{ __('Quantity') }}: {{ $ticket->quantity }}</h4>
-    <h4>{{ __('Total') }}: {{ $total }}</h4>
-    <h4>{{ __('Status') }}: {{ __('$ticket->status') }}</h4>
+    <h2>{{ __('Reservación') }}: </h2>
+    <ul>
+      <li>{{ __('Name') }}: {{ $user->username }}</li>
+      <li>{{ __('Código de reservación') }}: {{ $ticket->id }}</li>
+      <li>{{ __('Event') }}: {{ $event->name }}</li>
+      <li>{{ __('City') }}: {{ $city->name }}</li>
+      <li>{{ __('Place') }}: {{ $place->name }}</li>
+      <li>{{ __('Date') }}: {{ $month }} {{ $day }}, {{ $year }}</li>
+      <li>{{ __('Time') }}: {{ $hour }}:{{ $min }} {{ $period }}</li>
+      <li>{{ __('Quantity') }}: {{ $ticket->quantity }}</li>
+      <li>{{ __('Total') }}: {{ $total }}</li>
+      <li>{{ __('Status') }}: {{ __('Pending') }}</li>
+    </ul>
     <br>
     <p>{{ __('Your reservation is under review, once your order has been confirmed, we will notify you') }}</p>	
   </body>

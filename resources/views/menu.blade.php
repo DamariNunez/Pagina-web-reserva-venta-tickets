@@ -52,17 +52,38 @@
                                                                     ->join('helds', 'events.id', '=', 'helds.idEvent', )
                                                                     ->join('places', 'places.id', '=', 'helds.idPlace')
                                                                     ->join('cities', 'places.idCity', '=', 'cities.id')
+                                                                    ->join('images', 'images.idEvent', '=', 'events.id')
                                                                     ->where('helds.date', '>', $actualDate)
-                                                                    ->select('events.name', 'helds.date', 'places.name as place', 'cities.name as city', 'events.description')
+                                                                    ->select('events.name', 'helds.date', 'places.name as place', 'cities.name as city', 'events.description', 'images.img as img')
+                                                                    ->groupBy('events.name', 'helds.date')
                                                                     ->get();
                                                         ?>
                                                         @foreach ($events as $event)
                                                             <div class="item">
                                                                 <div class="event_content">
-                                                                    <div class="wrap_img" style="background: url(https://ovatheme.com/em4u/wp-content/uploads/2017/10/event_conference_1-3.jpg);"></div>
+                                                                    <div class="wrap_img">
+                                                                        <img alt="{{ $event->name }}" src="{{asset($event->img)}}" width="1000" height="1000">
+                                                                    </div>
                                                                     <h2 class="title"><a>{{ $event->name }}</a></h2>
+                                                                    <?php
+                                                                    list($year, $month, $day) = explode("-", date($event->date));
+                                                                    switch ($month) {
+                                                                        case 01: $month = 'Ene' ; break;
+                                                                        case 02: $month = 'Feb' ; break;
+                                                                        case 03: $month = 'Mar' ; break;
+                                                                        case 04: $month = 'Abr' ; break;
+                                                                        case 05: $month = 'May' ; break;
+                                                                        case 06: $month = 'Jun' ; break;
+                                                                        case 07: $month = 'Jul' ; break;
+                                                                        case 8: $month = 'Ago' ; break;
+                                                                        case 9: $month = 'Sep' ; break;
+                                                                        case 10: $month = 'Oct' ; break;
+                                                                        case 11: $month = 'Nov' ; break;
+                                                                        case 12: $month = 'Dic' ; break;
+                                                                    }
+                                                                    ?>
                                                                     <div class="wrap_date_venue">
-                                                                        <div class="time"><i class="fa-solid fa-calendar"></i>{{ $event->date }}</div>
+                                                                        <div class="time"><i class="fa-solid fa-calendar"></i>{{ $month }} {{ $day }}, {{ $year }}</div>
                                                                         <div class="venue"><i class="fa-sharp fa-solid fa-location-dot"></i>{{ $event->place }} - {{ $event->city }}</div>
                                                                     </div>
                                                                     <div class="desc">{{ $event->description }}</div>

@@ -8,25 +8,28 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Http\Request;
 
-class Email extends Mailable
+class EmailPay extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = '¡Anótalo en tu agenda! Tu evento está reservado';
+    public $cad;
+
+    public $subject = '¡A un paso de asistir al evento!';
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($request)
     {
-        //
+        $this->cad = $request;
     }
 
     public function build()
     {
-        return $this->view('emails.contactanos');
+        return $this->view('emails.pay');
     }
 }

@@ -8,7 +8,7 @@ use App\Models\Ticket;
 use App\Models\Held;
 use App\Models\Place;
 use App\Models\City;
-use App\Mail\Email;
+use App\Mail\EmailReserve;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
@@ -44,7 +44,7 @@ class CartController extends Controller
                 $ticket->idPlace = $idPlace[0];
                 $ticket->status = 'pending';
                 $ticket->save();
-                Mail::to($user->email)->send(new Email());
+                Mail::to($user->email)->send(new EmailReserve());
             }
         }
         if (Auth::check()){

@@ -47,120 +47,118 @@
                                                 <div class="woocommerce-notices-wrapper">
                                                 </div>
                                                 <div class="ova_cart">
-                                                    <form class="woocommerce-cart-form" action="https://ovatheme.com/em4u/cart/" method="post">
-                                                        <div class="col-md-8">
-                                                            <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th class="product-remove">{{ __('Remove') }}</th>
-                                                                        <th class="product-name">{{ __('Event') }}</th>
-                                                                        <th class="product-name">{{ __('Place') }}</th>
-                                                                        <th class="product-name">{{ __('Date') }}</th>
-                                                                        <th class="product-price">{{ __('Price') }}</th>
-                                                                        <th class="product-quantity">{{ __('Quantity') }}</th>
-                                                                        <th class="product-subtotal">{{ __('Total') }}</th>
-                                                                        <th class="product-subtotal">{{ __('Status') }}</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php $sum = 0; ?>
-                                                                    @if ( $tickets )
-                                                                        @foreach ( $tickets as $ticket )
-                                                                            <tr class="woocommerce-cart-form__cart-item cart_item">
-                                                                                <td class="product-remove">
-                                                                                    <a href="https://ovatheme.com/em4u/cart/?remove_item=68a83eeb494a308fe5295da69428a507&amp;_wpnonce=f235c3eaca" class="remove" aria-label="Remove this item" data-product_id="1259" data-product_sku="">×</a>								
-                                                                                </td>
-                                                                                <td class="product-name" data-title="Product">
-                                                                                   {{ $ticket->eventName }} 							
-                                                                                </td>
-                                                                                <td class="product-name" data-title="Product">
-                                                                                   {{ $ticket->placeName }}, {{ $ticket->cityName }}							
-                                                                                </td>
-                                                                                <?php
-                                                                                list($year, $month, $day) = explode("-", date($ticket->date));
-                                                                                switch ($month) {
-                                                                                    case 01: $month = 'Ene' ; break;
-                                                                                    case 02: $month = 'Feb' ; break;
-                                                                                    case 03: $month = 'Mar' ; break;
-                                                                                    case 04: $month = 'Abr' ; break;
-                                                                                    case 05: $month = 'May' ; break;
-                                                                                    case 06: $month = 'Jun' ; break;
-                                                                                    case 07: $month = 'Jul' ; break;
-                                                                                    case 8: $month = 'Ago' ; break;
-                                                                                    case 9: $month = 'Sep' ; break;
-                                                                                    case 10: $month = 'Oct' ; break;
-                                                                                    case 11: $month = 'Nov' ; break;
-                                                                                    case 12: $month = 'Dic' ; break;
-                                                                                }
-                                                                                list($hour, $min, $sec) = explode(":", date($ticket->time));
-                                                                                if ( $hour > 12){
-                                                                                    $period = 'pm';
-                                                                                } else {
-                                                                                    $period = 'am';
-                                                                                }
-                                                                                ?>
-                                                                                <td class="product-name" data-title="Product">
-                                                                                {{ $month }} {{ $day }}, {{ $year }} {{ $hour }}:{{ $min }} {{ $period }}				
-                                                                                </td>
-                                                                                <td class="product-price" data-title="Price">
-                                                                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->value }}</bdi></span>								
-                                                                                </td>
-                                                                                <td class="product-quantity" data-title="Quantity">
-                                                                                    <div class="quantity">
-                                                                                        <label class="screen-reader-text" for="quantity_63ee4e96435d0">{{ __('Product One quantity') }}</label>
-                                                                                        <input type="number" id="quantity" class="input-text qty text" name="cart[68a83eeb494a308fe5295da69428a507][qty]" value="{{ $ticket->quantity }}" title="Qty" size="4" min="0" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
-                                                                                    </div>
-                                                                                </td>
-                                                                                <td class="product-subtotal" data-title="Total">
-                                                                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->total }}</bdi></span>								
-                                                                                </td>
-                                                                                <td class="product-name" data-title="Product">
-                                                                                   {{ $ticket->status }} 							
-                                                                                </td>
-                                                                                <?php if ( $ticket->status == 'approved' ) {$sum = $sum + $ticket->total;} ?>
-                                                                            </tr>
-                                                                        @endforeach
-                                                                    @endif
-                                                                    <tr>
-                                                                        <td colspan="6" class="actions">
-                                                                            <button type="submit" class="button" name="update_cart" value="Update cart">{{ __('Update cart') }}</button>
-														                    <input type="hidden" id="woocommerce-cart-nonce" name="woocommerce-cart-nonce" value="f235c3eaca">
-                                                                            <input type="hidden" name="_wp_http_referer" value="/em4u/cart/">						
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="cart-collaterals">
-                                                                <div class="coupon">
-                                                                    <label for="coupon_code">
-                                                                    {{ __('Discount code') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span>
-                                                                    </label>
-                                                                    <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="{{ __('Coupon code') }}">
-                                                                    <input type="submit" class="button" name="apply_coupon" value="{{ __('Apply coupon') }}">
-                                                                </div>
-								                                <div class="cart_totals ">
-                                                                    <h2>{{ __('Cart totals') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span></h2>
-                                                                    <table cellspacing="0" class="shop_table shop_table_responsive">
-                                                                        <tbody>
-                                                                            <tr class="cart-subtotal">
-                                                                                <th>{{ __('Subtotal') }}</th>
-                                                                                <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></td>
-                                                                            </tr>
-                                                                            <tr class="order-total">
-                                                                                <th>{{ __('Total') }}</th>
-                                                                                <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></strong> </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
+                                                    <div class="col-md-8">
+                                                        <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+                                                            <thead>
+                                                                 <tr>
+                                                                    <th class="product-remove">{{ __('Remove') }}</th>
+                                                                    <th class="product-name">{{ __('Event') }}</th>
+                                                                    <th class="product-name">{{ __('Place') }}</th>
+                                                                    <th class="product-name">{{ __('Date') }}</th>
+                                                                    <th class="product-price">{{ __('Price') }}</th>
+                                                                    <th class="product-quantity">{{ __('Quantity') }}</th>
+                                                                    <th class="product-subtotal">{{ __('Total') }}</th>
+                                                                    <th class="product-subtotal">{{ __('Status') }}</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php $sum = 0; ?>
+                                                                @if ( $tickets )
+                                                                    @foreach ( $tickets as $ticket )
+                                                                        <tr class="woocommerce-cart-form__cart-item cart_item">
+                                                                            <td class="product-remove">
+                                                                                <a href="https://ovatheme.com/em4u/cart/?remove_item=68a83eeb494a308fe5295da69428a507&amp;_wpnonce=f235c3eaca" class="remove" aria-label="Remove this item" data-product_id="1259" data-product_sku="">×</a>								
+                                                                            </td>
+                                                                            <td class="product-name" data-title="Product">
+                                                                                {{ $ticket->eventName }} 							
+                                                                            </td>
+                                                                            <td class="product-name" data-title="Product">
+                                                                                {{ $ticket->placeName }}, {{ $ticket->cityName }}							
+                                                                            </td>
+                                                                            <?php
+                                                                            list($year, $month, $day) = explode("-", date($ticket->date));
+                                                                            switch ($month) {
+                                                                                case 01: $month = 'Ene' ; break;
+                                                                                case 02: $month = 'Feb' ; break;
+                                                                                case 03: $month = 'Mar' ; break;
+                                                                                case 04: $month = 'Abr' ; break;
+                                                                                case 05: $month = 'May' ; break;
+                                                                                case 06: $month = 'Jun' ; break;
+                                                                                case 07: $month = 'Jul' ; break;
+                                                                                case 8: $month = 'Ago' ; break;
+                                                                                case 9: $month = 'Sep' ; break;
+                                                                                case 10: $month = 'Oct' ; break;
+                                                                                case 11: $month = 'Nov' ; break;
+                                                                                case 12: $month = 'Dic' ; break;
+                                                                            }
+                                                                            list($hour, $min, $sec) = explode(":", date($ticket->time));
+                                                                            if ( $hour > 12){
+                                                                                $period = 'pm';
+                                                                            } else {
+                                                                                $period = 'am';
+                                                                            }
+                                                                            ?>
+                                                                            <td class="product-name" data-title="Product">
+                                                                            {{ $month }} {{ $day }}, {{ $year }} {{ $hour }}:{{ $min }} {{ $period }}				
+                                                                            </td>
+                                                                            <td class="product-price" data-title="Price">
+                                                                                <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->value }}</bdi></span>								
+                                                                            </td>
+                                                                            <td class="product-quantity" data-title="Quantity">
+                                                                                <div class="quantity">
+                                                                                    <label class="screen-reader-text" for="quantity_63ee4e96435d0">{{ __('Product One quantity') }}</label>
+                                                                                    <input type="number" id="quantity" class="input-text qty text" name="cart[68a83eeb494a308fe5295da69428a507][qty]" value="{{ $ticket->quantity }}" title="Qty" size="4" min="0" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="product-subtotal" data-title="Total">
+                                                                                <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->total }}</bdi></span>								
+                                                                            </td>
+                                                                            <td class="product-name" data-title="Product">
+                                                                                {{ $ticket->status }} 							
+                                                                            </td>
+                                                                            <?php if ( $ticket->status == 'approved' ) {$sum = $sum + $ticket->total;} ?>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                @endif
+                                                                <tr>
+                                                                    <td colspan="6" class="actions">
+                                                                        <button type="submit" class="button" name="update_cart" value="Update cart">{{ __('Update cart') }}</button>				
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="cart-collaterals">
+                                                            <div class="coupon">
+                                                                <label for="coupon_code">
+                                                                {{ __('Discount code') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span>
+                                                                </label>
+                                                                <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="{{ __('Coupon code') }}">
+                                                                <input type="submit" class="button" name="apply_coupon" value="{{ __('Apply coupon') }}">
+                                                            </div>
+								                            <div class="cart_totals ">
+                                                                <h2>{{ __('Cart totals') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span></h2>
+                                                                <table cellspacing="0" class="shop_table shop_table_responsive">
+                                                                    <tbody>
+                                                                        <tr class="cart-subtotal">
+                                                                            <th>{{ __('Subtotal') }}</th>
+                                                                            <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></td>
+                                                                        </tr>
+                                                                        <tr class="order-total">
+                                                                            <th>{{ __('Total') }}</th>
+                                                                            <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></strong> </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                 <form action="{{ route('pay.index') }}" method="GET" name="reserve_event">
                                                                     <div class="wc-proceed-to-checkout">
-                                                                        <a href="https://ovatheme.com/em4u/checkout/" class="checkout-button button alt wc-forward wp-element-button">{{ __('Proceed to pay') }}</a>
+                                                                        <input type="submit" class="checkout-button button alt wc-forward wp-element-button" value="{{ __('Proceed to pay') }}">
                                                                     </div>
-                                                                </div>			
-                                                            </div>        
-                                                        </div>
-                                                    </form>
+                                                                </form>
+                                                            </div>			
+                                                        </div>        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

@@ -55,6 +55,10 @@ Route::prefix('cart')->group(function () {
     Route::get('/cart', 'App\Http\Controllers\CartController@cart')->name('cart.cart');
 });
 
+Route::prefix('pay')->group(function () {
+    Route::get('/index', 'App\Http\Controllers\PayController@index')->name('pay.index');
+});
+
 //Route::get('search')->name('search');
 //Route::get('/search', ['uses' => 'SearchController@index'])->name('search.index');
 //Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
