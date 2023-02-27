@@ -25,13 +25,13 @@ class PaymentComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['totalCost', 'idTicket'];
+        return ['totalCost', 'idTicket', 'voucher'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['totalCost', 'idTicket'];
+        return ['totalCost', 'idTicket', 'voucher'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -41,7 +41,8 @@ class PaymentComponent implements CRUDComponent
     {
         return [
             'totalCost' => 'number',
-            'idTicket' => 'number'
+            'idTicket' => 'number',
+            'voucher' => 'file'
         ];
     }
 
@@ -51,7 +52,8 @@ class PaymentComponent implements CRUDComponent
     {
         return [
             'totalCost' => 'required',
-            'idTicket' => 'required'
+            'idTicket' => 'required',
+            'voucher' => 'required'
         ];
     }
 
@@ -60,7 +62,8 @@ class PaymentComponent implements CRUDComponent
     {
         return [
             'totalCost' => 'number',
-            'idTicket' => 'number'
+            'idTicket' => 'number',
+            'voucher' => 'file'
         ];
     }
 }

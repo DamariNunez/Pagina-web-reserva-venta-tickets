@@ -43,7 +43,7 @@
 		?>
     <h2>{{ __('Reservación') }}: </h2>
     <ul>
-      <li>{{ __('Name') }}: {{ $user->username }}</li>
+      <li>{{ __('Name') }}: {{ $user->username }} {{ $user->lastname }}</li>
       <li>{{ __('Código de reservación') }}: {{ $ticket->id }}</li>
       <li>{{ __('Event') }}: {{ $event->name }}</li>
       <li>{{ __('City') }}: {{ $city->name }}</li>

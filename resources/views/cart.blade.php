@@ -151,7 +151,7 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
-                                                                 <form action="{{ route('pay.index') }}" method="GET" name="reserve_event">
+                                                                <form action="{{ route('pay.index') }}" method="GET" name="reserve_event">
                                                                     <div class="wc-proceed-to-checkout">
                                                                         <input type="submit" class="checkout-button button alt wc-forward wp-element-button" value="{{ __('Proceed to pay') }}">
                                                                     </div>

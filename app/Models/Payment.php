@@ -15,6 +15,7 @@ class Payment extends Model
 
     protected $fillable = [
         'totalCost',
-        'idTicket'
+        'idTicket',
+        'voucher'
     ];
 }

@@ -108,6 +108,15 @@
 							<!-- Content -->
 							<div class="desc">
 								<p>{{ $events[0]->description }}</p>
+							</div>
+							<div class="desc">
+								<p><i class="fa-solid fa-user-tag"></i>   <b>{{  __('Category') }}:</b> {{ $events[0]->category }}</p>
+								<p><i class="fa-solid fa-users"></i>      <b>{{  __('Audience') }}:</b> {{ $events[0]->type }} -  {{ $events[0]->audienceDescription }}</p>
+								<p><i class="fa-solid fa-language"></i>   <b>{{  __('Language') }}:</b> 
+									@foreach ($events as $event)
+										{{ $event->languageName }}-{{ $event->isoCode }}      
+									@endforeach
+								</p>
 								<p>&nbsp;</p>
 							</div>
 							<div class="row">
@@ -117,11 +126,9 @@
 										<div class="ovaem_tags">
 											<span><i class="fa-solid fa-tag"></i>Tags: </span>
 												<ul>
-													@foreach ( $events as $event)
-														<li>
-															<a href=" ">{{ $event->category }}</a>
-														</li>
-													@endforeach	
+													<li>
+														<a href=" ">{{ $events[0]->category }}</a>
+													</li>
 													<li>
 														<a href="">Diversión</a>
 													</li>	

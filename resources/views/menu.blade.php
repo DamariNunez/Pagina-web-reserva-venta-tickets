@@ -172,7 +172,7 @@
                                             <a title="Cart" href="{{ route('cart.cart') }}">{{ __('Cart') }}</a>
                                     </li>
                                     <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13 dropdown" style="height: ">
-                                            <a title="Account" href="{{ url('/profile') }}">{{ __('Account') }}</a>
+                                            <a title="Account" href="{{ url('/profile') }}">{{ __('Profile') }}</a>
                                     </li>
                                     <!-- Panel administrativo -->
                                     <?php

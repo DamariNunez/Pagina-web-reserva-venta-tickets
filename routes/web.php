@@ -57,6 +57,7 @@ Route::prefix('cart')->group(function () {
 
 Route::prefix('pay')->group(function () {
     Route::get('/index', 'App\Http\Controllers\PayController@index')->name('pay.index');
+    Route::post('/voucher', 'App\Http\Controllers\PayController@voucher')->name('pay.voucher');
 });
 
 //Route::get('search')->name('search');

@@ -61,6 +61,6 @@
       <li>{{ __('Status') }}: {{ __('Approved') }}</li>
     </ul>
     <br>
-    <p>{{ __('The reservation has been approved, therefore, you have 72 hours to make the respective payment.') }}</p>	
+    <p>{{ __('La reservación ha sido aprobada, por lo tanto, tiene 72 horas para realizar el respectivo pago') }}</p>	
   </body>
 </html>

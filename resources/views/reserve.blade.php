@@ -96,7 +96,7 @@
                                                                 }
                                                                 ?>
                                                                 <p>{{ $month }} {{ $day }}, {{ $year }}</p>
-                                                                <input type="radio" name="time" value="{{ $event->time }}" required> {{ $event->time }}
+                                                                <input type="radio" name="time" value="{{ $event->time }}" required> {{ $hour }}:{{ $min }} {{ $period }}
                                                             </div>
                                                         @endforeach
                                                         <?php

@@ -16,7 +16,7 @@ class EmailApproved extends Mailable
 
     public $id;
 
-    public $subject = '¡Anótalo en tu agenda! Tu evento está aprovado';
+    public $subject = '¡Anótalo en tu agenda! Tu evento está aprobado';
 
     /**
      * Create a new message instance.

@@ -35,7 +35,7 @@ class CartController extends Controller
                 $idPlace = Place::where('name', $request->place)
                                 ->where('idCity', $idCity[0])->pluck('id');
             }
-            if ( $idEvent[0] != null && $idHeld[0] != null && $idPlace[0] != null ){
+            if ( $idEvent[0] != null && $idHeld[0] != null && $idPlace[0] != null && $user){
                 $ticket = new Ticket();
                 $ticket->quantity = $quantity;
                 $ticket->idUser = Auth::id();

@@ -13,7 +13,7 @@ class EmailReserve extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = '¡Anótalo en tu agenda! Tu evento está reservado';
+    public $subject = '¡Anótalo en tu agenda! Tu reservación está pendiente';
 
     /**
      * Create a new message instance.

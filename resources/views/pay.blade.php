@@ -19,14 +19,14 @@
                 <div class="ova-bg-heading" style="background-image: url( https://ovatheme.com/em4u/wp-content/themes/em4u/assets/img/bg_heading-compressor.jpg ); ">
                     <div class="bg_cover"></div>
                     <div class="container ova-breadcrumbs">
-                        <h1 class="ova_title">{{ __('Cart') }}</h1>
+                        <h1 class="ova_title">{{ __('Bill') }}</h1>
                         <div id="breadcrumbs" >
                             <div class="breadcrumbs">
                                 <div class="breadcrumbs-pattern">
                                     <div class="container">
                                         <div class="row">
                                             <ul class="breadcrumb"><li><a href="{{ url('/') }}">{{ __('Events') }}</a></li> 
-                                            <li>{{ __('Cart') }}&nbsp;</li>
+                                            <li>{{ __('Bill') }}&nbsp;</li>
                                         </div>
                                     </div>
                                 </div>
@@ -44,8 +44,7 @@
                                     <div class="vc_column-inner">
                                         <div class="wpb_wrapper">
                                             <div class="woocommerce">
-                                                <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://ovatheme.com/em4u/checkout/" enctype="multipart/form-data" novalidate="novalidate">
-                                                    <h3 id="order_review_heading">{{ __('Your order') }}</h3>
+                                                <h3 id="order_review_heading">{{ __('Your order') }}</h3>
                                                     <div id="order_review" class="woocommerce-checkout-review-order">
                                                         <table class="shop_table woocommerce-checkout-review-order-table">
                                                             <thead>
@@ -55,20 +54,39 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                
-                                                                <tr class="cart_item">
-                                                                    <td class="product-name">Product One&nbsp;<strong class="product-quantity">×&nbsp;1</strong></td>
-                                                                    <td class="product-total"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>15.00</bdi></span></td>
-                                                                </tr>
+                                                                <?php
+                                                                $sum = 0;
+                                                                $user = Auth::user();
+                                                                $events = DB::table('events')
+                                                                            ->join('tickets', 'tickets.idEvent', 'events.id')
+                                                                            ->join('helds', 'tickets.idHeld', 'helds.id')
+                                                                            ->join('places', 'tickets.idPlace', 'places.id')
+                                                                            ->join('cities', 'places.idCity', 'cities.id')
+                                                                            ->where('tickets.idUser', $user->id)
+                                                                            ->where('tickets.status', 'approved')
+                                                                            ->select('tickets.id as idTickets', 'events.name as eventName', 'events.value as value', 'tickets.quantity as quantity', 
+                                                                                    'places.name as placeName', 'cities.name as cityName','helds.date as date', 
+                                                                                    'helds.time as time', DB::raw('(tickets.quantity * events.value) as total'), 'tickets.status as status')
+                                                                            ->get();
+                                                                ?>
+                                                                @if ( $events )
+                                                                    @foreach ( $events as $event )
+                                                                        <tr class="cart_item">
+                                                                            <td class="product-name">{{ $event->eventName }}&nbsp;<strong class="product-quantity">×&nbsp;{{ $event->quantity }}</strong></td>
+                                                                            <td class="product-total"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $event->total }}</bdi></span></td>
+                                                                            <?php $sum = $sum + $event->total; ?>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                @endif
                                                             </tbody>
 	                                                        <tfoot>
                                                                 <tr class="cart-subtotal">
                                                                     <th>{{ __('Subtotal') }}</th>
-                                                                    <td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>15.00</bdi></span></td>
+                                                                    <td><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></td>
                                                                 </tr>
                                                                 <tr class="order-total">
                                                                     <th>{{ __('Total') }}</th>
-                                                                    <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">£</span>15.00</bdi></span></strong> </td>
+                                                                    <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $sum }}</bdi></span></strong> </td>
                                                                 </tr>
                                                             </tfoot>
                                                         </table>
@@ -82,6 +100,16 @@
                                                                     </div>
                                                                 </li>
 		                                                    </ul>
+                                                            <form action="{{ route('pay.voucher') }}" method="POST" name="reserve_event" enctype="multipart/form-data">
+                                                                @method('POST')
+                                                                <div class='form-group'>
+                                                                    <label for='input-idImage' class='col-sm-2 control-label '> {{ __('Voucher') }}</label>
+                                                                    <input type='file' name="img" class='form-control mb-2' require>
+                                                                </div>
+                                                                <div class="wc-proceed-to-checkout">
+                                                                    <input type="submit" class="checkout-button button alt wc-forward wp-element-button" value="{{ __('Upload voucher') }}">
+                                                                </div>
+                                                            </form>
                                                             <div class="form-row place-order">
                                                                 <div class="woocommerce-terms-and-conditions-wrapper">
                                                                     <div class="woocommerce-privacy-policy-text"></div>
@@ -89,7 +117,6 @@
                                                             </div>
                                                         </div>
                                                     </div> 
-                                                </form>  
                                             </div>
                                         </div>
                                     </div>
