@@ -77,7 +77,6 @@
       @endforeach
     </ul>
     <br>
-    <p>{{ __('We remind you that you have a maximum of 72 hours to make your payment') }}</p>
     <p>{{ __('Failure to receive confirmation will affect your purchase') }}</p>
     <p>{{ __('Thank you for trusting us, we hope you enjoy your event') }}</p>
   </body>

@@ -116,8 +116,11 @@
     "Reservation code": "Código de reservación",
     "Time": "Hora",
     "Pending": "Pendiente",
-    "Approved": "Aprovado",
+    "Approved": "Aprobado",
     "Denied": "Denegado",
+    "pending": "pendiente",
+    "approved": "aprobado",
+    "denied": "denegado",
     "Your reservation is under review, once your order has been confirmed, we will notify you": "La reservación realizada se encuentra en revisión, una vez que se haya confirmado su pedido, le notificaremos",
     "The reservation has been approved, therefore, you have 72 hours to make the respective payment": "La reservación ha sido aprobada, por lo tanto, tiene 72 horas para realizar el respectivo pago",
     "The event is expired": "El evento ha expirado",
@@ -144,5 +147,6 @@
     "Upload voucher": "Subir comprobante",
     "Bill": "Factura",
     "Audience": "Audiencia",
-    "Language": "Idioma"
+    "Language": "Idioma",
+    "Deadline" : "Fecha límite"
 }

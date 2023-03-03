@@ -25,6 +25,8 @@
     $place = Place::where('places.id', $ticket->idPlace)->orderBy('places.id', 'desc')->first();
     $city = City::where('cities.id', $place->idCity)->orderBy('cities.id', 'desc')->first();
     $total = $ticket->quantity * $event->value;
+    $limitDate = date("d-m-Y",strtotime(date("d-m-Y")."+ 3 days")); 
+    list($limitDay, $limitMonth, $limitYear) = explode("-", $limitDate);
     list($year, $month, $day) = explode("-", date($held->date));
     switch ($month) {
       case 01: $month = 'Ene' ; break;
@@ -40,11 +42,31 @@
       case 11: $month = 'Nov' ; break;
       case 12: $month = 'Dic' ; break;
     }
+    switch ($limitMonth) {
+      case 01: $limitMonth = 'Ene' ; break;
+      case 02: $limitMonth = 'Feb' ; break;
+      case 03: $limitMonth = 'Mar' ; break;
+      case 04: $limitMonth = 'Abr' ; break;
+      case 05: $limitMonth = 'May' ; break;
+      case 06: $limitMonth = 'Jun' ; break;
+      case 07: $limitMonth = 'Jul' ; break;
+      case 8: $limitMonth = 'Ago' ; break;
+      case 9: $limitMonth = 'Sep' ; break;
+      case 10: $limitMonth = 'Oct' ; break;
+      case 11: $limitMonth = 'Nov' ; break;
+      case 12: $limitMonth = 'Dic' ; break;
+    }
+    list($limitHour, $limitMin, $limitSec) = explode(":", date("h:i:s"));
 		list($hour, $min, $sec) = explode(":", date($held->time));
 		if ( $hour > 12){
 			$period = 'pm';
 		} else {
-				$period = 'am';
+			$period = 'am';
+		}
+    if ( $limitHour > 12){
+			$limitPeriod = 'pm';
+		} else {
+			$limitPeriod = 'am';
 		}
 		?>
     <h2>{{ __('Reservación') }}: </h2>
@@ -58,9 +80,10 @@
       <li>{{ __('Time') }}: {{ $hour }}:{{ $min }} {{ $period }}</li>
       <li>{{ __('Quantity') }}: {{ $ticket->quantity }}</li>
       <li>{{ __('Total') }}: {{ $total }}</li>
-      <li>{{ __('Status') }}: {{ __('Approved') }}</li>
+      <li>{{ __('Status') }}: Aprobado</li>
     </ul>
     <br>
     <p>{{ __('La reservación ha sido aprobada, por lo tanto, tiene 72 horas para realizar el respectivo pago') }}</p>	
+    <p>{{ __('Fecha límite: ') }} {{ $limitMonth }} {{ $limitDay }}, {{ $limitYear }} {{ $limitHour }}:{{ $limitMin }} {{ $limitPeriod }}</p>
   </body>
 </html>

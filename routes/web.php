@@ -51,7 +51,7 @@ Route::prefix('reserve')->group(function () {
 });
 
 Route::prefix('cart')->group(function () {
-    Route::get('/addToCart', 'App\Http\Controllers\CartController@addToCart')->name('cart.addToCart');
+    Route::post('/addToCart', 'App\Http\Controllers\CartController@addToCart')->name('cart.addToCart');
     Route::get('/cart', 'App\Http\Controllers\CartController@cart')->name('cart.cart');
 });
 

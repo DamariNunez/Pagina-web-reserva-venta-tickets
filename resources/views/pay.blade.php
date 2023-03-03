@@ -101,10 +101,10 @@
                                                                 </li>
 		                                                    </ul>
                                                             <form action="{{ route('pay.voucher') }}" method="POST" name="reserve_event" enctype="multipart/form-data">
-                                                                @method('POST')
+                                                                @csrf
                                                                 <div class='form-group'>
                                                                     <label for='input-idImage' class='col-sm-2 control-label '> {{ __('Voucher') }}</label>
-                                                                    <input type='file' name="img" class='form-control mb-2' require>
+                                                                    <input type='file' name="img" class='form-control mb-2' required>
                                                                 </div>
                                                                 <div class="wc-proceed-to-checkout">
                                                                     <input type="submit" class="checkout-button button alt wc-forward wp-element-button" value="{{ __('Upload voucher') }}">

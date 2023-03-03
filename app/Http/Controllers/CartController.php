@@ -19,20 +19,21 @@ class CartController extends Controller
 {
     const PAGINATE_SIZE = 6;
 
-    public function addToCart(Request $request){
+    public function addToCart(){
         $name_event = null;
-        $price = null;
         $tickets = null;
+        $idPlace = null;
         $user = Auth::user();
-        if ($request->has('name_event') && $request->has('quantity') && $request->has('date') && $request->has('place') && $request->has('city')){
-            $name_event = $request->name_event;
-            $quantity = $request->quantity;
-            $idEvent = Event::where('name', 'like', '%'. $request->name_event. '%')->pluck('id');
-            $idHeld = Held::where('date', $request->date)
-                          ->where('time', $request->time)->pluck('id');
-            $idCity = City::where('name', $request->city)->pluck('id');
-            if ( $idCity != null ){
-                $idPlace = Place::where('name', $request->place)
+        if (!empty($_POST['info'])){
+            $arrayInfo = explode('*', $_POST['info']);
+            $name_event = $_POST['name_event'];
+            $quantity = $_POST['quantity'];
+            $idEvent = Event::where('name', 'like', '%'. $name_event. '%')->pluck('id');
+            $idHeld = Held::where('date', $arrayInfo[0])
+                          ->where('time', $arrayInfo[1])->pluck('id');
+            $idCity = City::where('name', $arrayInfo[3])->pluck('id');
+            if ( $idCity[0] != null ){
+                $idPlace = Place::where('name', $arrayInfo[2])
                                 ->where('idCity', $idCity[0])->pluck('id');
             }
             if ( $idEvent[0] != null && $idHeld[0] != null && $idPlace[0] != null && $user){
@@ -44,7 +45,7 @@ class CartController extends Controller
                 $ticket->idPlace = $idPlace[0];
                 $ticket->status = 'pending';
                 $ticket->save();
-                Mail::to($user->email)->send(new EmailReserve());
+                //Mail::to($user->email)->send(new EmailReserve());
             }
         }
         if (Auth::check()){
@@ -55,6 +56,7 @@ class CartController extends Controller
                     ->join('places', 'tickets.idPlace', 'places.id')
                     ->join('cities', 'places.idCity', 'cities.id')
                     ->where('tickets.idUser', $idUser)
+                    ->whereNull('tickets.idPayment')
                     ->select('events.name as eventName', 'events.value as value', 'tickets.quantity as quantity', 
                              'places.name as placeName', 'cities.name as cityName','helds.date as date', 
                              'helds.time as time', DB::raw('(tickets.quantity * events.value) as total'), 'tickets.status as status')
@@ -74,6 +76,7 @@ class CartController extends Controller
                     ->join('places', 'tickets.idPlace', 'places.id')
                     ->join('cities', 'places.idCity', 'cities.id')
                     ->where('tickets.idUser', $idUser)
+                    ->whereNull('tickets.idPayment')
                     ->select('events.name as eventName', 'events.value as value', 'tickets.quantity as quantity', 
                              'places.name as placeName', 'cities.name as cityName','helds.date as date', 
                              'helds.time as time', DB::raw('(tickets.quantity * events.value) as total'), 'tickets.status as status')

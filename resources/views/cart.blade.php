@@ -114,7 +114,13 @@
                                                                                 <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->total }}</bdi></span>								
                                                                             </td>
                                                                             <td class="product-name" data-title="Product">
-                                                                                {{ $ticket->status }} 							
+                                                                                @if ( $ticket->status == 'approved' )
+                                                                                    {{ __('approved') }} 
+                                                                                @elseif ( $ticket->status == 'pending' )
+                                                                                    {{ __('pending') }} 
+                                                                                @elseif ( $ticket->status == 'denied' )
+                                                                                    {{ __('denied') }} 
+                                                                                @endif							
                                                                             </td>
                                                                             <?php if ( $ticket->status == 'approved' ) {$sum = $sum + $ticket->total;} ?>
                                                                         </tr>
@@ -130,14 +136,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="cart-collaterals">
-                                                            <div class="coupon">
-                                                                <label for="coupon_code">
-                                                                {{ __('Discount code') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span>
-                                                                </label>
-                                                                <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="{{ __('Coupon code') }}">
-                                                                <input type="submit" class="button" name="apply_coupon" value="{{ __('Apply coupon') }}">
-                                                            </div>
-								                            <div class="cart_totals ">
+								                            <div class="cart_totals">
                                                                 <h2>{{ __('Cart totals') }}<span class="one"></span><span class="two"></span><span class="three"></span><span class="four"></span><span class="five"></span></h2>
                                                                 <table cellspacing="0" class="shop_table shop_table_responsive">
                                                                     <tbody>

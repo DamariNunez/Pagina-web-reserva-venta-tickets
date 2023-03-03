@@ -65,7 +65,8 @@
                                             <div class="summary entry-summary">
                                                 <h2 class="product_title entry-title">{{ $events[0]->eventName }}</h2>
                                                 <p class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $events[0]->value }}</bdi></span></p>
-                                                <form class="cart" action="{{ route('cart.addToCart') }}" method="GET" enctype="multipart/form-data">
+                                                <form class="cart" action="{{ route('cart.addToCart') }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
                                                     <?php
                                                     if ( count($events) > 0 ){
                                                         ?>
@@ -96,7 +97,7 @@
                                                                 }
                                                                 ?>
                                                                 <p>{{ $month }} {{ $day }}, {{ $year }}</p>
-                                                                <input type="radio" name="time" value="{{ $event->time }}" required> {{ $hour }}:{{ $min }} {{ $period }}
+                                                                <input type="radio" name="info" value="{{ $event->date }}*{{ $event->time }}*{{ $event->placeName }}*{{ $event->cityName }}" required> {{ $hour }}:{{ $min }} {{ $period }}
                                                             </div>
                                                         @endforeach
                                                         <?php
@@ -108,9 +109,6 @@
                                                     </div>
                                                     <button type="submit" name="add-to-cart" value="1259" class="single_add_to_cart_button button alt wp-element-button">{{ __('Reserve') }}</button>
                                                     <input type="hidden" name="name_event" value="{{ $events[0]->eventName }}">
-                                                    <input type="hidden" name="date" value="{{ $event->date }}">
-                                                    <input type="hidden" name="place" value="{{ $event->placeName }}">
-                                                    <input type="hidden" name="city" value="{{ $event->cityName }}">
                                                 </form>
                                                 <div class="product_meta">
                                                     <span class="posted_in">{{ __('Category') }}: <a href="" rel="tag">{{ $event->category }}</a></span>

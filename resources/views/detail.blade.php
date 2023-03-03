@@ -245,7 +245,7 @@
 												</div>
 											</div>
 											<div class="get_direction_map">
-												<a class="btn ova-btn text-center" href="https://maps.google.com?saddr=Current+Location&amp;daddr=-0.1633283,-78.4868987" target="_blank"><i class="fa fa-location-arrow"></i>Get Direction </a>
+												<a class="btn ova-btn text-center" href="https://www.google.com/maps/place/Plaza+de+Toros/@-0.1619845,-78.4880171,17z/data=!4m6!3m5!1s0x91d59aa32554784b:0x3418a102a7d45f10!8m2!3d-0.1619845!4d-78.4858284!16s%2Fg%2F11g0khfhxt" target="_blank"><i class="fa fa-location-arrow"></i>Get Direction </a>
 											</div>
 											</div>
 										</div>
