@@ -53,6 +53,8 @@ Route::prefix('reserve')->group(function () {
 Route::prefix('cart')->group(function () {
     Route::post('/addToCart', 'App\Http\Controllers\CartController@addToCart')->name('cart.addToCart');
     Route::get('/cart', 'App\Http\Controllers\CartController@cart')->name('cart.cart');
+    Route::post('/updateCart', 'App\Http\Controllers\CartController@updateCart')->name('cart.updateCart');
+    Route::post('/remove', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
 });
 
 Route::prefix('pay')->group(function () {

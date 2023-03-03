@@ -36,7 +36,7 @@ class PayController extends Controller
                     ->join('cities', 'places.idCity', 'cities.id')
                     ->where('tickets.idUser', $user->id)
                     ->where('tickets.status', 'approved')
-                    ->select('events.id as id', 'events.name as eventName', 'events.value as value', 
+                    ->select('events.id as id', 'tickets.id as idTickets','events.name as eventName', 'events.value as value', 
                             'tickets.quantity as quantity', 'places.name as placeName', 'cities.name as cityName','helds.date as date', 
                             'helds.time as time', DB::raw('(tickets.quantity * events.value) as total'), 'tickets.status as status')
                     ->get();
@@ -48,7 +48,7 @@ class PayController extends Controller
             }
 
             //Registrar pago
-            /*$payment = new Payment();
+            $payment = new Payment();
             $payment->totalCost = $sum;
             if ($request->hasFile('img')){
                 $img = $request->file('img');
@@ -58,7 +58,7 @@ class PayController extends Controller
                 $payment->voucher = $nameImg;
             }
             $payment->status = 'pending';
-            $payment->save();*/
+            $payment->save();
 
             //Buscar el id del último pago realizado por el usuario loggeado
             $idPayment = Payment::latest('id')->first();
@@ -66,9 +66,7 @@ class PayController extends Controller
             if ( $idPayment->id ){
                 foreach ( $events as $event ){
                     DB::table('tickets')
-                        ->where('quantity', $event->quantity)
-                        ->where('idUser', $user->id)
-                        ->where('idEvent', $event->id)
+                        ->where('id', $event->idTickets)
                         ->update(['idPayment' => $idPayment->id]);
                 }
             }

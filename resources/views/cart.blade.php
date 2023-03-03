@@ -62,13 +62,20 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?php $sum = 0; ?>
+                                                                <?php 
+                                                                $sum = 0; 
+                                                                $update = null;
+                                                                ?>
                                                                 @if ( $tickets )
                                                                     @foreach ( $tickets as $ticket )
                                                                         <tr class="woocommerce-cart-form__cart-item cart_item">
-                                                                            <td class="product-remove">
-                                                                                <a href="https://ovatheme.com/em4u/cart/?remove_item=68a83eeb494a308fe5295da69428a507&amp;_wpnonce=f235c3eaca" class="remove" aria-label="Remove this item" data-product_id="1259" data-product_sku="">×</a>								
-                                                                            </td>
+                                                                            <form action="{{ route('cart.remove') }}" method="POST" name="reserve_event">
+                                                                            @csrf
+                                                                                <td class="product-remove">	
+                                                                                    <input type="submit" aria-label="Remove this item" class="button" name="update_cart" value="x">
+                                                                                    <input type="hidden" name="idTicket" value="{{ $ticket->id }}">
+                                                                                </td>
+                                                                            </form>
                                                                             <td class="product-name" data-title="Product">
                                                                                 {{ $ticket->eventName }} 							
                                                                             </td>
@@ -107,7 +114,8 @@
                                                                             <td class="product-quantity" data-title="Quantity">
                                                                                 <div class="quantity">
                                                                                     <label class="screen-reader-text" for="quantity_63ee4e96435d0">{{ __('Product One quantity') }}</label>
-                                                                                    <input type="number" id="quantity" class="input-text qty text" name="cart[68a83eeb494a308fe5295da69428a507][qty]" value="{{ $ticket->quantity }}" title="Qty" size="4" min="0" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                                                                    <input type="number" id="quantity" class="input-text qty text" name="quantity" value="{{ $ticket->quantity }}" title="Qty" size="4" min="1" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                                                                    <?php $update = $update.' '.$ticket->id.' '.$ticket->quantity; ?>
                                                                                 </div>
                                                                             </td>
                                                                             <td class="product-subtotal" data-title="Total">
@@ -127,9 +135,13 @@
                                                                     @endforeach
                                                                 @endif
                                                                 <tr>
-                                                                    <td colspan="6" class="actions">
-                                                                        <button type="submit" class="button" name="update_cart" value="Update cart">{{ __('Update cart') }}</button>				
-                                                                    </td>
+                                                                    <form action="{{ route('cart.updateCart') }}" method="POST" name="reserve_event">
+                                                                    @csrf
+                                                                        <td colspan="6" class="actions">
+                                                                            <input type="submit" class="button" name="update_cart" value="{{ __('Update cart') }}">	
+                                                                            <input type="hidden" name="update" value="{{ $update }}">		
+                                                                        </td>
+                                                                    </form> 
                                                                 </tr>
                                                             </tbody>
                                                         </table>
