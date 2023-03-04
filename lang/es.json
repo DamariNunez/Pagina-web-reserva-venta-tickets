@@ -153,5 +153,20 @@
     "Choose a location": "Escoja una localidad",
     "Available  ": "Disponible  ",
     "There are few  ": "Quedan pocos  ",
-    "Not available  ": "No disponible  "
+    "Not available  ": "No disponible  ",
+    "Location" : "Localidad",
+    "Profile Information": "Información de perfil",
+    "Update your account's profile information and email address.": "Actualice la información de perfil y la dirección de correo electrónico de su cuenta.",
+    "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
+    "Click here to re-send the verification email.": "Haga clic aquí para volver a enviar el correo electrónico de verificación.",
+    "A new verification link has been sent to your email address.": "Se ha enviado un nuevo enlace de verificación a su dirección de correo electrónico.",
+    "Save": "Guardar",
+    "Saved.": "Guardado.",
+    "Update Password": "Actualizar contraseña",
+    "Ensure your account is using a long, random password to stay secure.": "Asegúrate de que tu cuenta utiliza una contraseña larga y aleatoria para mantener la seguridad.",
+    "Delete Account": "Eliminar cuenta",
+    "Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.": "Una vez eliminada su cuenta, todos sus recursos y datos se borrarán permanentemente. Antes de eliminar su cuenta, descargue los datos o la información que desee conservar.",
+    "Are you sure you want to delete your account?": "¿Seguro que quieres eliminar tu cuenta?",
+    "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Una vez eliminada su cuenta, todos sus recursos y datos se borrarán permanentemente. Introduzca su contraseña para confirmar que desea eliminar definitivamente su cuenta.",
+    "Cancel": "Cancelar"
 }

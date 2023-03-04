@@ -23,7 +23,7 @@ class PayController extends Controller
         $user = Auth::user();
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $cad = substr(str_shuffle($permitted_chars), 0, 16);
-        //Mail::to($user->email)->send(new EmailPay($cad));
+        Mail::to($user->email)->send(new EmailPay($cad));
         return view ('pay');
     }
 
@@ -37,6 +37,7 @@ class PayController extends Controller
                     ->join('locations', 'tickets.idlocation', 'locations.id')
                     ->where('tickets.idUser', $user->id)
                     ->where('tickets.status', 'approved')
+                    ->whereNull('tickets.idPayment')
                     ->select('events.id as id', 'tickets.id as idTickets','events.name as eventName', 'events.value as value', 
                             'tickets.quantity as quantity', 'places.name as placeName', 'cities.name as cityName','helds.date as date',
                             'locations.price as price', 'helds.time as time', DB::raw('(tickets.quantity * locations.price) as total'), 

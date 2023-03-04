@@ -62,6 +62,9 @@ Route::prefix('pay')->group(function () {
     Route::post('/voucher', 'App\Http\Controllers\PayController@voucher')->name('pay.voucher');
 });
 
+Route::view('/aboutus', 'aboutus');
+Route::view('/contact', 'contact');
+
 //Route::get('search')->name('search');
 //Route::get('/search', ['uses' => 'SearchController@index'])->name('search.index');
 //Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);

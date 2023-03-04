@@ -143,5 +143,8 @@
     "ImageLocation": "ImageLocation",
     "ImageLocations": "ImageLocations",
     "Ilocation": "Ilocation",
-    "Ilocations": "Ilocations"
+    "Ilocations": "Ilocations",
+    "Price": "Price",
+    "Location": "Location",
+    "Locations": "Locations"
 }

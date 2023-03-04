@@ -162,9 +162,9 @@
                                         <button type="button" class="dropdown-toggle"><i class="arrow_carrot-down"></i></button>
                                         <ul class="dropdown-menu submenu" role="menu">
                                             <li id="menu-item-942" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-942 dropdown" style="height: ">
-                                                <a title="About Us" href="https://ovatheme.com/em4u/about-us/" >{{ __('About Us') }}</a></li>	
+                                                <a title="About Us" href="http://127.0.0.1:8000/aboutus" >{{ __('About Us') }}</a></li>	
                                             <li id="menu-item-5350" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5350 dropdown" style="height: ">
-                                                <a title="Contact V1" href="https://ovatheme.com/em4u/contact-v1/" >{{ __('Contact') }}</a></li>		
+                                                <a title="Contact V1" href="http://127.0.0.1:8000/contact" >{{ __('Contact') }}</a></li>		
                                             </li>
                                         </ul>
                                     </li>

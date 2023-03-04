@@ -21,11 +21,14 @@
                   ->join('helds', 'tickets.idHeld', 'helds.id')
                   ->join('places', 'tickets.idPlace', 'places.id')
                   ->join('cities', 'places.idCity', 'cities.id')
+                  ->join('locations', 'tickets.idlocation', 'locations.id')
                   ->where('tickets.idUser', $user->id)
                   ->where('tickets.status', 'approved')
+                  ->whereNull('tickets.idPayment')
                   ->select('events.name as eventName', 'events.value as value', 'tickets.quantity as quantity', 
-                          'places.name as placeName', 'cities.name as cityName','helds.date as date', 
-                          'helds.time as time', DB::raw('(tickets.quantity * events.value) as total'))
+                          'places.name as placeName', 'cities.name as cityName','helds.date as date', 'locations.name as locationName',
+                          'locations.price as price',
+                          'helds.time as time', DB::raw('(tickets.quantity * locations.price) as total'))
                   ->get();
     }
     foreach ( $events as $event ){
@@ -66,11 +69,12 @@
         <li>{{ __('Name') }}: Ticketspress</li>
         <li>{{ __('Mail') }}: ticketspress0@gmail.com</li>
       </ul>
-      <li>{{ __('Your total payment is') }}: {{ $total }}</li>
+      <li>{{ __('Your total payment is') }}: ${{ $total }}</li>
       @foreach ( $events as $event )
         <ul>
           <li><b>{{ __('Event') }}: {{ $event->eventName }}</b></li>
           <li>{{ __('Place') }}: {{ $event->placeName }}, {{ $event->cityName }}</li>
+          <li>{{ __('Localidad') }}: {{ $event->locationName }}</li>
           <li>{{ __('Date and time') }}: {{ $month }} {{ $day }}, {{ $year }} {{ $hour }}:{{ $min }} {{ $period }}</li>
           <li>{{ __('Tickets') }}: {{ $event->quantity }}</li>
         </ul><br>

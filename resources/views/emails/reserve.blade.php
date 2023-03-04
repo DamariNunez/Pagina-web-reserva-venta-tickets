@@ -4,6 +4,7 @@
     use App\Models\Place;
     use App\Models\Event;
     use App\Models\Ticket;
+    use App\Models\Location;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -18,7 +19,8 @@
     $held = Held::where('helds.id', $ticket->idHeld)->orderBy('helds.id', 'desc')->first();
     $place = Place::where('places.id', $ticket->idPlace)->orderBy('places.id', 'desc')->first();
     $city = City::where('cities.id', $place->idCity)->orderBy('cities.id', 'desc')->first();
-    $total = $ticket->quantity * $event->value;
+    $location = Location::where('locations.id', $ticket->idLocation)->get();
+    $total = $ticket->quantity * $location[0]->price;
     list($year, $month, $day) = explode("-", date($held->date));
     switch ($month) {
       case 01: $month = 'Ene' ; break;
@@ -48,6 +50,8 @@
       <li>{{ __('Event') }}: {{ $event->name }}</li>
       <li>{{ __('City') }}: {{ $city->name }}</li>
       <li>{{ __('Place') }}: {{ $place->name }}</li>
+      <li>{{ __('Location') }}: {{ $location[0]->name }}</li>
+      <li>{{ __('Price') }}: {{ $location[0]->price }}</li>
       <li>{{ __('Date') }}: {{ $month }} {{ $day }}, {{ $year }}</li>
       <li>{{ __('Time') }}: {{ $hour }}:{{ $min }} {{ $period }}</li>
       <li>{{ __('Quantity') }}: {{ $ticket->quantity }}</li>

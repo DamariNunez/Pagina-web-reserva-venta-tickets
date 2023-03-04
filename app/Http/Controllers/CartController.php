@@ -63,9 +63,9 @@ class CartController extends Controller
                     $ticket->idPlace = $idPlace[0];
                     $ticket->idLocation = $idLocation[0];
                     $ticket->status = 'pending';
-                    $ticket->save();
+                    //$ticket->save();
                 }
-                //Mail::to($user->email)->send(new EmailReserve());
+                Mail::to($user->email)->send(new EmailReserve());
             }
         }
         if (Auth::check()){

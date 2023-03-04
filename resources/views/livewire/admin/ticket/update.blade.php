@@ -29,114 +29,64 @@
             </div>
             <!-- IdUser Input -->
             <div class='form-group'>
-                <label for='input-idUser' class='col-sm-2 control-label '> {{ __('IdUser') }}</label>
-                <select id='input-idUser' wire:model.lazy='idUser' class="form-control  @error('idUser') is-invalid @enderror" placeholder='' autocomplete='on' required>
-                    <?php
-                    $i = 0;
-                    $users = User::where('username', '<>', 'admin')->get();
+                <label for='input-idUser' class='col-sm-2 control-label '> {{ __('IdUser') }}: </label>
+                <?php
+                $users = User::where('username', '<>', 'admin')->get();
+                foreach ($users as $user) {
+                    if ($user->id == $ticket->idUser) {
                     ?>
-                    @foreach ($users as $user)
+                        <label class='col-sm-2 control-label '>{{ $user->username }} {{ $user->lastname }}</label>
                         <?php
-                        $i = 0;
-                        if ($user->id == $ticket->idUser) {
-                            ?>
-                            <option selected>{{ $user->username }} {{ $user->lastname }}</option>
-                            <?php
-                            $i = 1;
-                        }
-                        if($i == 0 ){
-                            ?>
-                            <option>{{ $user->username }} {{ $user->lastname }}</option>
-                            <?php
-                        }    
-                        ?>
-                    @endforeach    
-                </select>
+                    }  
+                }
+                ?> 
             </div>
             <!-- IdEvent Input -->
             <div class='form-group'>
-                <label for='input-idEvent' class='col-sm-2 control-label '> {{ __('IdEvent') }}</label>
-                <select id='input-idEvent' wire:model.lazy='idEvent' class="form-control  @error('idEvent') is-invalid @enderror" placeholder='' autocomplete='on' required>
-                    <?php
-                    $i = 0;
-                    $events = Event::all();
-                    ?>
-                    @foreach ($events as $event)
-                        <?php
-                        $i = 0;
-                        if ($event->id == $ticket->idEvent) {
-                            ?>
-                            <option selected>{{ $event->name }}</option>
-                            <?php
-                            $i = 1;
-                        }
-                        if($i == 0 ){
-                            ?>
-                            <option>{{ $event->name }}</option>
-                            <?php
-                        }    
+                <label for='input-idEvent' class='col-sm-2 control-label '> {{ __('IdEvent') }}: </label>
+                <?php
+                $events = Event::all();
+                foreach ($events as $event){
+                    if ($event->id == $ticket->idEvent) {
                         ?>
-                    @endforeach    
-                </select>
+                        <label class='col-sm-2 control-label '>{{ $event->name }}</label>
+                        <?php
+                    } 
+                }  
+                ?>  
             </div>
             <!-- IdHeld Input -->
             <div class='form-group'>
                 <label for='input-idHeld' class='col-sm-2 control-label '> {{ __('IdHeld') }}</label>
-                <select id='input-idHeld' wire:model.lazy='idHeld' class="form-control  @error('idHeld') is-invalid @enderror" placeholder='' autocomplete='on' required>
-                    <?php
-                    $i = 0;
-                    $helds = Held::all();
-                    ?>
-                    @foreach ($helds as $held)
-                        <?php
-                        $i = 0;
-                        if ($held->id == $ticket->idHeld) {
-                            ?>
-                            <option selected>{{ $held->date }} {{ $held->time }}</option>
-                            <?php
-                            $i = 1;
-                        }
-                        if($i == 0 ){
-                            ?>
-                            <option>{{ $held->date }} {{ $held->time }}</option>
-                            <?php
-                        }    
+                <?php
+                $helds = Held::all();
+                foreach ($helds as $held){
+                    if ($held->id == $ticket->idHeld) {
                         ?>
-                    @endforeach    
-                </select>
+                        <label class='col-sm-4 control-label '>{{ $held->date }} {{ $held->time }}</label>
+                        <?php
+                    }
+                }  
+                ?> 
             </div>
             <!-- IdPlace Input -->
             <div class='form-group'>
                 <label for='input-idPlace' class='col-sm-2 control-label '> {{ __('IdPlace') }}</label>
-                <select id='input-idPlace' wire:model.lazy='idPlace' class="form-control  @error('idPlace') is-invalid @enderror" placeholder='' autocomplete='on' required>
-                    <?php
-                    $i = 0;
-                    $places = Place::all();
-                    $cities = City::all();
-                    foreach ($places as $place){
-                        $i = 0;
-                        if ($place->id == $held->idPlace) {
-                            foreach ($cities as $city){
-                                if ($city->id == $place->idCity){
-                                     ?>
-                                    <option selected>{{ $place->name }}-{{ $city->name }}</option>
-                                    <?php
-                                    $i = 1;
-                                }
+                <?php
+                $places = Place::all();
+                $cities = City::all();
+                foreach ($places as $place){
+                    if ($place->id == $held->idPlace) {
+                        foreach ($cities as $city){
+                            if ($city->id == $place->idCity){
+                                ?>
+                                <label class='col-sm-4 control-label '>{{ $place->name }}-{{ $city->name }}</label>
+                                <?php
                             }
-                        }    
-                        if($i == 0 ){
-                            foreach ($cities as $city){
-                                if ($city->id == $place->idCity){
-                                    ?>
-                                    <option>{{ $place->name }}-{{ $city->name }}</option>
-                                    <?php
-                                }
-                            }    
                         }
                     }   
-                    ?>   
-                </select>
+                }   
+                ?>   
             </div>
             <!-- Status Input -->
             <div class='form-group'>
@@ -147,10 +97,8 @@
                     <option>denied</option>
                 </select>  
             </div>
-
-
         </div>
-
+        <input type="hidden" name="idUser" value="{{ $user->id }}">
         <div class="card-footer">
             <button type="submit" class="btn btn-info ml-4">{{ __('Update') }}</button>
             <a href="@route(getRouteName().'.ticket.read')" class="btn btn-default float-left">{{ __('Cancel') }}</a>

@@ -8,11 +8,11 @@
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </p>
     </header>
-
-    <x-danger-button
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-danger-button>
+    <p class="login-submit">
+        <x-danger-button type="submit" name="wp-submit" id="wp-submit" class="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
+            {{ __('Delete Account') }}
+        </x-danger-button>
+    </p>
 
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
@@ -42,13 +42,16 @@
             </div>
 
             <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('Cancel') }}
-                </x-secondary-button>
-
-                <x-danger-button class="ml-3">
-                    {{ __('Delete Account') }}
-                </x-danger-button>
+                <p class="login-submit">
+                    <x-secondary-button type="submit" name="wp-submit" id="wp-submit" class="button button-secondary" x-on:click="$dispatch('close')">
+                        {{ __('Cancel') }}
+                    </x-secondary-button>
+                </p>
+                <p class="login-submit">
+                    <x-danger-button type="submit" name="wp-submit" id="wp-submit" class="button button-primary" >
+                        {{ __('Delete Account') }}
+                    </x-danger-button>
+                </p>
             </div>
         </form>
     </x-modal>

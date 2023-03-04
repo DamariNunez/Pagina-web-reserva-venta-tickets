@@ -18,29 +18,16 @@ class Update extends Component
 
     public $ticket;
 
-    public $quantity;
     public $idUser;
-    public $idEvent;
-    public $idHeld;
-    public $idPlace;
     public $status;
     
     protected $rules = [
-        'quantity' => 'required|numeric',
-        'idUser' => 'required',
-        'idEvent' => 'required',
-        'idHeld'=> 'required', 
-        'idPlace' => 'required',
         'status' => 'required|string',      
     ];
 
     public function mount(Ticket $Ticket){
         $this->ticket = $Ticket;
-        $this->quantity = $this->ticket->quantity;
         $this->idUser = $this->ticket->idUser;
-        $this->idEvent = $this->ticket->idEvent;
-        $this->idHeld = $this->ticket->idHeld;
-        $this->idPlace = $this->ticket->idPlace;
         $this->status = $this->ticket->status;        
     }
 
@@ -55,30 +42,6 @@ class Update extends Component
             $this->validate();
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Ticket') ]) ]);
-        
-        $arrayUser = explode(' ', $this->idUser);
-        $idUs =  User::where('username', $arrayUser[0])->pluck('id');
-        if (!empty($idUs)){
-            $this->idUser = $idUs[0];
-        }
-
-        $idEve = Event::where('name', $this->idEvent)->pluck('id');
-        if (!empty($idEve)){
-            $this->idEvent = $idEve[0];
-        }
-        
-        $arrayHeld = explode(' ', $this->idHeld);
-        $idHe =  Held::where('date', $arrayHeld[0])
-                     ->where('time', $arrayHeld[1])->pluck('id');
-        if (!empty($idHe)){
-            $this->idHeld = $idHe[0];
-        }
-
-        $arrayPlace = explode('-', $this->idPlace);
-        $idPla =  Place::where('name', $arrayPlace[0])->pluck('id');
-        if (!empty($idPla)){
-            $this->idPlace = $idPla[0];
-        }
 
         $user = User::where('id', $this->idUser)->get();
         if ($this->status == 'approved'){
@@ -86,11 +49,6 @@ class Update extends Component
         }
 
         $this->ticket->update([
-            'quantity' => $this->quantity,
-            'idUser' => $this->idUser,
-            'idEvent' => $this->idEvent,
-            'idHeld' => $this->idHeld,
-            'idPlace' => $this->idPlace,
             'status' => $this->status,
             'user_id' => auth()->id(),
         ]);
