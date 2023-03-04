@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('image_locations', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
             $table->longblob('img')->nullable(false);
-            $table->unsignedBigInteger('idEvent')->nullable(false);
+            $table->unsignedBigInteger('idPlace')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('idEvent')->references('id')->on('events')->onDelete('restrict');
+            $table->foreign('idPlace')->references('id')->on('places')->onDelete('restrict');
         });  
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('image_locations');
     }
 };

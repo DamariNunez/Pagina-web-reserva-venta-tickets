@@ -7,6 +7,7 @@
     use App\Models\User;
     use App\Models\Language;
     use App\Models\Image;
+    use App\Models\Location;
 ?>
 <!DOCTYPE html>
 <html lang="en-US" >
@@ -99,10 +100,32 @@
                                                                 <p>{{ $month }} {{ $day }}, {{ $year }}</p>
                                                                 <input type="radio" name="info" value="{{ $event->date }}*{{ $event->time }}*{{ $event->placeName }}*{{ $event->cityName }}" required> {{ $hour }}:{{ $min }} {{ $period }}
                                                             </div>
+                                                            <?php
+                                                            $idPlace = Place::where('name', $event->placeName)->pluck('id');
+                                                            $locations = Location::where('idPlace', $idPlace[0])->get();
+                                                            ?>
+                                                            @if ( sizeof($locations) != 0 )
+                                                                <figure class="woocommerce-product-gallery__wrapper">
+                                                                    <div data-thumb="{{asset($img->img)}}" class="woocommerce-product-gallery__image">
+                                                                        <a data-gal="product[gal]" href="{{asset($img->img)}}">
+                                                                            <img alt="{{ $events[0]->eventName }}" src="{{asset($img->img)}}" sizes="(max-width: 767px) 100vw, 600px">    
+                                                                        </a>
+                                                                    </div>
+                                                                </figure>
+                                                                <br>
+                                                                @foreach ( $locations as $location )
+                                                                    <p><input type="radio" name="location" value="" required> {{ $location->name }}</p>
+                                                                @endforeach
+                                                            @else
+                                                                <div class="woocommerce-product-details__short-description">
+                                                                    <p>{{ __('Seats are not available for this event') }}</p>
+                                                                </div>
+                                                            @endif
                                                         @endforeach
                                                         <?php
                                                     }
                                                     ?>
+                                                    <br>
                                                     <div class="quantity">
                                                         <label class="screen-reader-text" for="quantity">{{ __('Quantity') }}</label>
                                                         <input type="number" id="quantity" class="input-text qty text" name="quantity" value="1" title="Qty" size="4" min="1" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">

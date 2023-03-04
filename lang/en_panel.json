@@ -138,5 +138,7 @@
     "Img": "Img",
     "Image": "Image",
     "Images": "Images",
-    "IdHeld": "Date and time"
+    "IdHeld": "Date and time",
+    "ImageLocation": "ImageLocation",
+    "ImageLocations": "ImageLocations"
 }

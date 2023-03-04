@@ -42,7 +42,7 @@ class Create extends Component
             $this->idEvent = $idEve[0];
         }
 
-        //Obtener el id de la audiencia seleccionada
+        //Obtener el id del lugar seleccionado
         $arrayPlace = explode('-', $this->idPlace);
         $idPla =  Place::where('name', $arrayPlace[0])->pluck('id');
         if (!empty($idPla)){

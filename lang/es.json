@@ -148,5 +148,6 @@
     "Bill": "Factura",
     "Audience": "Audiencia",
     "Language": "Idioma",
-    "Deadline" : "Fecha límite"
+    "Deadline" : "Fecha límite",
+    "Seats are not available for this event": "Localidades no disponibles para este evento"
 }
