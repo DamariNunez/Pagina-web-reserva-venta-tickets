@@ -34,11 +34,13 @@ class PayController extends Controller
                     ->join('helds', 'tickets.idHeld', 'helds.id')
                     ->join('places', 'tickets.idPlace', 'places.id')
                     ->join('cities', 'places.idCity', 'cities.id')
+                    ->join('locations', 'tickets.idlocation', 'locations.id')
                     ->where('tickets.idUser', $user->id)
                     ->where('tickets.status', 'approved')
                     ->select('events.id as id', 'tickets.id as idTickets','events.name as eventName', 'events.value as value', 
-                            'tickets.quantity as quantity', 'places.name as placeName', 'cities.name as cityName','helds.date as date', 
-                            'helds.time as time', DB::raw('(tickets.quantity * events.value) as total'), 'tickets.status as status')
+                            'tickets.quantity as quantity', 'places.name as placeName', 'cities.name as cityName','helds.date as date',
+                            'locations.price as price', 'helds.time as time', DB::raw('(tickets.quantity * locations.price) as total'), 
+                            'tickets.status as status')
                     ->get();
         if ( $events ){
             //Obtener total

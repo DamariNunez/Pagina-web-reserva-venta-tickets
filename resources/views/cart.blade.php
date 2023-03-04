@@ -54,6 +54,7 @@
                                                                     <th class="product-remove">{{ __('Remove') }}</th>
                                                                     <th class="product-name">{{ __('Event') }}</th>
                                                                     <th class="product-name">{{ __('Place') }}</th>
+                                                                    <th class="product-name">{{ __('Location') }}</th>
                                                                     <th class="product-name">{{ __('Date') }}</th>
                                                                     <th class="product-price">{{ __('Price') }}</th>
                                                                     <th class="product-quantity">{{ __('Quantity') }}</th>
@@ -82,6 +83,9 @@
                                                                             <td class="product-name" data-title="Product">
                                                                                 {{ $ticket->placeName }}, {{ $ticket->cityName }}							
                                                                             </td>
+                                                                            <td>
+                                                                                {{ $ticket->locationName }}
+                                                                            </td>
                                                                             <?php
                                                                             list($year, $month, $day) = explode("-", date($ticket->date));
                                                                             switch ($month) {
@@ -109,7 +113,7 @@
                                                                             {{ $month }} {{ $day }}, {{ $year }} {{ $hour }}:{{ $min }} {{ $period }}				
                                                                             </td>
                                                                             <td class="product-price" data-title="Price">
-                                                                                <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->value }}</bdi></span>								
+                                                                                <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $ticket->price }}</bdi></span>								
                                                                             </td>
                                                                             <td class="product-quantity" data-title="Quantity">
                                                                                 <div class="quantity">

@@ -141,5 +141,7 @@
     "Images": "Images",
     "IdHeld": "Fecha y hora",
     "ImageLocation": "ImageLocation",
-    "ImageLocations": "ImageLocations"
+    "ImageLocations": "ImageLocations",
+    "Ilocation": "Ilocation",
+    "Ilocations": "Ilocations"
 }

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('image_locations', function (Blueprint $table) {
+        Schema::create('ilocations', function (Blueprint $table) {
             $table->bigIncrements('id')->nullable(false);
             $table->longblob('img')->nullable(false);
             $table->unsignedBigInteger('idPlace')->nullable(false);
+            $table->float('price')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_locations');
+        Schema::dropIfExists('ilocations');
     }
 };

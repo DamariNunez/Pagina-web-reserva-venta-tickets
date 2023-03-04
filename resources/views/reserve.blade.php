@@ -8,6 +8,8 @@
     use App\Models\Language;
     use App\Models\Image;
     use App\Models\Location;
+    use App\Models\Ilocation;
+    use App\Models\Ticket;
 ?>
 <!DOCTYPE html>
 <html lang="en-US" >
@@ -103,19 +105,49 @@
                                                             <?php
                                                             $idPlace = Place::where('name', $event->placeName)->pluck('id');
                                                             $locations = Location::where('idPlace', $idPlace[0])->get();
+                                                            $ilocations = null; 
+                                                            if ( $events[0] != null ){
+                                                                $ilocations = Ilocation::where('idPlace', '=', $idPlace[0])->get();
+                                                            }
                                                             ?>
                                                             @if ( sizeof($locations) != 0 )
-                                                                <figure class="woocommerce-product-gallery__wrapper">
-                                                                    <div data-thumb="{{asset($img->img)}}" class="woocommerce-product-gallery__image">
-                                                                        <a data-gal="product[gal]" href="{{asset($img->img)}}">
-                                                                            <img alt="{{ $events[0]->eventName }}" src="{{asset($img->img)}}" sizes="(max-width: 767px) 100vw, 600px">    
-                                                                        </a>
-                                                                    </div>
-                                                                </figure>
+                                                                @if ( $ilocations )
+                                                                    <p><b>{{ __('Choose a location') }}:</b></p>
+                                                                    <figure class="woocommerce-product-gallery__wrapper">
+                                                                        <div data-thumb="{{asset($ilocations[0]->img)}}" class="woocommerce-product-gallery__image">
+                                                                            <a data-gal="product[gal]" href="{{asset($ilocations[0]->img)}}">
+                                                                                <img alt="{{ $events[0]->eventName }}" src="{{asset($ilocations[0]->img)}}" sizes="(max-width: 767px) 100vw, 600px">    
+                                                                            </a>
+                                                                        </div>
+                                                                    </figure>
+                                                                @endif
                                                                 <br>
                                                                 @foreach ( $locations as $location )
-                                                                    <p><input type="radio" name="location" value="" required> {{ $location->name }}</p>
+                                                                    <?php
+                                                                    $color = null;
+                                                                    $count = Ticket::where('idLocation', $location->id)->count();
+                                                                    $percentage = ($count * 100)/$location->capacity;
+                                                                    if ( $percentage >= 100){
+                                                                        $color = 'color:#FF0000';
+                                                                    } else if ( $percentage >= 50){
+                                                                        $color = 'color:#B7950B ';
+                                                                    } else {
+                                                                        $color = 'color:#14CD28';
+                                                                    }
+                                                                    ?>
+                                                                    <p style="{{ $color }}";><input type="radio" name="location" value="{{ $location->name }}" required> {{ $location->name }}  <b>${{ $location->price }}</b></p>
                                                                 @endforeach
+                                                                <tr>
+                                                                    <td>
+                                                                        <input style='background-color: #14CD28;width: 10px;height: 10px;border-radius: 50%;'> {{ __('Available  ') }}
+                                                                    </td>
+                                                                    <td>
+                                                                        <input style='background-color: #B7950B;width: 10px;height: 10px;border-radius: 50%;'> {{ __('There are few  ') }}
+                                                                    </td>
+                                                                    <td>
+                                                                        <input style='background-color: #FF0000;width: 10px;height: 10px;border-radius: 50%;'> {{ __('Not available  ') }}
+                                                                    </td>
+                                                                </tr>
                                                             @else
                                                                 <div class="woocommerce-product-details__short-description">
                                                                     <p>{{ __('Seats are not available for this event') }}</p>
@@ -125,7 +157,7 @@
                                                         <?php
                                                     }
                                                     ?>
-                                                    <br>
+                                                    <br><br>
                                                     <div class="quantity">
                                                         <label class="screen-reader-text" for="quantity">{{ __('Quantity') }}</label>
                                                         <input type="number" id="quantity" class="input-text qty text" name="quantity" value="1" title="Qty" size="4" min="1" max="77" step="1" placeholder="" inputmode="numeric" autocomplete="off">

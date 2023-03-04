@@ -149,5 +149,9 @@
     "Audience": "Audiencia",
     "Language": "Idioma",
     "Deadline" : "Fecha límite",
-    "Seats are not available for this event": "Localidades no disponibles para este evento"
+    "Seats are not available for this event": "Localidades no disponibles para este evento",
+    "Choose a location": "Escoja una localidad",
+    "Available  ": "Disponible  ",
+    "There are few  ": "Quedan pocos  ",
+    "Not available  ": "No disponible  "
 }
