@@ -63,12 +63,13 @@
                                     <div class="wpb_wrapper">
                                         <div class="contact_info ">
                                             <div class="icon">
-                                                <i class="icon_pin_alt"></i>
+                                                <i class="fa-solid fa-location-pin"></i>
                                             </div>
-                                            <div class="title">{{ _('Visit us') }}</div>
+                                            <div class="title">{{ __('Visit us') }}</div>
                                             <div class="desc">
-                                                <span> {{ _('Levante shop center') }} </span> 
-                                                <span> {{ _('Jamestreet, Vancouver Canada') }} </span>
+                                                <span> Ticketspress </span> 
+                                                <span> Parroquia Jipijapa, al centro-norte de la urbe, Quito </span>
+                                                <span> Frente a la Plaza de Toros </span>
                                             </div>
                                         </div>
                                     </div>
@@ -79,11 +80,11 @@
                                     <div class="wpb_wrapper">
                                         <div class="contact_info ">
                                             <div class="icon">
-                                                <i class="icon_mobile"></i>
+                                                <i class="fa-solid fa-phone"></i>
                                             </div>
-                                            <div class="title">{{ _('Phone') }}</div>
+                                            <div class="title">{{ __('Phone') }}</div>
                                             <div class="desc">
-                                                <span>{{ _('Phone') }}: +800 123 456 789 </span> 
+                                                <span>{{ __('Phone') }}: +593 98 873 4695 </span> 
                                                 <span> Fax: +400 456 123 789 </span>
                                             </div>
                                         </div>
@@ -95,12 +96,12 @@
                                     <div class="wpb_wrapper">
                                         <div class="contact_info ">
                                             <div class="icon">
-                                                <i class="icon_mail_alt"></i>
+                                                <i class="fa-solid fa-envelope"></i>
                                             </div>
-                                            <div class="title">{{ _('Work With Us') }}</div>
+                                            <div class="title">{{ __('Work With Us') }}</div>
                                             <div class="desc">
-                                                <span> event@gmail.com </span> 
-                                                <span> event@compa.com </span>
+                                                <span> ticketspres0@gmail.com </span> 
+                                                <span> inforticketspress@gmail.com </span>
                                             </div>
                                         </div>
                                     </div>
@@ -120,28 +121,10 @@
                         </div>
                         <div class="vc_row wpb_row vc_row-fluid">
                             <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-2 vc_col-lg-8 vc_col-md-offset-2 vc_col-md-8">
-                                <div class="vc_column-inner">
-                                    <div class="wpb_wrapper">
-                                        <div class="ova_heading ">
-                                            <h3 class="title">Practical Information</h3>
-                                        </div>
-	                                    <div class="wpb_text_column wpb_content_element  vc_custom_1508929694966">
-                                            <div class="wpb_wrapper">
-                                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim</p>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
-                                                <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vc_row wpb_row vc_row-fluid">
-                            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-2 vc_col-lg-8 vc_col-md-offset-2 vc_col-md-8">
                                 <div class="vc_column-inner vc_custom_1508930766421">
                                     <div class="wpb_wrapper">
                                         <div class="ova_heading ">
-                                            <h3 class="title">Contact Us</h3>
+                                            <h3 class="title">{{ __('Contact Us') }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -166,26 +149,30 @@
                                                 </div>
                                                 <div class="event_contact">
                                                     <div class="group-form">
-                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" value="" type="text" name="your-name"></span>
+                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-name">
+                                                            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="{{ __('Your Name') }}" value="" type="text" name="your-name"></span>
                                                         </p>
                                                     </div>
                                                     <div class="group-form">
-                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email" value="" type="email" name="your-email"></span>
+                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-email">
+                                                            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="{{ __('Your Email') }}" value="" type="email" name="your-email"></span>
                                                         </p>
                                                     </div>
                                                     <div class="group-form">
-                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-subject"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Subject" value="" type="text" name="your-subject"></span>
+                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-subject">
+                                                            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="{{ __('Your Subject') }}" value="" type="text" name="your-subject"></span>
                                                         </p>
                                                     </div>
                                                     <div class="group-form">
-                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-message"><textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Message" name="your-message"></textarea></span>
+                                                        <p><span class="wpcf7-form-control-wrap" data-name="your-message">
+                                                            <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="{{ __('Your Message') }}" name="your-message"></textarea></span>
                                                         </p>
                                                     </div>
                                                     <div class="group-form">
                                                     
                                                     </div>
                                                     <div class="submit">
-                                                        <p><input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit" value="SEND MESSAGE"><span class="wpcf7-spinner"></span>
+                                                        <p><input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit" value="{{ __('SEND MESSAGE') }}"><span class="wpcf7-spinner"></span>
                                                         </p>
                                                     </div>
                                                 </div>

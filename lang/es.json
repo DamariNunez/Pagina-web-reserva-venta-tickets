@@ -32,7 +32,7 @@
     "Event Free Ticket": "Eventos sin entradas",
     "Locations": "Lugares",
     "Pages":"Páginas",
-    "About Us":"Sobre nosotros",
+    "About Us":"Quienes somos",
     "Contact Us":"Contáctanos",
     "Contact": "Contacto",
     "Checkout": "Checkout",
@@ -168,5 +168,17 @@
     "Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.": "Una vez eliminada su cuenta, todos sus recursos y datos se borrarán permanentemente. Antes de eliminar su cuenta, descargue los datos o la información que desee conservar.",
     "Are you sure you want to delete your account?": "¿Seguro que quieres eliminar tu cuenta?",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Una vez eliminada su cuenta, todos sus recursos y datos se borrarán permanentemente. Introduzca su contraseña para confirmar que desea eliminar definitivamente su cuenta.",
-    "Cancel": "Cancelar"
+    "Cancel": "Cancelar",
+    "Our Services": "Nuestros Servicios",
+    "What you will learn and the benefits ?": "¿Qué aprenderá y qué ventajas obtendrá?",
+    "PAYMENT BY BANK TRANSFER": "PAGO CON TRANSFERENCIA BANCARIA",
+    "pay by bank transfer from your cell phone and avoid entering credit cards. ": "Paga con transferencia bancaria desde tu celular y evita ingresar tarjetas de crédito ",
+    "Visit us": "Visítanos",
+    "Work With Us": "Trabaja Con Nosotros",
+    "Practical Information": "Información práctica",
+    "Your Name": "Tu Nombre",
+    "Your Email": "Tu Email",
+    "Your Subject": "Título",
+    "Your Message": "Mensaje",
+    "SEND MESSAGE": "ENVIAR MENSAJE"
 }

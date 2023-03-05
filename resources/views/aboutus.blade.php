@@ -1,4 +1,4 @@
-?php
+<?php
     use App\Models\Category;
     use App\Models\Held;
     use App\Models\City;
@@ -44,7 +44,10 @@
                                         <div class="wpb_wrapper">
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
-                                                    <p>Lorem ipsum dolor sit amet, voluptua iracundia disputationi an pri, his utinam principes dignissim ad. Ne nec dolore oblique nusquam, cu luptatum volutpat delicatissimi has. Sed ad dicam platonem, mea eros illum elitr id, ei has similique constituto. Ea movet saperet rationibus sit, pri autem aliquip invidunt an. Consetetur omittantur consequuntur eos et. Eleifend praesent iudicabit no mea, tollit persequeris ex pri, tota splendide voluptaria in pri. Ad per tale aliquip, ei sit viris commune albucius. Eos aliquip scaevola ut, eum alii mentitum prodesset no, his ne suas atomorum. Et numquam deleniti ponderum vis, quod error at mei. Novum blandit adolescens sea te.</p>
+                                                    <p>
+                                                        Somos una empresa con objetivos claros para brindar el mejor servicio a nuestros clientes que desean ahorrarse largas filas para
+                                                        adquirir entradas a sus eventos favoritos.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,21 +73,14 @@
                                         <div class="wpb_wrapper">
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
-                                                    <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                                                    <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="vc_row wpb_row vc_row-fluid">
-                                <div class="wpb_column vc_column_container vc_col-sm-12">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="wpb_text_column wpb_content_element ">
-                                                <div class="wpb_wrapper">
-                                                    <p>Lorem ipsum dolor sit amet, voluptua iracundia disputationi an pri, his utinam principes dignissim ad. Ne nec dolore oblique nusquam, cu luptatum volutpat delicatissimi has. Sed ad dicam platonem, mea eros illum elitr id, ei has similique constituto. Ea movet saperet rationibus sit, pri autem aliquip invidunt an. Consetetur omittantur consequuntur eos et.</p>
+                                                    <p>
+                                                        Me inclino por este tema de TFM, porque considero que para todo concierto o evento que se necesite adquirir pases es fundamental 
+                                                        que exista una plataforma web, ya que, tomando en cuenta el ritmo de vida actual, la sociedad no tiene el tiempo suficiente para 
+                                                        ir personalmente a un lugar para comprarlos, por tal motivo, sería de mi total agrado aportar con el desarrollo de un software web 
+                                                        en donde los usuarios podrán ingresar para reservar y comprar entradas, dicho sistema deberá ser desarrollado en el framework Laravel, 
+                                                        será utilizada esta herramienta, porque además se haber sido el instrumento de estudio del curso, se considera que tiene una sintaxis 
+                                                        fácil de comprender y permite centrarse en escribir código.   
+                                                    </p> 
                                                 </div>
                                             </div>
                                         </div>
@@ -96,72 +92,87 @@
                                     <div class="vc_column-inner vc_custom_1508147955538">
                                         <div class="wpb_wrapper">
                                             <div class="ova_heading ">
-                                                <h3 class="title">Our Services</h3>
-                                                <div class="sub_title">What you will learn and the benefits ?</div>
+                                                <h3 class="title">{{ __('Our Services') }}</h3>
+                                                <div class="sub_title">{{ __('What you will learn and the benefits ?') }}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="wpb_column vc_column_container vc_col-sm-3">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="ovaem_skill bg_white">
-                                                <div class="top">
-                                                    <i class="social_myspace"></i>
-                                                    <div class="number">267</div>
-                                                </div>
-                                                <div class="name">member</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wpb_column vc_column_container vc_col-sm-3">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="ovaem_skill bg_white">
-                                                <div class="top">
-                                                    <i class="icon_globe"></i>
-                                                    <div class="number">333</div>
-                                                </div>
-                                                <div class="name">venues</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="wpb_column vc_column_container vc_col-sm-3">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="ovaem_skill bg_white">
-                                                <div class="top">
-                                                    <i class="icon_currency"></i>
-                                                    <div class="number">120</div>
-                                                </div>
-                                                <div class="name">Sponsors</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <br><br><br><br><br><br>
                                 <div class="wpb_column vc_column_container vc_col-sm-3">
                                     <div class="vc_column-inner">
                                         <div class="wpb_wrapper">
                                             <div class="ovaem_skill bg_white no_border">
                                                 <div class="top">
-                                                    <i class="icon_group"></i>
-                                                    <div class="number">1535</div>
+                                                <i class="fa-solid fa-users"></i>
+                                                    <div class="number">9</div>
                                                 </div>
-                                                <div class="name">PARTICIPANT</div>
+                                                <div class="name">{{ __('PARTICIPANT') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-3">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="ovaem_skill bg_white">
+                                                <div class="top">
+                                                    <i class="fa-solid fa-calendar-days"></i>
+                                                    <?php
+                                                    $events = Event::all()->count();
+                                                    ?>
+                                                    <div class="number">{{ $events }}</div>
+                                                </div>
+                                                <div class="name">{{ __('Total Events') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-3">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="ovaem_skill bg_white">
+                                                <div class="top">
+                                                    <i class="fa-solid fa-earth-americas"></i>
+                                                    <?php
+                                                    $places = Place::all()->count();
+                                                    ?>
+                                                    <div class="number">{{ $places }}</div>
+                                                </div>
+                                                <div class="name">{{ __('venues') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-3">
+                                    <div class="vc_column-inner">
+                                        <div class="wpb_wrapper">
+                                            <div class="ovaem_skill bg_white">
+                                                <div class="top">
+                                                    <i class="fa-sharp fa-solid fa-user-tie"></i>
+                                                    <div class="number">19</div>
+                                                </div>
+                                                <div class="name">{{ __('Sponsors') }}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <br><br>
                             <div class="vc_row wpb_row vc_row-fluid vc_custom_1508148318848">
                                 <div class="wpb_column vc_column_container vc_col-sm-12">
                                     <div class="vc_column-inner">
                                         <div class="wpb_wrapper">
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
-                                                    <p>Lorem ipsum dolor sit amet, voluptua iracundia disputationi an pri, his utinam principes dignissim ad. Ne nec dolore oblique nusquam, cu luptatum volutpat delicatissimi has. Sed ad dicam platonem, mea eros illum elitr id, ei has similique constituto. Ea movet saperet rationibus sit, pri autem aliquip invidunt an. Consetetur omittantur consequuntur eos et pri autem aliquip invidunt an. Consetetur omittantur consequuntur eos et. pri autem aliquip invidunt an. Consetetur omittantur</p>
+                                                    <p>
+                                                        Puedes encontrar todos tus eventos favoritos en un solo lugar. 
+                                                        Gestionamos las localidades para que sean accesibles y espaciosas. 
+                                                        Paga con transferencia bancaria desde tu celular y evita ingresar tarjetas de crédito. 
+                                                        Gestionamos eventos par que disfrutes con la mayor comodidad. 
+                                                        Registrarse de forma gratuita para conocer los eventos de tu ciudad. 
+                                                        Plataforma intuitiva con los usuarios, además, reservar las entradas es un proceso instintivo.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

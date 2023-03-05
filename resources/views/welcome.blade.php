@@ -291,8 +291,8 @@
                                     <div class="ova_box ova-trans  styl1 ">
                                         <div class="num">03</div>
                                         <div class="wrap_content">
-                                            <h3 class="title"><a href="#" class="ova-trans">{{ __('CREDIT CARD PAYMENT') }}</a></h3>
-                                            <div class="desc">{{ __('Pay with a credit card and pay in easy installments or in cash') }}</div>
+                                            <h3 class="title"><a href="#" class="ova-trans">{{ __('PAYMENT BY BANK TRANSFER') }}</a></h3>
+                                            <div class="desc">{{ __('pay by bank transfer from your cell phone and avoid entering credit cards. ') }}</div>
                                         </div>
                                     </div>
                                 </div>

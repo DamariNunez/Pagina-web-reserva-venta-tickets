@@ -67,7 +67,6 @@
                                             </div>
                                             <div class="summary entry-summary">
                                                 <h2 class="product_title entry-title">{{ $events[0]->eventName }}</h2>
-                                                <p class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>{{ $events[0]->value }}</bdi></span></p>
                                                 <form class="cart" action="{{ route('cart.addToCart') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <?php
