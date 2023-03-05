@@ -11,11 +11,11 @@ class Create extends Component
     use WithFileUploads;
 
     public $totalCost;
-    public $idTicket;
+    public $voucher;
     
     protected $rules = [
         'totalCost' => 'required',
-        'idTicket' => 'required',        
+        'voucher' => ['required', 'mimes:pdf,png,jpg,jpeg'],
     ];
 
     public function updated($input)
@@ -32,7 +32,7 @@ class Create extends Component
         
         Payment::create([
             'totalCost' => $this->totalCost,
-            'idTicket' => $this->idTicket,
+            'voucher' => 'storage/'.$this->voucher->store('comprobantes', 'public'),
             'user_id' => auth()->id(),
         ]);
 

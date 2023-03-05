@@ -1,6 +1,23 @@
 <tr x-data="{ modalIsOpen : false }">
-    <td class="">{{ $bill->date }}</td>
-    <td class="">{{ $bill->totalValue }}</td>
+    <?php
+    list($year, $month, $day) = explode("-", date($bill->date));
+    switch ($month) {
+        case 01: $month = 'Ene' ; break;
+        case 02: $month = 'Feb' ; break;
+        case 03: $month = 'Mar' ; break;
+        case 04: $month = 'Abr' ; break;
+        case 05: $month = 'May' ; break;
+        case 06: $month = 'Jun' ; break;
+        case 07: $month = 'Jul' ; break;
+        case 8: $month = 'Ago' ; break;
+        case 9: $month = 'Sep' ; break;
+        case 10: $month = 'Oct' ; break;
+        case 11: $month = 'Nov' ; break;
+        case 12: $month = 'Dic' ; break;
+    }
+    ?>
+    <td class="">{{ $month }} {{ $day }}, {{ $year }}</td>
+    <td class="">${{ $bill->totalValue }}</td>
     <td class="">{{ $bill->idPayment }}</td>
     
     @if(getCrudConfig('Bill')->delete or getCrudConfig('Bill')->update)

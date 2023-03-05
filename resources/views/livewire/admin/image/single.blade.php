@@ -1,15 +1,17 @@
 <?php
-    use App\Models\Audience;
-    use App\Models\Timetable;
-    use App\Models\Happen;
-    use App\Models\Place;
-    use App\Models\Held;
-    use App\Models\City;
-    use App\Models\Language;
-    use App\Models\Available;
+    use App\Models\Event;
 ?>
 <tr x-data="{ modalIsOpen : false }">
-    <td class="">{{ $image->idEvent }}</td>
+    <?php
+    $events = Event::all();
+    foreach ($events as $event){
+        if ($event->id == $image->idEvent){
+            ?>
+            <td class="">{{ $event->name }}</td>
+            <?php
+        }
+    }
+    ?>
     <td class="">
         <img src="{{asset($image->img)}}" width="150" height="150" >
     </td>

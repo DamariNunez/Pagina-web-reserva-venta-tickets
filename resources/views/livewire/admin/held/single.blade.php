@@ -5,7 +5,6 @@
 ?>
 
 <tr x-data="{ modalIsOpen : false }">
-
     <?php
     $events = Event::all();
     foreach ($events as $event){

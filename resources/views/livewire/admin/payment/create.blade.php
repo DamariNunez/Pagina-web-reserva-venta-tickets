@@ -1,6 +1,3 @@
-<?php
-    use App\Models\Ticket;
-?>
 <div class="card">
     <div class="card-header p-0">
         <h3 class="card-title">{{ __('CreateTitle', ['name' => __('Payment') ]) }}</h3>
@@ -16,26 +13,18 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-            <!-- IdTicket Input -->
-            <div class='form-group'>
-                <label for='input-idTicket' class='col-sm-2 control-label '> {{ __('IdTicket') }}</label>
-                <select id='input-idTicket' wire:model.lazy='idTicket' class="form-control  @error('idTicket') is-invalid @enderror" placeholder='' autocomplete='on' required>
-                    <?php
-                    $tickets = Ticket::all();
-                    ?>
-                    <option></option>
-                    @foreach ($tickets as $ticket)
-                        <option>{{ $ticket->id }}</option>
-                    @endforeach    
-                </select>   
-            </div>
             <!-- TotalCost Input -->
             <div class='form-group'>
                 <label for='input-totalCost' class='col-sm-2 control-label '> {{ __('TotalCost') }}</label>
                 <input type='double' id='input-totalCost' wire:model.lazy='totalCost' class="form-control  @error('totalCost') is-invalid @enderror" placeholder='' autocomplete='on'>
                 @error('totalCost') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
-
+            <!-- IdImage Input -->
+            <div class='form-group'>
+                <label for='input-idImage' class='col-sm-2 control-label '> {{ __('IdImage') }}</label>
+                <input type='file' wire:model="voucher" class='form-control mb-2'>
+                @error('file') <span class='text danger'>{{ $message }}</span>@enderror
+            </div>
         </div>
 
         <div class="card-footer">

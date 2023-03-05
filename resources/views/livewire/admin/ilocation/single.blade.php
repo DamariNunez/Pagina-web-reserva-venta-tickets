@@ -1,15 +1,17 @@
 <?php
-    use App\Models\Audience;
-    use App\Models\Timetable;
-    use App\Models\Happen;
     use App\Models\Place;
-    use App\Models\Held;
-    use App\Models\City;
-    use App\Models\Language;
-    use App\Models\Available;
 ?>
 <tr x-data="{ modalIsOpen : false }">
-    <td class="">{{ $ilocation->idPlace }}</td>
+    <?php
+    $places = Place::all();
+    foreach ($places as $place){
+        if ($place->id == $ilocation->idPlace){
+            ?>
+            <td class="">{{ $place->name }}</td>
+            <?php
+        }
+    }
+    ?>
     <td class="">
         <img src="{{asset($ilocation->img)}}" width="150" height="150" >
     </td>
